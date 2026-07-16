@@ -1,0 +1,34 @@
+# build output
+dist/
+.netlify/
+.vercel/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# TinaCMS generated files (rebuilt by `tinacms dev` / `tinacms build`)
+tina/__generated__/
+public/admin/
+public/scripts/*.min.js
+public/uploads/*-400.webp
+public/uploads/*-640.webp
+public/uploads/*-960.webp
+public/uploads/*-1440.webp

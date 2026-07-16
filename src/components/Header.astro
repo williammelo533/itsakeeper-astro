@@ -1,0 +1,65 @@
+---
+import Picture from "./Picture.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
+import { slugify } from "../lib/content";
+
+const { settings, homepage } = Astro.props;
+const sessionLinks = homepage.sessions.visible !== false
+  ? homepage.sessions.cards.map((card) => ({
+      label: card.label,
+      href: `#${slugify(card.label)}`,
+    }))
+  : [];
+---
+
+<header class="site-header" data-site-header>
+  <div class="header-inner">
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-controls="primary-navigation"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <span class="menu-toggle__line" aria-hidden="true"></span>
+      <span class="menu-toggle__line" aria-hidden="true"></span>
+      <span class="menu-toggle__line" aria-hidden="true"></span>
+    </button>
+
+    <a class="brand-logo" href="#home" aria-label={`${settings.businessName}, home`}>
+      <Picture
+        src={settings.logo}
+        alt={settings.logoAlt}
+        optimizedMobileWidth={400}
+        optimizedDesktopWidth={400}
+        dataTinaField={tinaField(settings, "logo")}
+      />
+    </a>
+
+    <nav
+      class="primary-nav"
+      id="primary-navigation"
+      aria-label="Primary navigation"
+      data-primary-nav
+    >
+      <ul class="primary-nav__list">
+        {sessionLinks.map((link) => (
+          <li class="primary-nav__item">
+            <a class="primary-nav__link" href={link.href}>{link.label}</a>
+          </li>
+        ))}
+        {homepage.meetLisa.visible !== false && (
+          <li class="primary-nav__item">
+            <a class="primary-nav__link" href="#meet-lisa">Meet Lisa</a>
+          </li>
+        )}
+        {homepage.inquiry.visible !== false && (
+          <li class="primary-nav__item">
+            <a class="primary-nav__link primary-nav__link--button" href="#inquire">Inquire</a>
+          </li>
+        )}
+      </ul>
+    </nav>
+  </div>
+</header>

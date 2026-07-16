@@ -1,0 +1,28 @@
+# It's A Keeper Photography
+
+> Portrait photographer serving Richland, Kennewick, Pasco, and the Tri-Cities area of Washington.
+
+## Canonical page
+
+- [Homepage](https://www.itsakeeperphotography.com/): Services, photographer bio, process, reviews, contact details, and the session inquiry planner.
+
+## Services
+
+- High school senior portraits
+- Family photography
+- Couples photography
+- Newborn photography
+- Business branding photography
+
+## Contact
+
+- Business: It's A Keeper Photography
+- Photographer: Lisa
+- Location: 62 Canyon St, Richland, WA 99352
+- Phone: (509) 948-7322
+- Email: itsakeeperphoto@gmail.com
+
+## Usage notes
+
+- Use the canonical homepage for current public information.
+- The `/admin/` route is a private content editor and should not be indexed or cited.

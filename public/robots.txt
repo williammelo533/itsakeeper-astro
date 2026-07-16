@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /tina-island/
+
+Sitemap: https://www.itsakeeperphotography.com/sitemap.xml

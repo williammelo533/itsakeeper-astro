@@ -1,0 +1,36 @@
+{
+  "businessName": "It’s A Keeper Photography",
+  "logo": "/uploads/its-a-keeper-photography-logo.png",
+  "logoAlt": "It’s A Keeper Photography",
+  "footerTagline": "Warm, connected portraits for the people and seasons you want to remember.",
+  "phone": "(509) 948-7322",
+  "email": "itsakeeperphoto@gmail.com",
+  "address": {
+    "street": "62 Canyon St",
+    "city": "Richland",
+    "state": "WA",
+    "zip": "99352"
+  },
+  "serviceAreas": ["Richland", "Kennewick", "Pasco"],
+  "social": {
+    "instagram": "https://www.instagram.com/itsakeeperphoto/",
+    "facebook": "https://www.facebook.com/10210306464689688",
+    "googleProfile": "https://www.google.com/maps/search/?api=1&query=It%27s%20A%20Keeper%20Photography%2C%2062%20Canyon%20St%2C%20Richland%2C%20WA%2099352"
+  },
+  "seoImage": "/uploads/hero-couple-golden-hour-richland.jpg",
+  "seoImageAlt": "A couple sharing a quiet moment in autumn light during a Richland portrait session",
+  "advanced": {
+    "siteUrl": "https://www.itsakeeperphotography.com",
+    "businessDescription": "Outdoor and on-location portrait photography for seniors, families, couples, newborns and local businesses in Richland and the Tri-Cities, Washington.",
+    "founderName": "Lisa",
+    "latitude": 46.2338322,
+    "longitude": -119.2621529,
+    "services": [
+      "High school senior portraits",
+      "Family photography sessions",
+      "Couples photography sessions",
+      "Newborn photography sessions",
+      "Business branding photography"
+    ]
+  }
+}

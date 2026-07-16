@@ -1,0 +1,43 @@
+---
+import { tinaField } from "@tinacms/astro/tina-field";
+
+const { howItWorks } = Astro.props;
+---
+
+<section
+  class="process"
+  id="process"
+  aria-labelledby="process-title"
+  data-tina-field={tinaField(howItWorks)}
+>
+  <div class="content-shell">
+    <div class="section-intro section-intro--left">
+      <p class="section-eyebrow" data-tina-field={tinaField(howItWorks, "eyebrow")}>
+        {howItWorks.eyebrow}
+      </p>
+      <h2
+        class="section-heading"
+        id="process-title"
+        data-tina-field={tinaField(howItWorks, "heading")}
+      >{howItWorks.heading}</h2>
+      {howItWorks.intro && (
+        <p class="editorial-copy" data-tina-field={tinaField(howItWorks, "intro")}>
+          {howItWorks.intro}
+        </p>
+      )}
+    </div>
+
+    <ol class="process__timeline">
+      {howItWorks.steps.map((step, index) => (
+        <li
+          class="process__step"
+          data-tina-field={tinaField(howItWorks, "steps", index)}
+        >
+          <span class="process__number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+          <h3>{step.title}</h3>
+          <p>{step.sentence}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,377 @@
+---
+import Picture from "./Picture.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
+import { telHref } from "../lib/content";
+import { imageMeta } from "../lib/images";
+
+const { inquiry, settings } = Astro.props;
+const phoneHref = telHref(settings.phone);
+const confirmationMeta = imageMeta(inquiry.confirmation.image);
+---
+
+<section
+  class="inquiry"
+  id="inquire"
+  aria-labelledby="inquiry-title"
+  data-tina-field={tinaField(inquiry)}
+>
+  <div class="inquiry__intro" data-inquiry-intro>
+    <Picture
+      pictureClass="inquiry__background"
+      imgClass="photo--editorial"
+      src={inquiry.backgroundImage}
+      alt={inquiry.backgroundImageAlt}
+      loading="lazy"
+      decoding="async"
+      optimizedMobileWidth={960}
+      optimizedDesktopWidth={1440}
+      dataTinaField={tinaField(inquiry, "backgroundImage")}
+    />
+    <div class="inquiry__wash" aria-hidden="true"></div>
+    <div class="inquiry__hook">
+      <p
+        class="section-eyebrow section-eyebrow--on-photo"
+        data-tina-field={tinaField(inquiry, "eyebrow")}
+      >{inquiry.eyebrow}</p>
+      <h2
+        class="section-heading section-heading--on-photo"
+        id="inquiry-title"
+        data-tina-field={tinaField(inquiry, "heading")}
+      >
+        {inquiry.heading}
+      </h2>
+      {inquiry.scriptLine && (
+        <p class="inquiry__script" aria-hidden="true">{inquiry.scriptLine}</p>
+      )}
+      {inquiry.supportLine && (
+        <p
+          class="inquiry__support"
+          data-tina-field={tinaField(inquiry, "supportLine")}
+        >{inquiry.supportLine}</p>
+      )}
+      <p class="inquiry__sunset" data-golden-hour aria-live="polite"></p>
+      <button
+        class="outline-button outline-button--light"
+        type="button"
+        data-start-inquiry
+        data-tina-field={tinaField(inquiry, "buttonLabel")}
+      >
+        {inquiry.buttonLabel}
+      </button>
+      <noscript>
+        <p class="inquiry__noscript">
+          JavaScript is needed for the guided planner. You can still call Lisa at
+          <a href={`tel:${phoneHref}`}>{settings.phone}</a>.
+        </p>
+      </noscript>
+    </div>
+  </div>
+
+  <div class="inquiry__workspace" data-inquiry-workspace hidden>
+    <div class="content-shell inquiry__shell">
+      <div class="film-progress" data-film-progress>
+        <span class="sr-only" id="inquiry-progress-label">Inquiry progress</span>
+        <progress
+          class="sr-only"
+          max="5"
+          value="1"
+          aria-labelledby="inquiry-progress-label"
+          data-native-progress
+        >Step 1 of 5</progress>
+        <ol class="film-progress__strip" aria-label="Inquiry progress">
+          <li class="film-progress__frame" aria-current="step" data-progress-step="1">
+            <span>01</span><small>Session</small>
+          </li>
+          <li class="film-progress__frame" data-progress-step="2">
+            <span>02</span><small>Season</small>
+          </li>
+          <li class="film-progress__frame" data-progress-step="3">
+            <span>03</span><small>Place</small>
+          </li>
+          <li class="film-progress__frame" data-progress-step="4">
+            <span>04</span><small>Story</small>
+          </li>
+          <li class="film-progress__frame" data-progress-step="5">
+            <span>05</span><small>Contact</small>
+          </li>
+        </ol>
+        <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-step-status>
+          Step 1 of 5: Session type.
+        </p>
+      </div>
+
+      <!-- TODO: Replace /api/inquiry with the production form handler before launch. -->
+      <form
+        class="inquiry-form"
+        method="post"
+        action="/api/inquiry"
+        data-inquiry-form
+        data-placeholder-handler
+        toolname="plan_photography_session"
+        tooldescription="Collects session preferences and contact details so Lisa can follow up about a portrait photography session in the Tri-Cities."
+      >
+        <fieldset
+          class="inquiry-step"
+          data-form-step="1"
+          aria-describedby="session-type-error"
+        >
+          <legend tabindex="-1">
+            <span class="inquiry-step__number">Frame one</span>
+            {inquiry.stepSession.question}<span class="sr-only"> Required.</span>
+          </legend>
+          <div class="photo-options photo-options--five" data-radio-group>
+            {inquiry.stepSession.options.map((option, index) => (
+              <label class="photo-option">
+                <input
+                  class="choice-input"
+                  type="radio"
+                  name="session_type"
+                  value={option.label}
+                  required={index === 0 || undefined}
+                  toolparamdescription="The type of portrait photography session requested."
+                />
+                <span class="photo-print">
+                  <span class="photo-print__image">
+                    <Picture
+                      src={option.image}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      optimizedMobileWidth={400}
+                      optimizedDesktopWidth={400}
+                    />
+                  </span>
+                  <span class="photo-print__caption">{option.label}</span>
+                  <span class="photo-print__check" aria-hidden="true">✓</span>
+                </span>
+              </label>
+            ))}
+          </div>
+          <p class="form-error" id="session-type-error" data-step-error aria-live="polite"></p>
+          <div class="inquiry-step__actions">
+            <button class="text-button" type="button" data-inquiry-back>← back</button>
+            <button class="outline-button" type="button" data-inquiry-next>
+              Continue to season
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset
+          class="inquiry-step"
+          data-form-step="2"
+          aria-describedby="booking-window-note season-error"
+        >
+          <legend tabindex="-1">
+            <span class="inquiry-step__number">Frame two</span>
+            {inquiry.stepSeason.question}<span class="sr-only"> Required.</span>
+          </legend>
+          <div class="photo-options photo-options--five" data-radio-group>
+            {inquiry.stepSeason.options.map((option, index) => (
+              <label class="photo-option">
+                <input
+                  class="choice-input"
+                  type="radio"
+                  name="season"
+                  value={option.label}
+                  required={index === 0 || undefined}
+                  toolparamdescription="The preferred season for the photography session."
+                />
+                <span class="photo-print">
+                  <span class="photo-print__image">
+                    <Picture
+                      src={option.image}
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                      optimizedMobileWidth={400}
+                      optimizedDesktopWidth={400}
+                    />
+                  </span>
+                  <span class="photo-print__caption">{option.label}</span>
+                  <span class="photo-print__check" aria-hidden="true">✓</span>
+                </span>
+              </label>
+            ))}
+          </div>
+          {inquiry.stepSeason.note && (
+            <p class="inquiry-step__note" id="booking-window-note">
+              {inquiry.stepSeason.note}
+            </p>
+          )}
+          <p class="form-error" id="season-error" data-step-error aria-live="polite"></p>
+          <div class="inquiry-step__actions">
+            <button class="text-button" type="button" data-inquiry-back>← back</button>
+            <button class="outline-button" type="button" data-inquiry-next>
+              Continue to location
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset
+          class="inquiry-step"
+          data-form-step="3"
+          aria-describedby="location-error"
+        >
+          <legend tabindex="-1">
+            <span class="inquiry-step__number">Frame three</span>
+            {inquiry.stepLocation.question}<span class="sr-only"> Required.</span>
+          </legend>
+          <div class="location-options" data-radio-group>
+            {inquiry.stepLocation.options.map((option, index) => (
+              <label class="location-option">
+                <input
+                  class="choice-input"
+                  type="radio"
+                  name="location_preference"
+                  value={option.value || option.title}
+                  required={index === 0 || undefined}
+                  toolparamdescription="The client's preferred kind of location for the session."
+                />
+                <span>
+                  <strong>{option.title}</strong>
+                  <small>{option.detail}</small>
+                </span>
+              </label>
+            ))}
+          </div>
+          <p class="form-error" id="location-error" data-step-error aria-live="polite"></p>
+          <div class="inquiry-step__actions">
+            <button class="text-button" type="button" data-inquiry-back>← back</button>
+            <button class="outline-button" type="button" data-inquiry-next>
+              Continue to your story
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset class="inquiry-step" data-form-step="4">
+          <legend tabindex="-1">
+            <span class="inquiry-step__number">Frame four</span>
+            {inquiry.stepStory.question}
+          </legend>
+          <div class="note-field">
+            <label for="inquiry-story">
+              {inquiry.stepStory.fieldLabel}
+            </label>
+            <textarea
+              id="inquiry-story"
+              name="story"
+              rows="7"
+              required
+              autocomplete="off"
+              placeholder={inquiry.stepStory.placeholder}
+              aria-describedby="story-error"
+              toolparamdescription="Who the photographs are for and what moment the client wants to remember."
+            ></textarea>
+            <p class="form-error" id="story-error" data-field-error aria-live="polite"></p>
+          </div>
+          <div class="inquiry-step__actions">
+            <button class="text-button" type="button" data-inquiry-back>← back</button>
+            <button class="outline-button" type="button" data-inquiry-next>
+              Continue to contact
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset class="inquiry-step" data-form-step="5">
+          <legend tabindex="-1">
+            <span class="inquiry-step__number">Final frame</span>
+            {inquiry.stepContact.question}
+          </legend>
+          <div class="contact-fields">
+            <div class="form-field">
+              <label for="inquiry-name">Your name</label>
+              <input
+                id="inquiry-name"
+                type="text"
+                name="name"
+                autocomplete="name"
+                required
+                aria-describedby="name-error"
+                toolparamdescription="The client's full name."
+              />
+              <p class="form-error" id="name-error" data-field-error></p>
+            </div>
+            <div class="form-field">
+              <label for="inquiry-email">Email</label>
+              <input
+                id="inquiry-email"
+                type="email"
+                name="email"
+                autocomplete="email"
+                inputmode="email"
+                spellcheck="false"
+                required
+                aria-describedby="email-error contact-privacy-note"
+                toolparamdescription="The email address Lisa should use to reply."
+              />
+              <p class="form-error" id="email-error" data-field-error></p>
+            </div>
+            <div class="form-field">
+              <label for="inquiry-phone">Phone</label>
+              <input
+                id="inquiry-phone"
+                type="tel"
+                name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                required
+                aria-describedby="phone-error contact-privacy-note"
+                toolparamdescription="The phone number Lisa should use to follow up."
+              />
+              <p class="form-error" id="phone-error" data-field-error></p>
+            </div>
+          </div>
+          {inquiry.stepContact.privacyNote && (
+            <p class="inquiry-step__note" id="contact-privacy-note">
+              {inquiry.stepContact.privacyNote}
+            </p>
+          )}
+          <p class="form-error form-error--summary" data-submit-error aria-live="polite"></p>
+          <div class="inquiry-step__actions">
+            <button class="text-button" type="button" data-inquiry-back>← back</button>
+            <button class="outline-button" type="submit" data-inquiry-submit>
+              Send it to Lisa
+            </button>
+          </div>
+        </fieldset>
+      </form>
+
+      <section
+        class="inquiry-confirmation"
+        role="region"
+        aria-labelledby="confirmation-title"
+        data-inquiry-confirmation
+        hidden
+      >
+        <div class="inquiry-confirmation__media">
+          <picture>
+            {confirmationMeta.webp && (
+              <source srcset={confirmationMeta.webp} type="image/webp" />
+            )}
+            <img
+              src={inquiry.confirmation.image}
+              width={confirmationMeta.width}
+              height={confirmationMeta.height}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </div>
+        <div class="inquiry-confirmation__copy">
+          {inquiry.confirmation.scriptLine && (
+            <p class="inquiry-confirmation__script" aria-hidden="true">
+              {inquiry.confirmation.scriptLine}
+            </p>
+          )}
+          <h3 id="confirmation-title" tabindex="-1">{inquiry.confirmation.title}</h3>
+          <p>
+            {inquiry.confirmation.message} If you’d rather talk sooner, just call me at
+            <a href={`tel:${phoneHref}`}>{settings.phone}</a>.
+          </p>
+          <p class="sr-only" role="status" aria-live="polite" data-confirmation-status></p>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

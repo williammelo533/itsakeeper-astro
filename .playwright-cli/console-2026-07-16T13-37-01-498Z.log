@@ -1,0 +1,53 @@
+[     938ms] [LOG] [@tinacms/bridge] initialising in iframe @ http://127.0.0.1:4321/admin/bridge.js:18
+[     938ms] [LOG] [@tinacms/bridge] no server-injected forms; priming from island endpoints @ http://127.0.0.1:4321/admin/bridge.js:18
+[     939ms] [LOG] [@tinacms/bridge] priming island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[    1050ms] [LOG] [@tinacms/bridge] discovered 1 form(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[    1050ms] [LOG] [@tinacms/bridge] posting open for oe9qje attempt 1 @ http://127.0.0.1:4321/admin/bridge.js:18
+[    1173ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[    1173ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[    1175ms] [LOG] [@tinacms/bridge] admin acked form oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[    1181ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[    1312ms] [LOG] [@tinacms/bridge] all forms acked after 2 attempt(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[    1481ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[   16560ms] [LOG] [@tinacms/bridge] click captured → oe9qje---homepage.hero.heading (target: SPAN ) @ http://127.0.0.1:4321/admin/bridge.js:18
+[   38124ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[   38426ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[   53980ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[   54282ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226019ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4321/scripts/site.min.js:0
+[  226048ms] [LOG] [@tinacms/bridge] initialising in iframe @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226048ms] [LOG] [@tinacms/bridge] no server-injected forms; priming from island endpoints @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226048ms] [LOG] [@tinacms/bridge] priming island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226113ms] [LOG] [@tinacms/bridge] discovered 1 form(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226113ms] [LOG] [@tinacms/bridge] posting open for oe9qje attempt 1 @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226180ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226180ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226181ms] [LOG] [@tinacms/bridge] admin acked form oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226184ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226364ms] [LOG] [@tinacms/bridge] all forms acked after 2 attempt(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226486ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226616ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4321/scripts/site.min.js:0
+[  226630ms] [LOG] [@tinacms/bridge] initialising in iframe @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226630ms] [LOG] [@tinacms/bridge] no server-injected forms; priming from island endpoints @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226630ms] [LOG] [@tinacms/bridge] priming island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226665ms] [LOG] [@tinacms/bridge] discovered 1 form(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226665ms] [LOG] [@tinacms/bridge] posting open for oe9qje attempt 1 @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226710ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226710ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226711ms] [LOG] [@tinacms/bridge] admin acked form oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226713ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226916ms] [LOG] [@tinacms/bridge] all forms acked after 2 attempt(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[  226941ms] [LOG] [vite] server connection lost. Polling for restart... @ http://127.0.0.1:4321/@vite/client:1598
+[  227014ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228059ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:4321/scripts/site.min.js:0
+[  228066ms] [LOG] [@tinacms/bridge] initialising in iframe @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228066ms] [LOG] [@tinacms/bridge] no server-injected forms; priming from island endpoints @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228066ms] [LOG] [@tinacms/bridge] priming island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228098ms] [LOG] [@tinacms/bridge] discovered 1 form(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228099ms] [LOG] [@tinacms/bridge] posting open for oe9qje attempt 1 @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228138ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228138ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228139ms] [LOG] [@tinacms/bridge] admin acked form oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228141ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228350ms] [LOG] [@tinacms/bridge] all forms acked after 2 attempt(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[  228442ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18

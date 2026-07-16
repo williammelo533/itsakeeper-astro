@@ -1,0 +1,16 @@
+[     583ms] [LOG] [@tinacms/bridge] initialising in iframe @ http://127.0.0.1:4321/admin/bridge.js:18
+[     583ms] [LOG] [@tinacms/bridge] no server-injected forms; priming from island endpoints @ http://127.0.0.1:4321/admin/bridge.js:18
+[     583ms] [LOG] [@tinacms/bridge] priming island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[     667ms] [LOG] [@tinacms/bridge] discovered 1 form(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[     667ms] [LOG] [@tinacms/bridge] posting open for oe9qje attempt 1 @ http://127.0.0.1:4321/admin/bridge.js:18
+[     739ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[     740ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[     741ms] [LOG] [@tinacms/bridge] admin acked form oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[     746ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[     917ms] [LOG] [@tinacms/bridge] all forms acked after 2 attempt(s) @ http://127.0.0.1:4321/admin/bridge.js:18
+[    1048ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  242617ms] [LOG] [@tinacms/bridge] click captured → oe9qje---homepage.hero.heading (target: SPAN ) @ http://127.0.0.1:4321/admin/bridge.js:18
+[  269724ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  270025ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18
+[  270945ms] [LOG] [@tinacms/bridge] updateData received for oe9qje @ http://127.0.0.1:4321/admin/bridge.js:18
+[  271247ms] [LOG] [@tinacms/bridge] refreshing island /tina-island/homepage @ http://127.0.0.1:4321/admin/bridge.js:18

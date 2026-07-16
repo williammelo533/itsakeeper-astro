@@ -1,0 +1,97 @@
+- generic [active] [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "It’s A Keeper Photography, home" [ref=e6] [cursor=pointer]:
+          - /url: "#home"
+          - img "It’s A Keeper Photography" [ref=e8]
+        - navigation "Primary navigation" [ref=e9]:
+          - list [ref=e10]:
+            - listitem [ref=e11]:
+              - link "Seniors" [ref=e12] [cursor=pointer]:
+                - /url: "#seniors"
+            - listitem [ref=e13]:
+              - link "Families" [ref=e14] [cursor=pointer]:
+                - /url: "#families"
+            - listitem [ref=e15]:
+              - link "Couples" [ref=e16] [cursor=pointer]:
+                - /url: "#couples"
+            - listitem [ref=e17]:
+              - link "Newborns" [ref=e18] [cursor=pointer]:
+                - /url: "#newborns"
+            - listitem [ref=e19]:
+              - link "Meet Lisa" [ref=e20] [cursor=pointer]:
+                - /url: "#meet-lisa"
+            - listitem [ref=e21]:
+              - link "Inquire" [ref=e22] [cursor=pointer]:
+                - /url: "#inquire"
+    - main [ref=e23]:
+      - region [ref=e24]:
+        - img "A couple sharing a quiet embrace beneath autumn trees during a golden-hour session in Richland" [ref=e26]
+        - heading [level=1] [ref=e27]
+      - region "Unhurried. Natural. Entirely Personal." [ref=e28]
+      - region "Choose the story you’re in" [ref=e30]:
+        - generic [ref=e31]:
+          - link "Plan a seniors photography session with Lisa" [ref=e32] [cursor=pointer]:
+            - /url: "#inquire"
+          - link "Plan a families photography session with Lisa" [ref=e33] [cursor=pointer]:
+            - /url: "#inquire"
+          - link "Plan a couples photography session with Lisa" [ref=e34] [cursor=pointer]:
+            - /url: "#inquire"
+          - link "Plan a newborns photography session with Lisa" [ref=e35] [cursor=pointer]:
+            - /url: "#inquire"
+      - region [ref=e36]:
+        - heading "Golden-hour family photography in the Tri-Cities" [level=2] [ref=e37]
+        - img "Parents holding their young child in glowing Columbia Basin evening light" [ref=e39]
+      - region "I Know How Much A Photograph Can Hold" [ref=e40]
+      - region "A little care before the light" [ref=e42]:
+        - list [ref=e44]:
+          - listitem [ref=e45]:
+            - generic [ref=e46]: "01"
+            - heading "You reach out" [level=3] [ref=e47]
+            - paragraph [ref=e48]: Tell me who you want to photograph and what this season means to you.
+          - listitem [ref=e49]:
+            - generic [ref=e50]: "02"
+            - heading "We talk" [level=3] [ref=e51]
+            - paragraph [ref=e52]: We’ll plan by phone, with wardrobe guidance and location ideas chosen for you.
+          - listitem [ref=e53]:
+            - generic [ref=e54]: "03"
+            - heading "Golden hour" [level=3] [ref=e55]
+            - paragraph [ref=e56]: We meet outdoors, move gently, and let natural connection do most of the work.
+          - listitem [ref=e57]:
+            - generic [ref=e58]: "04"
+            - heading "Your gallery" [level=3] [ref=e59]
+            - paragraph [ref=e60]: I edit each frame in my warm, true-to-you style and send your story home.
+      - region "What people remember" [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - figure "Families often mention · patience" [ref=e64]:
+              - paragraph [ref=e65]: Lisa’s patience helps the whole session feel easy, even with little ones moving everywhere.
+            - figure "Couples often mention · location care" [ref=e67]:
+              - paragraph [ref=e68]: She finds locations that feel personal and knows where the evening light will fall.
+            - figure "Portrait clients often mention · ease" [ref=e70]:
+              - paragraph [ref=e71]: The experience feels natural, and the photographs still look like the people in them.
+          - paragraph [ref=e73]:
+            - link "Read 96 five-star reviews on Google for It’s A Keeper Photography" [ref=e74] [cursor=pointer]:
+              - /url: https://www.google.com/maps/search/?api=1&query=It%27s%20A%20Keeper%20Photography%2C%2062%20Canyon%20St%2C%20Richland%2C%20WA%2099352
+              - text: 96 five-star reviews on Google
+      - region "Let’s plan your golden hour" [ref=e75]:
+        - img "A senior standing in a sunlit Tri-Cities field near the end of the day" [ref=e78]
+    - contentinfo [ref=e80]:
+      - generic [ref=e81]:
+        - generic [ref=e82]:
+          - strong [ref=e83]: It’s A Keeper Photography
+          - text: 62 Canyon St Richland, WA 99352
+          - link "(509) 948-7322" [ref=e84] [cursor=pointer]:
+            - /url: tel:+15099487322
+        - generic [ref=e85]:
+          - paragraph [ref=e86]: Richland · Kennewick · Pasco
+          - navigation "Social media" [ref=e87]:
+            - link "Instagram" [ref=e88] [cursor=pointer]:
+              - /url: https://www.instagram.com/itsakeeperphoto/
+            - link "Facebook" [ref=e89] [cursor=pointer]:
+              - /url: https://www.facebook.com/10210306464689688
+        - paragraph [ref=e91]: Recent light, coming soon.
+        - paragraph [ref=e92]: © 2026 It’s A Keeper Photography. All rights reserved.

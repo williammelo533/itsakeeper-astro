@@ -1,0 +1,46 @@
+---
+import { tinaField } from "@tinacms/astro/tina-field";
+
+const { kindWords, settings, testimonials } = Astro.props;
+---
+
+<section
+  class="kind-words"
+  id="kind-words"
+  aria-labelledby="kind-words-title"
+  data-tina-field={tinaField(kindWords)}
+>
+  <div class="content-shell">
+    <div class="section-intro">
+      <p class="section-eyebrow" data-tina-field={tinaField(kindWords, "eyebrow")}>
+        {kindWords.eyebrow}
+      </p>
+      <h2
+        class="section-heading"
+        id="kind-words-title"
+        data-tina-field={tinaField(kindWords, "heading")}
+      >{kindWords.heading}</h2>
+    </div>
+
+    <div class="kind-words__grid">
+      {testimonials.map((testimonial) => (
+        <figure class="kind-word" data-tina-field={tinaField(testimonial)}>
+          <p class="kind-word__text">{testimonial.quote}</p>
+          <figcaption>{testimonial.name} · {testimonial.sessionType}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    {kindWords.reviewsLine && settings.social.googleProfile && (
+      <p class="kind-words__google">
+        <a
+          href={settings.social.googleProfile}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Read ${kindWords.reviewsLine} for ${settings.businessName}`}
+          data-tina-field={tinaField(kindWords, "reviewsLine")}
+        >{kindWords.reviewsLine}</a>
+      </p>
+    )}
+  </div>
+</section>

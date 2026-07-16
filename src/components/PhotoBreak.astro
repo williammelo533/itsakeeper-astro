@@ -1,0 +1,31 @@
+---
+import Picture from "./Picture.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
+
+const { photoBreak } = Astro.props;
+---
+
+<section
+  class="photo-banner"
+  aria-labelledby="banner-title"
+  data-tina-field={tinaField(photoBreak)}
+>
+  <h2 class="sr-only" id="banner-title">{photoBreak.srHeading}</h2>
+  <Picture
+    pictureClass="photo-banner__picture"
+    imgClass="photo-banner__image photo--editorial"
+    src={photoBreak.image}
+    alt={photoBreak.imageAlt}
+    loading="lazy"
+    decoding="async"
+    optimizedMobileWidth={960}
+    optimizedDesktopWidth={1440}
+    dataTinaField={tinaField(photoBreak, "image")}
+  />
+  <div class="photo-banner__overlay" aria-hidden="true"></div>
+  <p
+    class="photo-banner__phrase"
+    aria-hidden="true"
+    data-tina-field={tinaField(photoBreak, "scriptPhrase")}
+  >{photoBreak.scriptPhrase}</p>
+</section>

@@ -1,0 +1,71 @@
+---
+import Picture from "./Picture.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
+
+const { why } = Astro.props;
+---
+
+<section
+  class="story"
+  id="the-why"
+  aria-labelledby="story-title"
+  data-tina-field={tinaField(why)}
+>
+  <div class="story__shell design-shell">
+    <div class="story__frame" aria-hidden="true"></div>
+
+    <div class="story__media">
+      <figure class="story__rear story-photo story-photo--arch">
+        <Picture
+          imgClass="photo--editorial"
+          src={why.rearImage}
+          alt={why.rearImageAlt}
+          loading="lazy"
+          decoding="async"
+          optimizedMobileWidth={640}
+          optimizedDesktopWidth={640}
+          dataTinaField={tinaField(why, "rearImage")}
+        />
+      </figure>
+
+      <figure class="story__front story-photo">
+        <Picture
+          imgClass="photo--editorial"
+          src={why.frontImage}
+          alt={why.frontImageAlt}
+          loading="lazy"
+          decoding="async"
+          optimizedMobileWidth={400}
+          optimizedDesktopWidth={640}
+          dataTinaField={tinaField(why, "frontImage")}
+        />
+      </figure>
+
+      {why.scriptLine && <p class="story__script" aria-hidden="true">{why.scriptLine}</p>}
+    </div>
+
+    <div class="story__copy">
+      <p class="section-eyebrow" data-tina-field={tinaField(why, "eyebrow")}>
+        {why.eyebrow}
+      </p>
+      <h2 class="section-heading" id="story-title">
+        <span data-tina-field={tinaField(why, "headingLine1")}>
+          {why.headingLine1}
+        </span>
+        {why.headingLine2 && (
+          <span data-tina-field={tinaField(why, "headingLine2")}>
+            {why.headingLine2}
+          </span>
+        )}
+      </h2>
+      <p class="editorial-copy" data-tina-field={tinaField(why, "paragraph")}>
+        {why.paragraph}
+      </p>
+      <a
+        class="outline-button"
+        href="#process"
+        data-tina-field={tinaField(why, "buttonLabel")}
+      >{why.buttonLabel}</a>
+    </div>
+  </div>
+</section>

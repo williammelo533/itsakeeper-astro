@@ -1,0 +1,45 @@
+---
+import Footer from "./Footer.astro";
+import GuidedInquiry from "./GuidedInquiry.astro";
+import Header from "./Header.astro";
+import Hero from "./Hero.astro";
+import HowItWorks from "./HowItWorks.astro";
+import KindWords from "./KindWords.astro";
+import MeetLisa from "./MeetLisa.astro";
+import PhotoBreak from "./PhotoBreak.astro";
+import SessionCategories from "./SessionCategories.astro";
+import TheWhy from "./TheWhy.astro";
+
+const { data } = Astro.props;
+const homepage = data.homepage;
+const settings = data.settings;
+const testimonials = (data.testimonialConnection?.edges || [])
+  .map((edge) => edge?.node)
+  .filter(Boolean)
+  .filter((testimonial) => testimonial.featured)
+  .slice(0, 3);
+const show = (section) => section?.visible !== false;
+---
+
+<Header settings={settings} homepage={homepage} />
+
+<main id="main-content">
+  {show(homepage.hero) && <Hero hero={homepage.hero} />}
+  {show(homepage.why) && <TheWhy why={homepage.why} />}
+  {show(homepage.sessions) && <SessionCategories sessions={homepage.sessions} />}
+  {show(homepage.photoBreak) && <PhotoBreak photoBreak={homepage.photoBreak} />}
+  {show(homepage.meetLisa) && <MeetLisa meetLisa={homepage.meetLisa} />}
+  {show(homepage.howItWorks) && <HowItWorks howItWorks={homepage.howItWorks} />}
+  {show(homepage.kindWords) && (
+    <KindWords
+      kindWords={homepage.kindWords}
+      settings={settings}
+      testimonials={testimonials}
+    />
+  )}
+  {show(homepage.inquiry) && (
+    <GuidedInquiry inquiry={homepage.inquiry} settings={settings} />
+  )}
+</main>
+
+<Footer settings={settings} />

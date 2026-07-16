@@ -1,0 +1,23 @@
+---
+import Base from "../layouts/Base.astro";
+import TinaIsland from "@tinacms/astro/TinaIsland.astro";
+import HomepagePage from "../components/HomepagePage.astro";
+import { getHomepagePage } from "../lib/tina/data";
+import { homepageWrapper } from "../lib/tina/islands";
+
+const page = await getHomepagePage();
+const data = page.data;
+const homepage = data.homepage;
+const settings = data.settings;
+---
+
+<Base
+  title={homepage.seo.title}
+  description={homepage.seo.description}
+  homepage={homepage}
+  settings={settings}
+>
+  <TinaIsland name="homepage" wrapper={homepageWrapper} primary>
+    <HomepagePage data={data} />
+  </TinaIsland>
+</Base>

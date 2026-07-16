@@ -1,0 +1,204 @@
+{
+  "seo": {
+    "title": "Tri-Cities Senior & Family Photographer | It’s A Keeper",
+    "description": "Tri-Cities senior, family, couples, newborn and branding photographer in Richland. Outdoor golden-hour sessions with Lisa."
+  },
+  "hero": {
+    "visible": true,
+    "image": "/uploads/hero-couple-golden-hour-richland.jpg",
+    "imageAlt": "A couple sharing a quiet embrace beneath autumn trees during a golden-hour session in Richland",
+    "heading": "Tri-Cities Portraits In Warm Light",
+    "scriptLine": "keep the way this felt"
+  },
+  "why": {
+    "visible": true,
+    "eyebrow": "A session with Lisa",
+    "headingLine1": "Unhurried. Natural.",
+    "headingLine2": "Entirely Personal.",
+    "paragraph": "I’ll guide you when you need it, then leave room for the laugh, the hand squeeze, and the look that happens on its own. We’ll choose a Tri-Cities location that feels like you and follow the light together.",
+    "buttonLabel": "How it works",
+    "scriptLine": "let the real moments lead",
+    "rearImage": "/uploads/autumn-senior-portrait-tricities.jpg",
+    "rearImageAlt": "A high school senior standing among warm autumn leaves in the Tri-Cities",
+    "frontImage": "/uploads/family-golden-light-richland.jpg",
+    "frontImageAlt": "A couple holding their baby close in golden autumn light near Richland"
+  },
+  "sessions": {
+    "visible": true,
+    "eyebrow": "Ways to remember",
+    "heading": "Choose the story you’re in",
+    "cards": [
+      {
+        "label": "Seniors",
+        "image": "/uploads/senior-portrait-golden-hour-richland.jpg",
+        "imageAlt": "High school senior in a black dress photographed at golden hour in Richland",
+        "link": "#inquire",
+        "prefill": "Senior"
+      },
+      {
+        "label": "Families",
+        "image": "/uploads/family-portrait-outdoors-tricities.jpg",
+        "imageAlt": "A family laughing together during an outdoor Tri-Cities portrait session",
+        "link": "#inquire",
+        "prefill": "Family"
+      },
+      {
+        "label": "Couples",
+        "image": "/uploads/couples-portrait-outdoors-richland.jpg",
+        "imageAlt": "A couple sharing an easy outdoor moment near Richland, Washington",
+        "link": "#inquire",
+        "prefill": "Couple"
+      },
+      {
+        "label": "Newborns",
+        "image": "/uploads/newborn-portrait-with-mother-richland.jpg",
+        "imageAlt": "A mother kissing her newborn during a gentle lifestyle session in Richland",
+        "link": "#inquire",
+        "prefill": "Newborn"
+      }
+    ]
+  },
+  "photoBreak": {
+    "visible": true,
+    "image": "/uploads/family-golden-hour-columbia-basin.jpg",
+    "imageAlt": "Parents holding their young child in glowing Columbia Basin evening light",
+    "scriptPhrase": "the light moves; the feeling stays",
+    "srHeading": "Golden-hour family photography in the Tri-Cities"
+  },
+  "meetLisa": {
+    "visible": true,
+    "eyebrow": "Meet Lisa",
+    "headingLine1": "I Know How Much A",
+    "headingLine2": "Photograph Can Hold",
+    "story": "I grew up in Wisconsin and made the Tri-Cities home in 2005. Photography became personal after my daughter faced early health challenges; it taught me to notice how quickly the smallest, most ordinary moments become the ones we miss.",
+    "credit": "My camera has taken me to a session with a Grammy winner and assignments for a local magazine, but the heart of the work is still the person standing in front of me.",
+    "portrait": "/uploads/lisa-photographer-tricities.jpg",
+    "portraitAlt": "Lisa, owner of It’s A Keeper Photography, holding her camera in the Tri-Cities"
+  },
+  "howItWorks": {
+    "visible": true,
+    "eyebrow": "How a session works",
+    "heading": "A little care before the light",
+    "intro": "I reserve most sessions four to six weeks ahead so we have time to plan it right.",
+    "steps": [
+      {
+        "title": "You reach out",
+        "sentence": "Tell me who you want to photograph and what this season means to you."
+      },
+      {
+        "title": "We talk",
+        "sentence": "We’ll plan by phone, with wardrobe guidance and location ideas chosen for you."
+      },
+      {
+        "title": "Golden hour",
+        "sentence": "We meet outdoors, move gently, and let natural connection do most of the work."
+      },
+      {
+        "title": "Your gallery",
+        "sentence": "I edit each frame in my warm, true-to-you style and send your story home."
+      }
+    ]
+  },
+  "kindWords": {
+    "visible": true,
+    "eyebrow": "Kind words",
+    "heading": "What people remember",
+    "reviewsLine": "96 five-star reviews on Google"
+  },
+  "inquiry": {
+    "visible": true,
+    "eyebrow": "A note to Lisa",
+    "heading": "Let’s plan your golden hour",
+    "scriptLine": "the light is already on its way...",
+    "supportLine": "This takes less than a minute. I read and answer every inquiry myself.",
+    "buttonLabel": "Start planning",
+    "backgroundImage": "/uploads/senior-session-summer-light-richland.jpg",
+    "backgroundImageAlt": "A senior standing in a sunlit Tri-Cities field near the end of the day",
+    "stepSession": {
+      "question": "Who’s in front of the camera?",
+      "options": [
+        {
+          "label": "Senior",
+          "image": "/uploads/senior-portrait-golden-hour-richland.jpg"
+        },
+        {
+          "label": "Family",
+          "image": "/uploads/family-portrait-outdoors-tricities.jpg"
+        },
+        {
+          "label": "Couple",
+          "image": "/uploads/couples-portrait-outdoors-richland.jpg"
+        },
+        {
+          "label": "Newborn",
+          "image": "/uploads/newborn-portrait-with-mother-richland.jpg"
+        },
+        {
+          "label": "My Business",
+          "image": "/uploads/business-branding-portrait-richland.jpg"
+        }
+      ]
+    },
+    "stepSeason": {
+      "question": "What season do you picture?",
+      "note": "I book about four to six weeks ahead, so there’s time to plan it right.",
+      "options": [
+        {
+          "label": "Spring",
+          "image": "/uploads/spring-portrait-blossoms-tricities.jpg"
+        },
+        {
+          "label": "Summer",
+          "image": "/uploads/senior-session-summer-light-richland.jpg"
+        },
+        {
+          "label": "Autumn",
+          "image": "/uploads/autumn-senior-portrait-tricities.jpg"
+        },
+        {
+          "label": "Winter",
+          "image": "/uploads/winter-family-portrait-tricities.jpg"
+        },
+        {
+          "label": "I’m flexible",
+          "image": "/uploads/family-golden-hour-columbia-basin.jpg"
+        }
+      ]
+    },
+    "stepLocation": {
+      "question": "Where do you imagine it?",
+      "options": [
+        {
+          "title": "Somewhere outdoors and golden",
+          "detail": "Open sky, warm light, and room to move.",
+          "value": "Somewhere outdoors and golden"
+        },
+        {
+          "title": "A place that’s special to us",
+          "detail": "Bring me somewhere that already holds a memory.",
+          "value": "A place that’s special to us"
+        },
+        {
+          "title": "Help me choose",
+          "detail": "I’ll scout the light and share the places I know.",
+          "value": "Help me choose — Lisa knows all the spots"
+        }
+      ]
+    },
+    "stepStory": {
+      "question": "Tell me about you",
+      "fieldLabel": "Who are these photos for? What moment are you hoping to keep?",
+      "placeholder": "Tell me who’s in this season with you, and what you never want to forget."
+    },
+    "stepContact": {
+      "question": "Where should I reach you?",
+      "privacyNote": "No newsletters, no pressure—just me, calling to plan everything with you."
+    },
+    "confirmation": {
+      "scriptLine": "it’s a keeper.",
+      "title": "Your note is with Lisa",
+      "message": "I read every inquiry myself and will reach out within two business days.",
+      "image": "/uploads/family-newborn-connection-richland.jpg"
+    }
+  }
+}

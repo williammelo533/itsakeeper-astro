@@ -1,0 +1,198 @@
+- generic [ref=e71]:
+  - generic [ref=e2]:
+    - button "Show editing panel"
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - button "Open navigation menu" [ref=e7] [cursor=pointer]
+          - link "You are in local mode" [ref=e17] [cursor=pointer]:
+            - /url: https://tina.io/docs/r/what-is-tinacloud/
+        - button "Hide editing panel" [ref=e19] [cursor=pointer]
+      - generic [ref=e74]:
+        - navigation "breadcrumb" [ref=e76]:
+          - list [ref=e77]:
+            - listitem [ref=e78]:
+              - button "Back to Homepage" [ref=e79] [cursor=pointer]:
+                - generic [ref=e82]: Homepage
+            - listitem [ref=e83]: /
+            - listitem [ref=e160]:
+              - button "index" [ref=e161] [cursor=pointer]
+            - listitem [ref=e162]: /
+            - listitem [ref=e163]:
+              - link "Big photo at the top" [disabled] [ref=e164]
+        - generic [ref=e92]:
+          - generic [ref=e165]:
+            - generic [ref=e166]:
+              - text: Show this section on the site
+              - generic [ref=e167]: Turn this off to temporarily hide the whole section.
+            - generic [ref=e169]:
+              - checkbox [checked] [ref=e170] [cursor=pointer]
+              - switch [ref=e171]
+          - generic [ref=e172]:
+            - generic [ref=e173]:
+              - text: Photo
+              - generic [ref=e174]: The large photo at the very top of the page. A wide horizontal photo works best.
+            - generic [ref=e176]:
+              - button [ref=e177] [cursor=pointer]
+              - button [ref=e179] [cursor=pointer]
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - text: Photo — describe this photo
+              - generic [ref=e184]: One short sentence describing what's in the photo, as if telling a friend on the phone (e.g. “A mom holding her baby in evening light”). This helps people who can't see the photo, and helps Google.
+            - textbox [ref=e185]: A couple sharing a quiet embrace beneath autumn trees during a golden-hour session in Richland
+          - generic [ref=e186]:
+            - generic [ref=e187]: Main headline
+            - textbox [active] [ref=e188]: Tri-Cities Portraits In Warm Light
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - text: Handwritten-style line
+              - generic [ref=e191]: The short cursive line under the headline.
+            - textbox [ref=e192]: keep the way this felt
+        - button "Referenced Files" [ref=e150] [cursor=pointer]
+        - generic [ref=e158]:
+          - button "Reset"
+          - button "Save"
+        - status [ref=e159]
+  - iframe [ref=e73]:
+    - generic [ref=f1e2]:
+      - link "Skip to content" [ref=f1e3] [cursor=pointer]:
+        - /url: "#main-content"
+      - generic [ref=f1e4]:
+        - banner [ref=f1e5]:
+          - generic [ref=f1e6]:
+            - button "Open navigation" [ref=f1e7] [cursor=pointer]
+            - link "It’s A Keeper Photography, home" [ref=f1e11] [cursor=pointer]:
+              - /url: "#home"
+              - img "It’s A Keeper Photography" [ref=f1e13]
+        - main [ref=f1e14]:
+          - region [ref=f1e15] [cursor=pointer]:
+            - img "A couple sharing a quiet embrace beneath autumn trees during a golden-hour session in Richland" [ref=f1e17]
+            - heading "Tri-Cities Portraits In Warm Light" [level=1] [ref=f1e18]:
+              - generic [ref=f1e20]: keep the way this felt
+          - region [ref=f1e21]:
+            - generic [ref=f1e22]:
+              - generic [ref=f1e23]:
+                - figure [ref=f1e24]:
+                  - img "A high school senior standing among warm autumn leaves in the Tri-Cities" [ref=f1e26]
+                - figure [ref=f1e27]:
+                  - img "A couple holding their baby close in golden autumn light near Richland" [ref=f1e29]
+                - paragraph: let the real moments lead
+              - generic [ref=f1e30]:
+                - paragraph [ref=f1e31]: A session with Lisa
+                - heading "Unhurried. Natural. Entirely Personal." [level=2] [ref=f1e32]:
+                  - generic [ref=f1e33]: Unhurried. Natural.
+                  - generic [ref=f1e34]: Entirely Personal.
+                - paragraph [ref=f1e35]: I’ll guide you when you need it, then leave room for the laugh, the hand squeeze, and the look that happens on its own. We’ll choose a Tri-Cities location that feels like you and follow the light together.
+                - link "How it works" [ref=f1e36] [cursor=pointer]:
+                  - /url: "#process"
+          - region [ref=f1e37]:
+            - generic [ref=f1e38]:
+              - paragraph [ref=f1e39]: Ways to remember
+              - heading "Choose the story you’re in" [level=2] [ref=f1e40]
+            - generic [ref=f1e41]:
+              - link "Plan a seniors photography session with Lisa" [ref=f1e42] [cursor=pointer]:
+                - /url: "#inquire"
+                - img "High school senior in a black dress photographed at golden hour in Richland" [ref=f1e45]
+                - generic [ref=f1e46]: Seniors
+              - link "Plan a families photography session with Lisa" [ref=f1e48] [cursor=pointer]:
+                - /url: "#inquire"
+                - img "A family laughing together during an outdoor Tri-Cities portrait session" [ref=f1e51]
+                - generic [ref=f1e52]: Families
+              - link "Plan a couples photography session with Lisa" [ref=f1e54] [cursor=pointer]:
+                - /url: "#inquire"
+                - img "A couple sharing an easy outdoor moment near Richland, Washington" [ref=f1e57]
+                - generic [ref=f1e58]: Couples
+              - link "Plan a newborns photography session with Lisa" [ref=f1e60] [cursor=pointer]:
+                - /url: "#inquire"
+                - img "A mother kissing her newborn during a gentle lifestyle session in Richland" [ref=f1e63]
+                - generic [ref=f1e64]: Newborns
+          - region [ref=f1e66]:
+            - heading "Golden-hour family photography in the Tri-Cities" [level=2] [ref=f1e67]
+            - img "Parents holding their young child in glowing Columbia Basin evening light" [ref=f1e69]
+            - paragraph [ref=f1e70]: the light moves; the feeling stays
+          - region [ref=f1e71]:
+            - generic [ref=f1e72]:
+              - generic [ref=f1e73]:
+                - paragraph [ref=f1e74]: Meet Lisa
+                - heading "I Know How Much A Photograph Can Hold" [level=2] [ref=f1e75]:
+                  - generic [ref=f1e76]: I Know How Much A
+                  - generic [ref=f1e77]: Photograph Can Hold
+                - paragraph [ref=f1e78]: I grew up in Wisconsin and made the Tri-Cities home in 2005. Photography became personal after my daughter faced early health challenges; it taught me to notice how quickly the smallest, most ordinary moments become the ones we miss.
+                - paragraph [ref=f1e79]: My camera has taken me to a session with a Grammy winner and assignments for a local magazine, but the heart of the work is still the person standing in front of me.
+              - figure [ref=f1e81]:
+                - img "Lisa, owner of It’s A Keeper Photography, holding her camera in the Tri-Cities" [ref=f1e83]
+          - region [ref=f1e84]:
+            - generic [ref=f1e85]:
+              - generic [ref=f1e86]:
+                - paragraph [ref=f1e87]: How a session works
+                - heading "A little care before the light" [level=2] [ref=f1e88]
+                - paragraph [ref=f1e89]: I reserve most sessions four to six weeks ahead so we have time to plan it right.
+              - list [ref=f1e90]:
+                - listitem [ref=f1e91]:
+                  - generic [ref=f1e92]: "01"
+                  - heading "You reach out" [level=3] [ref=f1e93]
+                  - paragraph [ref=f1e94]: Tell me who you want to photograph and what this season means to you.
+                - listitem [ref=f1e95]:
+                  - generic [ref=f1e96]: "02"
+                  - heading "We talk" [level=3] [ref=f1e97]
+                  - paragraph [ref=f1e98]: We’ll plan by phone, with wardrobe guidance and location ideas chosen for you.
+                - listitem [ref=f1e99]:
+                  - generic [ref=f1e100]: "03"
+                  - heading "Golden hour" [level=3] [ref=f1e101]
+                  - paragraph [ref=f1e102]: We meet outdoors, move gently, and let natural connection do most of the work.
+                - listitem [ref=f1e103]:
+                  - generic [ref=f1e104]: "04"
+                  - heading "Your gallery" [level=3] [ref=f1e105]
+                  - paragraph [ref=f1e106]: I edit each frame in my warm, true-to-you style and send your story home.
+          - region [ref=f1e107]:
+            - generic [ref=f1e108]:
+              - generic [ref=f1e109]:
+                - paragraph [ref=f1e110]: Kind words
+                - heading "What people remember" [level=2] [ref=f1e111]
+              - generic [ref=f1e112]:
+                - figure "Families often mention · patience" [ref=f1e113]:
+                  - paragraph [ref=f1e114]: Lisa’s patience helps the whole session feel easy, even with little ones moving everywhere.
+                - figure "Couples often mention · location care" [ref=f1e116]:
+                  - paragraph [ref=f1e117]: She finds locations that feel personal and knows where the evening light will fall.
+                - figure "Portrait clients often mention · ease" [ref=f1e119]:
+                  - paragraph [ref=f1e120]: The experience feels natural, and the photographs still look like the people in them.
+              - paragraph [ref=f1e122]:
+                - link "Read 96 five-star reviews on Google for It’s A Keeper Photography" [ref=f1e123] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/?api=1&query=It%27s%20A%20Keeper%20Photography%2C%2062%20Canyon%20St%2C%20Richland%2C%20WA%2099352
+                  - text: 96 five-star reviews on Google
+          - region [ref=f1e124]:
+            - generic [ref=f1e125]:
+              - img "A senior standing in a sunlit Tri-Cities field near the end of the day" [ref=f1e127]
+              - generic [ref=f1e129]:
+                - paragraph [ref=f1e130]: A note to Lisa
+                - heading "Let’s plan your golden hour" [level=2] [ref=f1e131]
+                - paragraph [ref=f1e132]: the light is already on its way...
+                - paragraph [ref=f1e133]: This takes less than a minute. I read and answer every inquiry myself.
+                - paragraph
+                - button "Start planning" [ref=f1e134]
+        - contentinfo [ref=f1e135]:
+          - generic [ref=f1e136]:
+            - generic [ref=f1e137]:
+              - link "It’s A Keeper Photography, home" [ref=f1e138] [cursor=pointer]:
+                - /url: "#home"
+                - img "It’s A Keeper Photography" [ref=f1e140]
+              - paragraph [ref=f1e141]: Warm, connected portraits for the people and seasons you want to remember.
+            - generic [ref=f1e142]:
+              - strong [ref=f1e143]: It’s A Keeper Photography
+              - text: 62 Canyon St Richland, WA 99352
+              - link "(509) 948-7322" [ref=f1e144] [cursor=pointer]:
+                - /url: tel:+15099487322
+            - generic [ref=f1e145]:
+              - paragraph [ref=f1e146]: Richland · Kennewick · Pasco
+              - navigation "Social media" [ref=f1e147]:
+                - link "Instagram" [ref=f1e148] [cursor=pointer]:
+                  - /url: https://www.instagram.com/itsakeeperphoto/
+                - link "Facebook" [ref=f1e149] [cursor=pointer]:
+                  - /url: https://www.facebook.com/10210306464689688
+            - paragraph [ref=f1e151]: Recent light, coming soon.
+            - paragraph [ref=f1e152]: © 2026 It’s A Keeper Photography. All rights reserved.
+      - generic [ref=f1e155]:
+        - button [ref=f1e156]
+        - button [ref=f1e162]
+        - button [ref=f1e166]
+        - button [ref=f1e171]

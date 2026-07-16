@@ -1,0 +1,57 @@
+---
+import Picture from "./Picture.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
+
+const { meetLisa } = Astro.props;
+---
+
+<section
+  class="biography"
+  id="meet-lisa"
+  aria-labelledby="biography-title"
+  data-tina-field={tinaField(meetLisa)}
+>
+  <div class="biography__shell design-shell">
+    <div class="biography__copy">
+      <p class="section-eyebrow" data-tina-field={tinaField(meetLisa, "eyebrow")}>
+        {meetLisa.eyebrow}
+      </p>
+      <h2 class="section-heading" id="biography-title">
+        <span data-tina-field={tinaField(meetLisa, "headingLine1")}>
+          {meetLisa.headingLine1}
+        </span>
+        {meetLisa.headingLine2 && (
+          <span data-tina-field={tinaField(meetLisa, "headingLine2")}>
+            {meetLisa.headingLine2}
+          </span>
+        )}
+      </h2>
+      <p class="editorial-copy" data-tina-field={tinaField(meetLisa, "story")}>
+        {meetLisa.story}
+      </p>
+      {meetLisa.credit && (
+        <p
+          class="editorial-copy biography__credit"
+          data-tina-field={tinaField(meetLisa, "credit")}
+        >{meetLisa.credit}</p>
+      )}
+    </div>
+
+    <div class="biography__media">
+      <div class="biography__line biography__line--vertical" aria-hidden="true"></div>
+      <div class="biography__line biography__line--horizontal" aria-hidden="true"></div>
+      <figure class="biography__portrait">
+        <Picture
+          imgClass="photo--editorial"
+          src={meetLisa.portrait}
+          alt={meetLisa.portraitAlt}
+          loading="lazy"
+          decoding="async"
+          optimizedMobileWidth={640}
+          optimizedDesktopWidth={640}
+          dataTinaField={tinaField(meetLisa, "portrait")}
+        />
+      </figure>
+    </div>
+  </div>
+</section>

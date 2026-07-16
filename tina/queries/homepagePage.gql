@@ -1,0 +1,19 @@
+query homepagePage(
+  $homepagePath: String!
+  $settingsPath: String!
+  $testimonialLimit: Float!
+) {
+  homepage(relativePath: $homepagePath) {
+    ...HomepageParts
+  }
+  settings(relativePath: $settingsPath) {
+    ...SettingsParts
+  }
+  testimonialConnection(first: $testimonialLimit) {
+    edges {
+      node {
+        ...TestimonialParts
+      }
+    }
+  }
+}

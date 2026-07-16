@@ -1,0 +1,36 @@
+---
+import Picture from "./Picture.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
+
+const { hero } = Astro.props;
+---
+
+<section
+  class="hero"
+  id="home"
+  aria-labelledby="hero-title"
+  data-tina-field={tinaField(hero)}
+>
+  <Picture
+    pictureClass="hero__picture"
+    imgClass="hero__image photo--editorial"
+    src={hero.image}
+    alt={hero.imageAlt}
+    loading="eager"
+    fetchpriority="high"
+    decoding="sync"
+    dataTinaField={tinaField(hero, "image")}
+    responsive
+  />
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <h1 class="hero__title" id="hero-title">
+    <span class="hero__serif" data-tina-field={tinaField(hero, "heading")}>
+      {hero.heading}
+    </span>
+    <span
+      class="hero__script"
+      aria-hidden="true"
+      data-tina-field={tinaField(hero, "scriptLine")}
+    >{hero.scriptLine}</span>
+  </h1>
+</section>

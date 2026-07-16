@@ -1,0 +1,197 @@
+---
+import "../styles/styles.css";
+import { telHref } from "../lib/content";
+import { imageMeta } from "../lib/images";
+
+interface Props {
+  title: string;
+  description: string;
+  homepage: any;
+  settings: any;
+}
+
+const { title, description, homepage, settings } = Astro.props;
+
+const siteUrl = (settings.advanced.siteUrl || "").replace(/\/$/, "");
+const absolute = (path: string) => `${siteUrl}${path}`;
+const canonical = `${siteUrl}/`;
+
+const seoImage = settings.seoImage;
+const seoImageMeta = imageMeta(seoImage);
+const heroMeta = imageMeta(homepage.hero.image);
+const preloadImage = heroMeta.webp || homepage.hero.image;
+const preloadType = heroMeta.webp ? "image/webp" : undefined;
+const heroResponsiveSrcset = heroMeta.responsiveWebp
+  ?.map((variant) => `${variant.path} ${variant.width}w`)
+  .join(", ");
+const responsivePreloadImage =
+  heroMeta.responsiveWebp?.at(-1)?.path || preloadImage;
+const hasResponsiveHero = Boolean(
+  heroMeta.desktopAvif ||
+  heroMeta.mobileWebp ||
+  heroMeta.desktopWebp
+);
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${canonical}#business`,
+  name: settings.businessName.replace(/’/g, "'"),
+  description: settings.advanced.businessDescription,
+  url: canonical,
+  telephone: telHref(settings.phone).replace(/^(\+1)(\d{3})(\d{3})(\d{4})$/, "$1-$2-$3-$4"),
+  email: settings.email,
+  image: absolute(seoImage),
+  logo: absolute(settings.logo),
+  founder: {
+    "@type": "Person",
+    name: settings.advanced.founderName,
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: settings.address.street,
+    addressLocality: settings.address.city,
+    addressRegion: settings.address.state,
+    postalCode: settings.address.zip,
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: settings.advanced.latitude,
+    longitude: settings.advanced.longitude,
+  },
+  areaServed: settings.serviceAreas.map((city) => ({ "@type": "City", name: city })),
+  sameAs: [settings.social.instagram, settings.social.facebook].filter(Boolean),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Portrait photography sessions",
+    itemListElement: settings.advanced.services.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service,
+        areaServed: "Tri-Cities, Washington",
+      },
+    })),
+  },
+};
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${canonical}#website`,
+  url: canonical,
+  name: settings.businessName.replace(/’/g, "'"),
+  description:
+    "Warm, connected portrait photography by Lisa in Richland and the Tri-Cities, Washington.",
+  publisher: {
+    "@id": `${canonical}#business`,
+  },
+  inLanguage: "en-US",
+};
+---
+
+<!doctype html>
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#F8F6F1" />
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="icon"
+      type="image/webp"
+      href="/uploads/its-a-keeper-photography-favicon.webp"
+    />
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="/uploads/its-a-keeper-photography-favicon.jpg"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/uploads/its-a-keeper-photography-favicon.jpg"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={settings.businessName} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="Outdoor, golden-hour portraits for seniors, families, couples, newborns and local businesses in the Tri-Cities."
+    />
+    <meta property="og:image" content={absolute(seoImage)} />
+    {seoImageMeta.width && <meta property="og:image:width" content={String(seoImageMeta.width)} />}
+    {seoImageMeta.height && <meta property="og:image:height" content={String(seoImageMeta.height)} />}
+    <meta property="og:image:alt" content={settings.seoImageAlt} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content="Outdoor, golden-hour portraits for seniors, families, couples, newborns and local businesses in the Tri-Cities."
+    />
+    <meta name="twitter:image" content={absolute(seoImage)} />
+    <meta name="twitter:image:alt" content={settings.seoImageAlt} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(webSiteSchema)} />
+
+    {homepage.hero.visible !== false && heroMeta.mobileWebp && (
+      <link
+        rel="preload"
+        as="image"
+        href={heroMeta.mobileWebp}
+        type="image/webp"
+        media="(max-width: 767px)"
+        fetchpriority="high"
+      />
+    )}
+    {homepage.hero.visible !== false && (heroMeta.desktopAvif || heroMeta.desktopWebp) && (
+      <link
+        rel="preload"
+        as="image"
+        href={heroMeta.desktopAvif || heroMeta.desktopWebp}
+        type={heroMeta.desktopAvif ? "image/avif" : "image/webp"}
+        media="(min-width: 768px)"
+        fetchpriority="high"
+      />
+    )}
+    {homepage.hero.visible !== false && !hasResponsiveHero && (
+      <link
+        rel="preload"
+        as="image"
+        href={responsivePreloadImage}
+        type={preloadType}
+        imagesrcset={heroResponsiveSrcset || undefined}
+        imagesizes={heroResponsiveSrcset ? "100vw" : undefined}
+        fetchpriority="high"
+      />
+    )}
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/cormorant-garamond-latin-400.woff2"
+      crossorigin
+    />
+    <script src="/vendor/gsap-3.15.0.min.js" defer is:inline></script>
+    <script
+      src="/vendor/scroll-trigger-3.15.0.min.js"
+      defer
+      is:inline
+    ></script>
+    <script src="/scripts/site.min.js" defer is:inline></script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <slot />
+  </body>
+</html>

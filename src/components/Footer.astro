@@ -1,0 +1,70 @@
+---
+import Picture from "./Picture.astro";
+import { tinaField } from "@tinacms/astro/tina-field";
+import { telHref } from "../lib/content";
+
+const { settings } = Astro.props;
+const phoneHref = telHref(settings.phone);
+const serviceAreaLine = settings.serviceAreas.join(" · ");
+---
+
+<footer class="site-footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand-logo brand-logo--footer" href="#home" aria-label={`${settings.businessName}, home`}>
+        <Picture
+          src={settings.logo}
+          alt={settings.logoAlt}
+          loading="lazy"
+          optimizedMobileWidth={400}
+          optimizedDesktopWidth={400}
+          dataTinaField={tinaField(settings, "logo")}
+        />
+      </a>
+      {settings.footerTagline && (
+        <p data-tina-field={tinaField(settings, "footerTagline")}>
+          {settings.footerTagline}
+        </p>
+      )}
+    </div>
+
+    <address class="footer-address" data-tina-field={tinaField(settings, "address")}>
+      <strong>{settings.businessName}</strong><br />
+      {settings.address.street}<br />
+      {settings.address.city}, {settings.address.state} {settings.address.zip}<br />
+      <a href={`tel:${phoneHref}`}>{settings.phone}</a>
+    </address>
+
+    <div class="footer-links">
+      <p
+        class="footer-service-area"
+        data-tina-field={tinaField(settings, "serviceAreas")}
+      >{serviceAreaLine}</p>
+      <nav aria-label="Social media">
+        {settings.social.instagram && (
+          <a
+            href={settings.social.instagram}
+            target="_blank"
+            rel="me noopener noreferrer"
+          >Instagram</a>
+        )}
+        {settings.social.facebook && (
+          <a
+            href={settings.social.facebook}
+            target="_blank"
+            rel="me noopener noreferrer"
+          >Facebook</a>
+        )}
+      </nav>
+    </div>
+
+    <div class="instagram-placeholder" data-instagram-feed>
+      <!-- TODO: Replace this placeholder with Lisa’s approved Instagram feed embed. -->
+      <p>Recent light, coming soon.</p>
+    </div>
+
+    <p class="footer-copyright">
+      &copy; <span data-current-year>2026</span> {settings.businessName}. All rights reserved.
+    </p>
+  </div>
+</footer>

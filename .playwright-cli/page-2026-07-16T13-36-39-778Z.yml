@@ -1,0 +1,26 @@
+- generic [active]:
+  - generic:
+    - generic:
+      - generic [ref=e2]:
+        - button "Show editing panel"
+        - generic [ref=e3]:
+          - generic [ref=e5]:
+            - generic [ref=e6]:
+              - button "Open navigation menu" [ref=e7] [cursor=pointer]
+              - link "You are in local mode" [ref=e17] [cursor=pointer]:
+                - /url: https://tina.io/docs/r/what-is-tinacloud/
+            - button "Hide editing panel" [ref=e19] [cursor=pointer]
+          - generic [ref=e43]:
+            - paragraph [ref=e44]: TinaCMS form fields will appear here.
+            - paragraph [ref=e45]:
+              - link "📖 Visual Editing Docs" [ref=e46] [cursor=pointer]:
+                - /url: https://tina.io/docs/r/visual-editing-setup
+                - generic [ref=e47]: 📖
+                - text: Visual Editing Docs
+      - generic [ref=e51]:
+        - generic [ref=e53]:
+          - button "Toggle navigation menu" [ref=e54] [cursor=pointer]
+          - link "You are in local mode" [ref=e64] [cursor=pointer]:
+            - /url: https://tina.io/docs/r/what-is-tinacloud/
+        - heading "Welcome to Tina!" [level=3] [ref=e67]
+        - generic [ref=e68]: This is your dashboard for editing or creating content. Select a collection on the left to begin.
