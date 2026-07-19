@@ -1,0 +1,18 @@
+{
+  "order": 1,
+  "title": "Golden beginnings",
+  "tapeStyle": "sage",
+  "layout": "hero-note",
+  "photos": [
+    {
+      "image": "/uploads/senior-portrait-golden-hour-richland.jpg",
+      "alt": "A high school senior in a black dress standing in warm golden-hour light near Richland",
+      "caption": "A new chapter, held in light"
+    },
+    {
+      "image": "/uploads/spring-portrait-blossoms-tricities.jpg",
+      "alt": "A portrait subject framed by pale spring blossoms during a Tri-Cities session",
+      "caption": "Spring, just as it opened"
+    }
+  ]
+}

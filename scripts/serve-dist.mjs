@@ -37,7 +37,11 @@ const compressible = new Set([
 
 createServer((request, response) => {
   const pathname = decodeURIComponent(new URL(request.url || "/", "http://local").pathname);
-  const requested = pathname.endsWith("/") ? `${pathname}index.html` : pathname;
+  let requested = pathname.endsWith("/") ? `${pathname}index.html` : pathname;
+  const possibleDirectory = join(root, normalize(pathname).replace(/^[/\\]+/, ""));
+  if (!pathname.endsWith("/") && existsSync(possibleDirectory) && statSync(possibleDirectory).isDirectory()) {
+    requested = `${pathname}/index.html`;
+  }
   const relative = normalize(requested).replace(/^(\.\.[/\\])+/, "").replace(/^[/\\]+/, "");
   let file = join(root, relative);
 

@@ -6,20 +6,37 @@ import { imageMeta } from "../lib/images";
 interface Props {
   title: string;
   description: string;
-  homepage: any;
+  homepage?: any;
   settings: any;
+  canonicalPath?: string;
+  seoImage?: string;
+  seoImageAlt?: string;
 }
 
-const { title, description, homepage, settings } = Astro.props;
+const {
+  title,
+  description,
+  homepage,
+  settings,
+  canonicalPath = "/",
+  seoImage: pageSeoImage,
+  seoImageAlt: pageSeoImageAlt,
+} = Astro.props;
 
 const siteUrl = (settings.advanced.siteUrl || "").replace(/\/$/, "");
 const absolute = (path: string) => `${siteUrl}${path}`;
-const canonical = `${siteUrl}/`;
+const siteRoot = `${siteUrl}/`;
+const normalizedCanonicalPath = canonicalPath === "/"
+  ? "/"
+  : `/${canonicalPath.replace(/^\/+|\/+$/g, "")}/`;
+const canonical = `${siteUrl}${normalizedCanonicalPath}`;
 
-const seoImage = settings.seoImage;
+const seoImage = pageSeoImage || settings.seoImage;
+const seoImageAlt = pageSeoImageAlt || settings.seoImageAlt;
 const seoImageMeta = imageMeta(seoImage);
-const heroMeta = imageMeta(homepage.hero.image);
-const preloadImage = heroMeta.webp || homepage.hero.image;
+const hero = homepage?.hero;
+const heroMeta = imageMeta(hero?.image || "");
+const preloadImage = heroMeta.webp || hero?.image;
 const preloadType = heroMeta.webp ? "image/webp" : undefined;
 const heroResponsiveSrcset = heroMeta.responsiveWebp
   ?.map((variant) => `${variant.path} ${variant.width}w`)
@@ -35,10 +52,10 @@ const hasResponsiveHero = Boolean(
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": `${canonical}#business`,
+  "@id": `${siteRoot}#business`,
   name: settings.businessName.replace(/’/g, "'"),
   description: settings.advanced.businessDescription,
-  url: canonical,
+  url: siteRoot,
   telephone: telHref(settings.phone).replace(/^(\+1)(\d{3})(\d{3})(\d{4})$/, "$1-$2-$3-$4"),
   email: settings.email,
   image: absolute(seoImage),
@@ -79,16 +96,34 @@ const localBusinessSchema = {
 const webSiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "@id": `${canonical}#website`,
-  url: canonical,
+  "@id": `${siteRoot}#website`,
+  url: siteRoot,
   name: settings.businessName.replace(/’/g, "'"),
   description:
     "Warm, connected portrait photography by Lisa in Richland and the Tri-Cities, Washington.",
   publisher: {
-    "@id": `${canonical}#business`,
+    "@id": `${siteRoot}#business`,
   },
   inLanguage: "en-US",
 };
+
+const webPageSchema = normalizedCanonicalPath !== "/"
+  ? {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      isPartOf: { "@id": `${siteRoot}#website` },
+      about: { "@id": `${siteRoot}#business` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: absolute(seoImage),
+      },
+      inLanguage: "en-US",
+    }
+  : null;
 ---
 
 <!doctype html>
@@ -122,28 +157,25 @@ const webSiteSchema = {
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
-    <meta
-      property="og:description"
-      content="Outdoor, golden-hour portraits for seniors, families, couples, newborns and local businesses in the Tri-Cities."
-    />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content={absolute(seoImage)} />
     {seoImageMeta.width && <meta property="og:image:width" content={String(seoImageMeta.width)} />}
     {seoImageMeta.height && <meta property="og:image:height" content={String(seoImageMeta.height)} />}
-    <meta property="og:image:alt" content={settings.seoImageAlt} />
+    <meta property="og:image:alt" content={seoImageAlt} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta
-      name="twitter:description"
-      content="Outdoor, golden-hour portraits for seniors, families, couples, newborns and local businesses in the Tri-Cities."
-    />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={absolute(seoImage)} />
-    <meta name="twitter:image:alt" content={settings.seoImageAlt} />
+    <meta name="twitter:image:alt" content={seoImageAlt} />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(localBusinessSchema)} />
     <script type="application/ld+json" is:inline set:html={JSON.stringify(webSiteSchema)} />
+    {webPageSchema && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
+    )}
 
-    {homepage.hero.visible !== false && heroMeta.mobileWebp && (
+    {hero?.visible !== false && heroMeta.mobileWebp && (
       <link
         rel="preload"
         as="image"
@@ -153,7 +185,7 @@ const webSiteSchema = {
         fetchpriority="high"
       />
     )}
-    {homepage.hero.visible !== false && (heroMeta.desktopAvif || heroMeta.desktopWebp) && (
+    {hero?.visible !== false && (heroMeta.desktopAvif || heroMeta.desktopWebp) && (
       <link
         rel="preload"
         as="image"
@@ -163,7 +195,7 @@ const webSiteSchema = {
         fetchpriority="high"
       />
     )}
-    {homepage.hero.visible !== false && !hasResponsiveHero && (
+    {hero?.visible !== false && preloadImage && !hasResponsiveHero && (
       <link
         rel="preload"
         as="image"

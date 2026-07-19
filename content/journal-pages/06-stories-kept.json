@@ -1,0 +1,18 @@
+{
+  "order": 6,
+  "title": "Stories kept",
+  "tapeStyle": "sand",
+  "layout": "offset-pair",
+  "photos": [
+    {
+      "image": "/uploads/lisa-photographer-tricities.jpg",
+      "alt": "Lisa, owner of It’s A Keeper Photography, smiling while holding her camera in the Tri-Cities",
+      "caption": "The heart behind the camera"
+    },
+    {
+      "image": "/uploads/family-golden-light-richland.jpg",
+      "alt": "Two parents holding their baby close in golden autumn light near Richland",
+      "caption": "Because this season moves quickly"
+    }
+  ]
+}

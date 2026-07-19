@@ -836,6 +836,122 @@ export default defineConfig({
       },
 
       /* ------------------------------------------------------------------ */
+      /* Journal pages                                                       */
+      /* ------------------------------------------------------------------ */
+      {
+        name: "journalPage",
+        label: "Journal Pages",
+        path: "content/journal-pages",
+        format: "json",
+        indexes: [
+          {
+            name: "order",
+            fields: [{ name: "order" }],
+          },
+        ],
+        ui: {
+          router: () => "/portfolio/",
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          {
+            type: "number",
+            name: "order",
+            label: "Page order",
+            required: true,
+            description:
+              "Controls where this page appears in the journal. Use each number once.",
+            ui: {
+              validate: (value?: number) => {
+                if (!Number.isInteger(value) || Number(value) < 1 || Number(value) > 6) {
+                  return "Use a whole number from 1 through 6.";
+                }
+              },
+            },
+          },
+          {
+            type: "string",
+            name: "title",
+            label: "Page title (optional)",
+            description: "A short handwritten-style heading for this page.",
+            ui: { validate: maxChars(40) },
+          },
+          {
+            type: "string",
+            name: "tapeStyle",
+            label: "Tape preset",
+            required: true,
+            description:
+              "Choose one of the approved tape treatments. The colors and styling stay locked to the site design.",
+            options: [
+              { label: "Soft sage", value: "sage" },
+              { label: "Warm oatmeal", value: "oatmeal" },
+              { label: "Natural sand", value: "sand" },
+            ],
+            ui: { component: "select" },
+          },
+          {
+            type: "string",
+            name: "layout",
+            label: "Photo layout preset",
+            required: true,
+            description:
+              "Choose an approved arrangement. Photo positions, spacing and decoration are handled automatically.",
+            options: [
+              { label: "Feature photo + note", value: "hero-note" },
+              { label: "Offset pair", value: "offset-pair" },
+              { label: "Story grid", value: "story-grid" },
+              { label: "Tall stack", value: "tall-stack" },
+            ],
+            ui: { component: "select" },
+          },
+          {
+            type: "object",
+            name: "photos",
+            label: "Photos",
+            list: true,
+            required: true,
+            description: "Add between two and four photographs to this page.",
+            ui: {
+              min: 2,
+              max: 4,
+              itemProps: (item?: { caption?: string; alt?: string }) => ({
+                label: item?.caption || item?.alt || "New photo",
+              }),
+            },
+            fields: [
+              {
+                type: "image",
+                name: "image",
+                label: "Photo",
+                required: true,
+              },
+              {
+                type: "string",
+                name: "alt",
+                label: "Describe this photo",
+                required: true,
+                description:
+                  "One specific sentence describing the people, setting and moment for visitors who cannot see the image.",
+                ui: { validate: maxChars(160) },
+              },
+              {
+                type: "string",
+                name: "caption",
+                label: "Caption (optional)",
+                ui: { validate: maxChars(60) },
+              },
+              {
+                type: "datetime",
+                name: "date",
+                label: "Date (optional)",
+              },
+            ],
+          },
+        ],
+      },
+
+      /* ------------------------------------------------------------------ */
       /* Testimonials                                                        */
       /* ------------------------------------------------------------------ */
       {

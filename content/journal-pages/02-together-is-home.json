@@ -1,0 +1,23 @@
+{
+  "order": 2,
+  "title": "Together is home",
+  "tapeStyle": "oatmeal",
+  "layout": "story-grid",
+  "photos": [
+    {
+      "image": "/uploads/family-golden-hour-columbia-basin.jpg",
+      "alt": "Parents holding their young child together in glowing Columbia Basin evening light",
+      "caption": "The beautiful in-between"
+    },
+    {
+      "image": "/uploads/family-portrait-outdoors-tricities.jpg",
+      "alt": "A family laughing close together during an outdoor portrait session in the Tri-Cities",
+      "caption": "The laugh no one planned"
+    },
+    {
+      "image": "/uploads/winter-family-portrait-tricities.jpg",
+      "alt": "A family gathered close for a winter portrait outdoors in the Tri-Cities",
+      "caption": "Warmth in every season"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "order": 3,
+  "title": "Just the two of you",
+  "tapeStyle": "sand",
+  "layout": "offset-pair",
+  "photos": [
+    {
+      "image": "/uploads/hero-couple-golden-hour-richland.jpg",
+      "alt": "A couple sharing a quiet embrace beneath autumn trees at golden hour in Richland",
+      "caption": "Where the evening slowed down"
+    },
+    {
+      "image": "/uploads/couples-portrait-outdoors-richland.jpg",
+      "alt": "A couple smiling together during a relaxed outdoor portrait session near Richland",
+      "caption": "Easy, honest, entirely yours"
+    }
+  ]
+}

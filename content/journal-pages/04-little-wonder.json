@@ -1,0 +1,18 @@
+{
+  "order": 4,
+  "title": "Little wonder",
+  "tapeStyle": "sage",
+  "layout": "tall-stack",
+  "photos": [
+    {
+      "image": "/uploads/newborn-portrait-with-mother-richland.jpg",
+      "alt": "A mother gently kissing her newborn during a quiet lifestyle session in Richland",
+      "caption": "Small enough to fit here"
+    },
+    {
+      "image": "/uploads/family-newborn-connection-richland.jpg",
+      "alt": "A family holding their newborn close together during an intimate Richland session",
+      "caption": "A whole new kind of love"
+    }
+  ]
+}

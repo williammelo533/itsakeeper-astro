@@ -32,3 +32,4 @@ public/uploads/*-400.webp
 public/uploads/*-640.webp
 public/uploads/*-960.webp
 public/uploads/*-1440.webp
+*.mp4

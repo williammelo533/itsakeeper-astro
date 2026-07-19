@@ -10,3 +10,13 @@ export const getHomepagePage = () =>
     }),
     { priority: "primary" }
   );
+
+export const getPortfolioPage = () =>
+  requestWithMetadata(
+    client.queries.portfolioPage({
+      homepagePath: "index.json",
+      settingsPath: "index.json",
+      journalPageLimit: 6,
+    }),
+    { priority: "primary" }
+  );

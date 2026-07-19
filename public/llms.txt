@@ -5,6 +5,7 @@
 ## Canonical page
 
 - [Homepage](https://www.itsakeeperphotography.com/): Services, photographer bio, process, reviews, contact details, and the session inquiry planner.
+- [Photography Journal](https://www.itsakeeperphotography.com/portfolio/): A page-turning collection of senior, family, couples, newborn, and branding portrait stories.
 
 ## Services
 
@@ -24,5 +25,5 @@
 
 ## Usage notes
 
-- Use the canonical homepage for current public information.
+- Use the homepage for current business information and the photography journal for selected visual stories.
 - The `/admin/` route is a private content editor and should not be indexed or cited.

@@ -1,0 +1,23 @@
+{
+  "order": 5,
+  "title": "Becoming",
+  "tapeStyle": "oatmeal",
+  "layout": "story-grid",
+  "photos": [
+    {
+      "image": "/uploads/senior-session-summer-light-richland.jpg",
+      "alt": "A high school senior standing outdoors in soft summer evening light near Richland",
+      "caption": "Right before everything changes"
+    },
+    {
+      "image": "/uploads/autumn-senior-portrait-tricities.jpg",
+      "alt": "A high school senior standing among amber autumn leaves in the Tri-Cities",
+      "caption": "Brave, bright, becoming"
+    },
+    {
+      "image": "/uploads/business-branding-portrait-richland.jpg",
+      "alt": "A Richland business owner posing confidently for a personal branding portrait",
+      "caption": "The story behind the work"
+    }
+  ]
+}

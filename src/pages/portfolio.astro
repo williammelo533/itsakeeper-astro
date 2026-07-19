@@ -1,0 +1,32 @@
+---
+import TinaIsland from "@tinacms/astro/TinaIsland.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import JournalPortfolio from "../components/JournalPortfolio.astro";
+import Base from "../layouts/Base.astro";
+import { getPortfolioPage } from "../lib/tina/data";
+import { portfolioWrapper } from "../lib/tina/islands";
+
+const page = await getPortfolioPage();
+const data = page.data;
+const homepage = data.homepage;
+const settings = data.settings;
+const title = "Photography Journal | It’s A Keeper Photography";
+const description =
+  "Turn through portrait stories from seniors, families, couples and newborn sessions photographed by Lisa in Richland and the Tri-Cities.";
+---
+
+<Base
+  title={title}
+  description={description}
+  settings={settings}
+  canonicalPath="/portfolio/"
+>
+  <Header settings={settings} homepage={homepage} currentPath="/portfolio/" />
+  <main id="main-content">
+    <TinaIsland name="portfolio" wrapper={portfolioWrapper} primary>
+      <JournalPortfolio data={data} />
+    </TinaIsland>
+  </main>
+  <Footer settings={settings} />
+</Base>

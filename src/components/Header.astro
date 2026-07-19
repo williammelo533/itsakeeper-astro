@@ -3,11 +3,13 @@ import Picture from "./Picture.astro";
 import { tinaField } from "@tinacms/astro/tina-field";
 import { slugify } from "../lib/content";
 
-const { settings, homepage } = Astro.props;
+const { settings, homepage, currentPath = "/" } = Astro.props;
+const isHomepage = currentPath === "/";
+const homeAnchor = (id: string) => `${isHomepage ? "" : "/"}#${id}`;
 const sessionLinks = homepage.sessions.visible !== false
   ? homepage.sessions.cards.map((card) => ({
       label: card.label,
-      href: `#${slugify(card.label)}`,
+      href: homeAnchor(slugify(card.label)),
     }))
   : [];
 ---
@@ -27,7 +29,7 @@ const sessionLinks = homepage.sessions.visible !== false
       <span class="menu-toggle__line" aria-hidden="true"></span>
     </button>
 
-    <a class="brand-logo" href="#home" aria-label={`${settings.businessName}, home`}>
+    <a class="brand-logo" href="/" aria-label={`${settings.businessName}, home`}>
       <Picture
         src={settings.logo}
         alt={settings.logoAlt}
@@ -49,14 +51,21 @@ const sessionLinks = homepage.sessions.visible !== false
             <a class="primary-nav__link" href={link.href}>{link.label}</a>
           </li>
         ))}
+        <li class="primary-nav__item">
+          <a
+            class="primary-nav__link"
+            href="/portfolio/"
+            aria-current={currentPath === "/portfolio/" ? "page" : undefined}
+          >Journal</a>
+        </li>
         {homepage.meetLisa.visible !== false && (
           <li class="primary-nav__item">
-            <a class="primary-nav__link" href="#meet-lisa">Meet Lisa</a>
+            <a class="primary-nav__link" href={homeAnchor("meet-lisa")}>Meet Lisa</a>
           </li>
         )}
         {homepage.inquiry.visible !== false && (
           <li class="primary-nav__item">
-            <a class="primary-nav__link primary-nav__link--button" href="#inquire">Inquire</a>
+            <a class="primary-nav__link primary-nav__link--button" href={homeAnchor("inquire")}>Inquire</a>
           </li>
         )}
       </ul>
