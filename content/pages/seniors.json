@@ -1,0 +1,137 @@
+{
+  "route": "/senior-photographer-tri-cities-wa/",
+  "family": "service",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "Service",
+  "signature": "arch",
+  "title": "Senior Pictures Tri-Cities WA | Class of 2027 Photographer",
+  "description": "Senior pictures in the Tri-Cities that actually look like you. Relaxed golden-hour sessions in Richland, Kennewick and Pasco with wardrobe help and easy posing.",
+  "hero": {
+    "tone": "earth",
+    "heading": "Senior Pictures in the Tri-Cities, WA",
+    "intro": "Relaxed, confident senior pictures in Richland, Kennewick and Pasco — planned around your style, photographed in golden light, and guided so you never have to wonder what to do with your hands.",
+    "links": [
+      {
+        "label": "Plan Your Senior Session",
+        "href": "/contact/"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "this-year-only-happens-once",
+      "kind": "prose",
+      "tone": "sand",
+      "heading": "This Year Only Happens Once",
+      "paragraphs": [
+        "Senior year moves fast — school, games, applications, lasts of everything. Your senior pictures are the one place where all of it slows down for an evening: who you are right now, before everything changes.",
+        "I've photographed seniors across the Tri-Cities for two decades, and here's what I've learned: the best senior pictures don't come from copying someone else's Pinterest board. They come from celebrating your personality, your style, and your story. That's what we'll capture."
+      ]
+    },
+    {
+      "id": "not-photogenic",
+      "kind": "split",
+      "tone": "ivory",
+      "heading": "\"I'm Not Photogenic\" — Yes, You Are",
+      "paragraphs": [
+        "Almost every senior tells me some version of this before their session. And then there's my favorite moment of every shoot: turning the camera around and showing them the back of it. Watching a shy or unsure teenager's face light up when they see just how beautiful they are — that never gets old. Not after hundreds of sessions.",
+        "You don't need to know how to pose. That's my job. I'll guide you with simple prompts the whole way — walk here, look there, take a deep breath in through your nose and out through your mouth — and somewhere between \"get closer!\" and \"just one more!\" (it's basically never just one more), you'll forget the camera is there."
+      ]
+    },
+    {
+      "id": "senior-session-process",
+      "kind": "steps",
+      "tone": "olive",
+      "heading": "How Your Senior Session Works",
+      "items": [
+        {
+          "heading": "Plan (outfits, locations, the vibe)",
+          "paragraphs": [
+            "Before your session, we'll talk through outfits together — what shows your style, what photographs beautifully, and what you can actually move in. Then we'll pick locations around the Tri-Cities that match your vibe: riverside, open fields, urban, or somewhere that's already yours."
+          ]
+        },
+        {
+          "heading": "Shoot (golden hour, zero awkwardness)",
+          "paragraphs": [
+            "We meet at golden hour and keep it moving — multiple outfits, multiple spots if we've planned them, music if you want it. Bring a friend, bring your mom, bring your dog. Whatever helps you feel like you."
+          ]
+        },
+        {
+          "heading": "Reveal (the part parents cry at)",
+          "paragraphs": [
+            "When your gallery is ready, you'll see yourself the way I see you. I've sat with parents seeing their senior's images for the first time — eyes filling up because their \"baby\" has grown up, or because their child was truly captured for who they are. It happens almost every time."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "for-parents",
+      "kind": "quote",
+      "tone": "earth",
+      "heading": "For Parents",
+      "paragraphs": [
+        "I know these photos are for both of you — for the announcement, the wall, and the season you're walking through as a family. My promise to you: your senior will be guided, safe and comfortable the entire session, and the photographs will show the young adult you know — not a stiff, over-posed version of them. Many of my senior families have been with me since those seniors were little."
+      ]
+    },
+    {
+      "id": "senior-picture-questions",
+      "kind": "faq",
+      "tone": "sand",
+      "heading": "Senior Picture Questions",
+      "items": [
+        {
+          "heading": "When should I take my senior pictures?",
+          "paragraphs": [
+            "Most Tri-Cities seniors shoot the summer before senior year or early fall, ahead of yearbook deadlines. Spring of junior year works beautifully too."
+          ],
+          "links": [
+            {
+              "label": "Full timeline: When to take senior pictures",
+              "href": "/journal/when-to-book-senior-pictures-tri-cities/"
+            }
+          ]
+        },
+        {
+          "heading": "How many outfits can I bring?",
+          "paragraphs": [
+            "We'll plan outfits together during your consultation — enough for variety without rushing the session."
+          ]
+        },
+        {
+          "heading": "Can I bring someone with me?",
+          "paragraphs": [
+            "Please do. A parent, a best friend, even your dog — whatever helps you relax and have fun."
+          ]
+        },
+        {
+          "heading": "Where do senior sessions happen?",
+          "paragraphs": [
+            "Outdoors, in golden light, anywhere in the Tri-Cities — Richland, Kennewick, Pasco or the fields and river spots in between. We choose together."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "Reviews",
+          "href": "/reviews/"
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "walnut",
+    "heading": "Class of 2027 — Let's Plan Yours",
+    "paragraphs": [
+      "Senior dates fill fastest of anything I photograph — summer and fall book out first. Tell me about yourself and let's find your light."
+    ],
+    "link": {
+      "label": "Start planning",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[PENDIENTE: dato de senior model/rep program si Lisa tiene o quiere uno — hueco competitivo vs. Kluse]",
+    "[PENDIENTE: número exacto según paquete — Q54]"
+  ]
+}

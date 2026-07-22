@@ -1,8 +1,7 @@
 ---
 /*
- * Reproduces the static site's <picture> pattern exactly: a WebP <source>
- * when a same-name .webp twin exists in /public/uploads, and an <img> with
- * true intrinsic dimensions measured at build time.
+ * Emits a WebP source when optimized uploads exist, with an opt-in responsive
+ * srcset, and always measures true intrinsic dimensions at build time.
  */
 import { imageMeta } from "../lib/images";
 
@@ -14,8 +13,10 @@ interface Props {
   loading?: "lazy" | "eager";
   decoding?: "async" | "sync" | "auto";
   fetchpriority?: "high" | "low" | "auto";
+  sizes?: string;
   dataTinaField?: string;
   responsive?: boolean;
+  responsiveSrcset?: boolean;
   optimizedMobileWidth?: number;
   optimizedDesktopWidth?: number;
 }
@@ -28,12 +29,19 @@ const {
   loading,
   decoding,
   fetchpriority,
+  sizes,
   dataTinaField,
   responsive = false,
+  responsiveSrcset = false,
   optimizedMobileWidth,
   optimizedDesktopWidth,
 } = Astro.props;
 const meta = imageMeta(src);
+const generatedSrcset = responsiveSrcset
+  ? meta.responsiveWebp
+      ?.map((variant) => `${variant.path} ${variant.width}w`)
+      .join(", ")
+  : undefined;
 const variantFor = (requested?: number) => {
   if (!requested || !meta.responsiveWebp?.length) return undefined;
   return (
@@ -53,43 +61,53 @@ const sharedOptimized =
 ---
 
 <picture class={pictureClass} data-tina-field={dataTinaField || undefined}>
-  {responsive && meta.desktopAvif && (
+  {generatedSrcset && (
+    <source srcset={generatedSrcset} sizes={sizes} type="image/webp" />
+  )}
+  {!generatedSrcset && responsive && meta.desktopAvif && (
     <source
       media="(min-width: 768px)"
       srcset={meta.desktopAvif}
       type="image/avif"
     />
   )}
-  {responsive && meta.mobileWebp && (
+  {!generatedSrcset && responsive && meta.mobileAvif && (
+    <source
+      media="(max-width: 767px)"
+      srcset={meta.mobileAvif}
+      type="image/avif"
+    />
+  )}
+  {!generatedSrcset && responsive && meta.mobileWebp && (
     <source
       media="(max-width: 767px)"
       srcset={meta.mobileWebp}
       type="image/webp"
     />
   )}
-  {responsive && meta.desktopWebp && (
+  {!generatedSrcset && responsive && meta.desktopWebp && (
     <source
       media="(min-width: 768px)"
       srcset={meta.desktopWebp}
       type="image/webp"
     />
   )}
-  {!sharedOptimized && mobileOptimized && (
+  {!generatedSrcset && !sharedOptimized && mobileOptimized && (
     <source
       media="(max-width: 767px)"
       srcset={mobileOptimized}
       type="image/webp"
     />
   )}
-  {!sharedOptimized && desktopOptimized && (
+  {!generatedSrcset && !sharedOptimized && desktopOptimized && (
     <source
       media="(min-width: 768px)"
       srcset={desktopOptimized}
       type="image/webp"
     />
   )}
-  {sharedOptimized && <source srcset={sharedOptimized} type="image/webp" />}
-  {meta.webp && <source srcset={meta.webp} type="image/webp" />}
+  {!generatedSrcset && sharedOptimized && <source srcset={sharedOptimized} type="image/webp" />}
+  {!generatedSrcset && meta.webp && <source srcset={meta.webp} type="image/webp" />}
   <img
     class={imgClass}
     src={src}
@@ -99,5 +117,6 @@ const sharedOptimized =
     loading={loading}
     decoding={decoding}
     fetchpriority={fetchpriority}
+    sizes={sizes}
   />
 </picture>

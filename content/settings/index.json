@@ -15,22 +15,22 @@
   "social": {
     "instagram": "https://www.instagram.com/itsakeeperphoto/",
     "facebook": "https://www.facebook.com/10210306464689688",
-    "googleProfile": "https://www.google.com/maps/search/?api=1&query=It%27s%20A%20Keeper%20Photography%2C%2062%20Canyon%20St%2C%20Richland%2C%20WA%2099352"
+    "googleProfile": ""
   },
   "seoImage": "/uploads/hero-couple-golden-hour-richland.jpg",
   "seoImageAlt": "A couple sharing a quiet moment in autumn light during a Richland portrait session",
   "advanced": {
-    "siteUrl": "https://www.itsakeeperphotography.com",
-    "businessDescription": "Outdoor and on-location portrait photography for seniors, families, couples, newborns and local businesses in Richland and the Tri-Cities, Washington.",
-    "founderName": "Lisa",
+    "siteUrl": "https://itsakeeperphotography.netlify.app",
+    "businessDescription": "Tri-Cities photographer specializing in senior pictures, family photography, newborn sessions, branding photography and professional headshots in Richland, Kennewick and Pasco, WA.",
+    "founderName": "Lisa Weiss",
     "latitude": 46.2338322,
     "longitude": -119.2621529,
     "services": [
       "High school senior portraits",
       "Family photography sessions",
-      "Couples photography sessions",
       "Newborn photography sessions",
-      "Business branding photography"
+      "Business branding photography",
+      "Professional headshots"
     ]
   }
 }

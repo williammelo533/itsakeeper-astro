@@ -10,6 +10,7 @@
   const hero = document.querySelector(".hero");
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const primaryNav = document.querySelector("[data-primary-nav]");
+  const compactNavigation = window.matchMedia("(max-width: 1250px)");
   const mobileNavigation = window.matchMedia("(max-width: 1050px)");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -30,13 +31,13 @@
 
   primaryNav?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      if (mobileNavigation.matches) setMenuState(false);
+      if (compactNavigation.matches) setMenuState(false);
     });
   });
 
   document.addEventListener("click", (event) => {
     if (
-      mobileNavigation.matches &&
+      compactNavigation.matches &&
       primaryNav?.classList.contains("is-open") &&
       !event.target.closest("[data-primary-nav]") &&
       !event.target.closest("[data-menu-toggle]")
@@ -51,7 +52,7 @@
     }
   });
 
-  mobileNavigation.addEventListener("change", () => setMenuState(false));
+  compactNavigation.addEventListener("change", () => setMenuState(false));
 
   /*
    * Same-page navigation keeps spatial context instead of jumping. Pointer
@@ -815,24 +816,11 @@
     };
 
     form.addEventListener("submit", (event) => {
-      event.preventDefault();
       cancelAutoAdvance();
-      if (!validateAllSteps()) return;
-
-      const payload = {
-        sessionType: form.elements.session_type.value,
-        season: form.elements.season.value,
-        locationPreference: form.elements.location_preference.value,
-        message: form.elements.story.value.trim(),
-        contact: {
-          name: form.elements.name.value.trim(),
-          email: form.elements.email.value.trim(),
-          phone: form.elements.phone.value.trim(),
-        },
-      };
-
-      // Required for acceptance testing. Remove or redact personal fields in production logs.
-      console.log("It’s A Keeper inquiry payload", payload);
+      if (!validateAllSteps()) {
+        event.preventDefault();
+        return;
+      }
 
       form.setAttribute("aria-busy", "true");
       submitButton?.setAttribute("aria-busy", "true");
@@ -841,14 +829,6 @@
         submitButton.textContent = "Sending…";
       }
 
-      /*
-       * TODO: POST payload to the production handler at form.action. This local placeholder
-       * resolves without a network request so the full confirmation flow remains testable.
-       */
-      window.setTimeout(() => {
-        form.removeAttribute("aria-busy");
-        showConfirmation({ animate: lastInteractionWasPointer });
-      }, reduceMotion.matches ? 0 : 260);
     });
 
     document.addEventListener("visibilitychange", () => {
@@ -919,7 +899,10 @@
           gsap.set(targets, { clearProps: "opacity,visibility,transform,willChange" });
 
         const makeTimeline = (section, targets) => {
-          const timeline = gsap.timeline({ scrollTrigger: triggerConfig(section) });
+          const timeline = gsap.timeline({
+            defaults: { immediateRender: false },
+            scrollTrigger: triggerConfig(section),
+          });
           timeline.eventCallback("onStart", () => prepare(targets));
           timeline.eventCallback("onComplete", () => clear(targets));
           return timeline;

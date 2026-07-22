@@ -1,0 +1,73 @@
+{
+  "route": "/pasco-wa-photographer/",
+  "family": "city",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "WebPage",
+  "signature": "crossing-line",
+  "title": "Pasco WA Photographer | It's A Keeper Photography",
+  "description": "Golden-hour photography in Pasco, WA — seniors, families, newborns and branding sessions at Sacajawea's rivers, open farmland and your favorite spots.",
+  "hero": {
+    "tone": "olive",
+    "heading": "Your Pasco, WA Photographer",
+    "intro": "Senior pictures, family sessions, newborns and branding photography in Pasco — big skies, river light, and a photographer who knows where they meet."
+  },
+  "sections": [
+    {
+      "id": "where-the-rivers-meet",
+      "kind": "prose",
+      "tone": "sand",
+      "heading": "Where the Rivers Meet",
+      "paragraphs": [
+        "Pasco has some of the most underrated session light in the Tri-Cities. The confluence at Sacajawea, the open farmland north of town, the long uninterrupted horizons — when the evening sun stretches across those spaces, it's some of the warmest light in the whole valley."
+      ]
+    },
+    {
+      "id": "pasco-session-directory",
+      "kind": "services",
+      "tone": "earth",
+      "heading": "Sessions I Photograph in Pasco",
+      "links": [
+        {
+          "label": "Senior Pictures",
+          "href": "/senior-photographer-tri-cities-wa/"
+        },
+        {
+          "label": "Family Photography",
+          "href": "/family-photographer-tri-cities-wa/"
+        },
+        {
+          "label": "Best places to take pictures in the Tri-Cities",
+          "href": "/journal/family-photo-locations-tri-cities/"
+        }
+      ]
+    },
+    {
+      "id": "pasco-questions",
+      "kind": "faq",
+      "tone": "ivory",
+      "heading": "Pasco Questions",
+      "items": [
+        {
+          "heading": "What time are sessions?",
+          "paragraphs": [
+            "Golden hour — the last stretch of warm light before sunset. Exact timing shifts with the season, and I'll plan it to the minute."
+          ]
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "walnut",
+    "heading": "Let's Find Your Light in Pasco",
+    "link": {
+      "label": "Start planning",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[VALIDAR CON LISA: sus spots reales de Pasco + detalles de primera mano]",
+    "[PENDIENTE: 6–10 imágenes de sesiones reales en Pasco con alt text de locación]",
+    "[VALIDAR — Q53]"
+  ]
+}

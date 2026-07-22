@@ -1,0 +1,16 @@
+---
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+
+interface Props {
+  settings: any;
+  homepage?: any;
+  currentPath: string;
+}
+
+const { settings, homepage, currentPath } = Astro.props;
+---
+
+<Header settings={settings} homepage={homepage} currentPath={currentPath} />
+<main id="main-content"><slot /></main>
+<Footer settings={settings} />

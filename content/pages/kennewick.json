@@ -1,0 +1,73 @@
+{
+  "route": "/kennewick-wa-photographer/",
+  "family": "city",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "WebPage",
+  "signature": "overlap",
+  "title": "Kennewick WA Photographer | It's A Keeper Photography",
+  "description": "Golden-hour photography in Kennewick, WA — seniors, families, newborns and branding. Sessions at Columbia Park, the riverfront and the spots locals love.",
+  "hero": {
+    "tone": "walnut",
+    "heading": "Your Kennewick, WA Photographer",
+    "intro": "Senior pictures, family sessions, newborns and branding photography in Kennewick — photographed in the warm evening light this side of the river does so well."
+  },
+  "sections": [
+    {
+      "id": "minutes-away",
+      "kind": "split",
+      "tone": "ivory",
+      "heading": "Minutes Away, Twenty Years Familiar",
+      "paragraphs": [
+        "I'm based in Richland, just across the river — which means Kennewick families get a local photographer, not a visitor. I've photographed seniors, families and business owners here for two decades: sessions in Columbia Park as the sun drops over the water, branding shoots in downtown Kennewick's shops, and family evenings in the hills where the grass turns to gold."
+      ]
+    },
+    {
+      "id": "kennewick-session-directory",
+      "kind": "services",
+      "tone": "olive",
+      "heading": "Sessions I Photograph in Kennewick",
+      "links": [
+        {
+          "label": "Senior Pictures",
+          "href": "/senior-photographer-tri-cities-wa/"
+        },
+        {
+          "label": "Family Photography",
+          "href": "/family-photographer-tri-cities-wa/"
+        },
+        {
+          "label": "Best places to take pictures in the Tri-Cities",
+          "href": "/journal/family-photo-locations-tri-cities/"
+        }
+      ]
+    },
+    {
+      "id": "kennewick-questions",
+      "kind": "faq",
+      "tone": "sand",
+      "heading": "Kennewick Questions",
+      "items": [
+        {
+          "heading": "What time are Kennewick sessions?",
+          "paragraphs": [
+            "Golden hour — roughly the last hour before sunset, when the light over the Columbia turns warm and soft."
+          ]
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "umber",
+    "heading": "Let's Find Your Light in Kennewick",
+    "link": {
+      "label": "Start planning",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[VALIDAR CON LISA: sus spots reales de Kennewick + 1–2 detalles de primera mano por locación]",
+    "[PENDIENTE: 6–10 imágenes de sesiones reales en Kennewick con alt text de locación]",
+    "[VALIDAR — Q53]"
+  ]
+}

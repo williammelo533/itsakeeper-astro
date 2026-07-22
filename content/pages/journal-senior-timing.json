@@ -1,0 +1,139 @@
+{
+  "route": "/journal/when-to-book-senior-pictures-tri-cities/",
+  "family": "article",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "Article",
+  "signature": "crossing-line",
+  "title": "When to Take Senior Pictures: A Photographer's Timeline",
+  "description": "When should you take senior pictures — and when is it too late? A 20-year senior photographer shares the real timeline, season by season, plus booking tips.",
+  "hero": {
+    "tone": "olive",
+    "heading": "When Should You Take Senior Pictures?"
+  },
+  "sections": [
+    {
+      "id": "the-short-answer",
+      "kind": "quote",
+      "tone": "ivory",
+      "heading": "The Short Answer",
+      "paragraphs": [
+        "Most seniors take their pictures the summer before senior year or in early fall, ahead of yearbook deadlines. But after twenty years of photographing seniors in the Tri-Cities, my honest answer is: the best time is the one that matches your season — and it's almost never actually \"too late.\""
+      ]
+    },
+    {
+      "id": "when-are-you-supposed-to-take-senior-pictures",
+      "kind": "prose",
+      "tone": "sand",
+      "heading": "When Are You Supposed to Take Senior Pictures?",
+      "paragraphs": [
+        "Beyond the yearbook, families time sessions around sports seasons, hair appointments, braces coming off, and — smart ones — the weather they love most."
+      ]
+    },
+    {
+      "id": "season-by-season",
+      "kind": "steps",
+      "tone": "earth",
+      "heading": "Season by Season: What Each One Gives You",
+      "items": [
+        {
+          "heading": "Spring of junior year",
+          "paragraphs": [
+            "Blossoms, green fields and soft light — and you beat the senior-year rush entirely. Choosing spring means your photos are done before applications, sports and lasts-of-everything take over."
+          ]
+        },
+        {
+          "heading": "Summer before senior year",
+          "paragraphs": [
+            "The most popular window, for good reason: long golden evenings, tan lines optional, no school-schedule conflicts. In the Tri-Cities, summer golden hour is generous — warm light that lasts and lasts. Book early; these dates go first."
+          ]
+        },
+        {
+          "heading": "Early fall of senior year",
+          "paragraphs": [
+            "October along the river is the Tri-Cities showing off — autumn color, honey light, sweater weather. It's also yearbook-deadline season, so fall sessions book out fastest of all."
+          ]
+        },
+        {
+          "heading": "Winter",
+          "paragraphs": [
+            "Underrated. Clean light, quiet locations, moody skies — and a calendar with far more open dates. If your style leans dramatic or cozy, winter might be your season."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "when-is-it-too-late",
+      "kind": "prose",
+      "tone": "ivory",
+      "heading": "When Is It Too Late to Take Senior Pictures?",
+      "paragraphs": [
+        "Here's the answer most websites won't give you: it's only too late for the yearbook — never for the photographs. If the yearbook deadline has passed, submit whatever photo the school needs and then take your real session whenever it works. Senior pictures aren't for the yearbook page; they're for you, your parents, your graduation announcements — and the version of you that only existed this year. I've photographed wonderful senior sessions in February, in April, even after graduation. Those photos matter just as much."
+      ]
+    },
+    {
+      "id": "best-time-of-day",
+      "kind": "prose",
+      "tone": "olive",
+      "heading": "What's the Best Time of Day for Senior Pictures Outside?",
+      "paragraphs": [
+        "Golden hour — roughly the last 60 to 90 minutes before sunset. The light turns warm and directional, skin looks its best, and backgrounds glow instead of glare. In the Tri-Cities that means an evening session almost year-round; exact timing shifts with the season, and I plan it to the minute for every shoot."
+      ]
+    },
+    {
+      "id": "tri-cities-booking-calendar",
+      "kind": "split",
+      "tone": "sand",
+      "heading": "The Tri-Cities Booking Calendar (What Nobody Tells You)",
+      "paragraphs": [
+        "Senior dates fill faster than anything else I photograph. My practical advice, learned from twenty years of local booking patterns: reserve your session four to six weeks before the date you want, and earlier for the golden windows — summer evenings and October. If you're reading this in spring wanting a fall session, now is exactly the right time to reach out."
+      ],
+      "links": [
+        {
+          "label": "See how senior sessions work",
+          "href": "/senior-photographer-tri-cities-wa/"
+        },
+        {
+          "label": "Best places to take pictures in the Tri-Cities",
+          "href": "/journal/family-photo-locations-tri-cities/"
+        }
+      ]
+    },
+    {
+      "id": "quick-answers",
+      "kind": "checklist",
+      "tone": "earth",
+      "heading": "Quick Answers",
+      "items": [
+        {
+          "heading": "Junior or senior year?",
+          "detail": "Either. Spring junior year or summer/fall senior year are both ideal."
+        },
+        {
+          "heading": "Before or after getting braces off?",
+          "detail": "After, if the timing is close — or we celebrate the smile you have now. Your call."
+        },
+        {
+          "heading": "Is winter too cold?",
+          "detail": "We plan around it: shorter sets, warm layers between shots, and light that's worth it."
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "umber",
+    "heading": "Whenever You Shoot, Make It Yours",
+    "paragraphs": [
+      "The timeline matters less than this: your senior pictures should look like you — your style, your places, your story. That's what we plan together, and it's the part I've loved for twenty years."
+    ],
+    "link": {
+      "label": "Check my calendar",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[VALIDAR: fechas concretas de los distritos de Richland, Kennewick y Pasco — dato local que nadie más publica]",
+    "[VALIDAR: si Lisa ofrece esto — Q54]",
+    "[FECHA]"
+  ]
+}

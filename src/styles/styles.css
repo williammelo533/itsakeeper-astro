@@ -38,27 +38,29 @@
 
 :root {
   /* Color system */
-  --color-canvas: #F7F4ED;
-  --color-header: #F8F6F1;
-  --color-surface-sage: #C8CBC5;
-  --color-surface-oatmeal: #E9E0D4;
-  --color-surface-sand: #DBCDBA;
-  --color-surface-decorative: #DFE0DA;
-  --color-label-tan: #D1BFA7;
-  --color-ink: #000000;
-  --color-ink-deep: #000000;
-  --color-heading-cool: #000000;
-  --color-body-cool: #000000;
-  --color-body-warm: #000000;
-  --color-utility: #000000;
-  --color-label-ink: #000000;
-  --color-on-photo: #FFFFFF;
-  --color-icon-muted: #5D5851;
-  --color-line-cool: #000000;
-  --color-line-warm: #000000;
-  --color-control-border: #000000;
-  --color-disabled: #B7B6B2;
-  --color-focus-ring: #000000;
+  --color-canvas: #281E10;
+  --color-header: #F2E8D7;
+  --color-surface-sage: #71674E;
+  --color-surface-oatmeal: #B6A997;
+  --color-surface-sand: #604A31;
+  --color-surface-decorative: #493621;
+  --color-label-tan: #B6A997;
+  --color-ink: #281E10;
+  --color-ink-deep: #281E10;
+  --color-heading-cool: #F2E8D7;
+  --color-body-cool: #F2E8D7;
+  --color-body-warm: #281E10;
+  --color-utility: #493621;
+  --color-label-ink: #281E10;
+  --color-on-photo: #F2E8D7;
+  --color-icon-muted: #8D5933;
+  --color-line-cool: #B6A997;
+  --color-line-warm: #493621;
+  --color-control-border: #493621;
+  --color-disabled: #B6A997;
+  --color-focus-ring-dark: #281E10;
+  --color-focus-ring-light: #F2E8D7;
+  --color-focus-ring: var(--color-focus-ring-dark);
   --photo-color-clay: #8D5933;
   --photo-color-walnut: #493621;
 
@@ -72,8 +74,8 @@
   --reference-line-warm: #817A70;
 
   /* Transparency and image treatment */
-  --photo-overlay-hero: rgba(0, 0, 0, 0.10);
-  --photo-overlay-banner: rgba(0, 0, 0, 0.10);
+  --photo-overlay-hero: rgba(40, 30, 16, 0.30);
+  --photo-overlay-banner: rgba(40, 30, 16, 0.34);
   --reference-overlay-hero: rgba(23, 16, 6, 0.12);
   --reference-overlay-banner: rgba(19, 11, 1, 0.18);
   --focus-shadow-color: rgba(129, 122, 112, 0.32);
@@ -356,10 +358,9 @@
   --radius-arch: 999px 999px 0 0;
   --radius-round: 999px;
   --shadow-none: none;
-  --shadow-header-scrolled: 0 0.5rem 1.5rem rgba(30, 28, 24, 0.10);
-  --shadow-page-preview: 0 1.125rem 1.5rem -0.3125rem rgba(30, 28, 24, 0.45),
-    0 0.3125rem 0.625rem rgba(30, 28, 24, 0.16);
-  --shadow-focus: 0 0 0 0.1875rem var(--focus-shadow-color);
+  --shadow-header-scrolled: none;
+  --shadow-page-preview: none;
+  --shadow-focus: none;
   --layer-base: 0;
   --layer-portfolio: 1;
   --layer-story: 2;
@@ -475,8 +476,8 @@
   --photo-print-border-width: 0.125rem;
   --photo-print-check-size: 2rem;
   --photo-print-check-offset: 0.75rem;
-  --shadow-photo-print: 0 0.625rem 1.5rem rgba(47, 36, 26, 0.12);
-  --shadow-photo-selected: 0 0 0 0.1875rem rgba(141, 89, 51, 0.22);
+  --shadow-photo-print: none;
+  --shadow-photo-selected: none;
   --location-option-min-height: 10rem;
   --form-control-height: 3.25rem;
   --form-control-padding: 0.875rem;
@@ -528,6 +529,10 @@ body {
   line-height: var(--line-height-body);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+.homepage {
+  overflow-x: clip;
 }
 
 body.menu-open {
@@ -2414,15 +2419,6 @@ footer[id] {
   text-wrap: balance;
 }
 
-.inquiry-step__number {
-  display: block;
-  margin-bottom: var(--space-3);
-  color: var(--color-icon-muted);
-  font-family: var(--font-utility);
-  font-size: var(--font-size-caption);
-  letter-spacing: var(--tracking-label);
-}
-
 .photo-options {
   display: grid;
   grid-template-columns: repeat(5, minmax(var(--space-0), 1fr));
@@ -2632,7 +2628,7 @@ footer[id] {
 .form-error {
   min-height: var(--form-error-min-height);
   margin: var(--space-2) var(--space-0) var(--space-0);
-  color: var(--color-form-error);
+  color: var(--color-form-error-text, var(--color-form-error));
   font-family: var(--font-body);
   font-size: var(--font-size-body-sm);
   font-style: italic;
@@ -2655,7 +2651,7 @@ footer[id] {
 }
 
 [aria-invalid="true"] {
-  border-color: var(--color-form-error) !important;
+  border-color: var(--color-form-error-border, var(--color-form-error)) !important;
 }
 
 .inquiry-step__note {

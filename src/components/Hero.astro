@@ -23,14 +23,20 @@ const { hero } = Astro.props;
     responsive
   />
   <div class="hero__overlay" aria-hidden="true"></div>
-  <h1 class="hero__title" id="hero-title">
-    <span class="hero__serif" data-tina-field={tinaField(hero, "heading")}>
+  <div class="hero__title">
+    <h1 class="hero__serif" id="hero-title" data-tina-field={tinaField(hero, "heading")}>
       {hero.heading}
-    </span>
-    <span
+    </h1>
+    <p
       class="hero__script"
       aria-hidden="true"
       data-tina-field={tinaField(hero, "scriptLine")}
-    >{hero.scriptLine}</span>
-  </h1>
+    >{hero.scriptLine}</p>
+    {hero.subhead && <p class="hero__subhead">{hero.subhead}</p>}
+    <div class="hero__actions">
+      {hero.primaryCtaLabel && <a class="outline-button outline-button--light" href={hero.primaryCtaHref}>{hero.primaryCtaLabel}</a>}
+      {hero.secondaryCtaLabel && <a class="hero__secondary" href={hero.secondaryCtaHref}>{hero.secondaryCtaLabel}</a>}
+    </div>
+  </div>
+  {hero.trustBar && <p class="hero__trust">{hero.trustBar}</p>}
 </section>

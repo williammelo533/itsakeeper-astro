@@ -28,4 +28,9 @@ const { photoBreak } = Astro.props;
     aria-hidden="true"
     data-tina-field={tinaField(photoBreak, "scriptPhrase")}
   >{photoBreak.scriptPhrase}</p>
+  <div class="photo-banner__copy">
+    <h2 aria-hidden="true">{photoBreak.heading}</h2>
+    <p>{photoBreak.paragraph}</p>
+    <a class="outline-button outline-button--light" href={photoBreak.buttonHref}>{photoBreak.buttonLabel}</a>
+  </div>
 </section>

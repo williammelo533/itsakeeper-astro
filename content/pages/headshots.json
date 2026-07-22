@@ -1,0 +1,138 @@
+{
+  "route": "/headshot-photographer-tri-cities-wa/",
+  "family": "service",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "Service",
+  "signature": "arch",
+  "title": "Headshot Photographer Tri-Cities WA | It's A Keeper",
+  "description": "Professional headshots in the Tri-Cities you'll actually want to use. Relaxed sessions in Richland, Kennewick and Pasco — guided posing, natural light.",
+  "hero": {
+    "tone": "earth",
+    "heading": "Professional Headshots in the Tri-Cities, WA",
+    "intro": "Headshots in Richland, Kennewick and Pasco that look like you on your best day — warm, confident and approachable, not stiff and corporate.",
+    "links": [
+      {
+        "label": "Book Your Headshot",
+        "href": "/contact/"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "a-headshot-you-are-proud-to-use",
+      "kind": "prose",
+      "tone": "ivory",
+      "heading": "A Headshot You're Proud to Put Everywhere",
+      "paragraphs": [
+        "Your headshot shows up before you do — on LinkedIn, your company's team page, the conference program, the \"About\" page someone checks before they ever call you. It deserves better than a cropped vacation photo or that stiff picture from three jobs ago.",
+        "My headshots are warm and genuinely you: professional enough for the boardroom, human enough that people feel like they've already met you."
+      ]
+    },
+    {
+      "id": "even-if-you-hate-pictures",
+      "kind": "split",
+      "tone": "sand",
+      "heading": "Yes — Even If You Hate Having Your Picture Taken",
+      "paragraphs": [
+        "Most people who book headshots with me open with the same line: \"Just so you know, I'm terrible at this.\" You're not — you've just never been guided.",
+        "I'll direct you through the whole session: where to angle your shoulders, what to do with your hands, when to take a deep breath in through your nose and out through your mouth. Between prompts, the real expressions happen — and those are the frames you'll choose. One of the things clients mention most in my reviews is how at ease they felt, even the ones who dreaded coming."
+      ]
+    },
+    {
+      "id": "headshot-session-process",
+      "kind": "steps",
+      "tone": "olive",
+      "heading": "How a Headshot Session Works",
+      "intro": "Headshot sessions are efficient on purpose — professionals don't have all afternoon.",
+      "items": [
+        {
+          "heading": "We plan quickly.",
+          "paragraphs": [
+            "Where the headshot will live (LinkedIn? website? press?), what to wear, and the impression you want to give."
+          ]
+        },
+        {
+          "heading": "We shoot.",
+          "paragraphs": [
+            "Natural light, guided posing, a few backdrop or location changes for variety. Most headshot sessions are done within the hour."
+          ]
+        },
+        {
+          "heading": "You choose.",
+          "paragraphs": [
+            "You'll see a gallery of edited images — true-to-you retouching that keeps you looking like yourself, on a very good day."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "headshots-for-teams",
+      "kind": "services",
+      "tone": "earth",
+      "heading": "Headshots for Teams",
+      "paragraphs": [
+        "Consistent, warm headshots for your whole team — photographed at your Tri-Cities office or a location we choose, scheduled so it barely interrupts the workday. If your team page is a patchwork of selfies and ten-year-old photos, I can fix that in a morning.",
+        "Building a full brand image library instead?"
+      ]
+    },
+    {
+      "id": "headshot-questions",
+      "kind": "faq",
+      "tone": "ivory",
+      "heading": "Headshot Questions",
+      "items": [
+        {
+          "heading": "What should I wear for a headshot?",
+          "paragraphs": [
+            "Solid colors near your face photograph best; avoid busy patterns and large logos. We'll talk it through before your session — bring two or three options and I'll help you choose."
+          ]
+        },
+        {
+          "heading": "How long does a headshot session take?",
+          "paragraphs": [
+            "Usually under an hour for individuals. Team sessions depend on headcount — tell me how many people and I'll map out the morning."
+          ]
+        },
+        {
+          "heading": "Headshot or branding session — which do I need?",
+          "paragraphs": [
+            "If you need one great portrait, a headshot. If you need a library of images of you, your work and your space, branding."
+          ],
+          "links": [
+            {
+              "label": "The full comparison",
+              "href": "/journal/branding-photos-vs-headshots/"
+            }
+          ]
+        },
+        {
+          "heading": "Do you retouch headshots?",
+          "paragraphs": [
+            "Gently. I'll take care of the temporary things — a blemish, a stray hair — and leave you looking like you. No plastic skin, no stranger's face."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "Reviews",
+          "href": "/reviews/"
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "walnut",
+    "heading": "Let's Update That Profile Photo",
+    "paragraphs": [
+      "Tell me where your headshot needs to work and when you need it."
+    ],
+    "link": {
+      "label": "Book your headshot",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[PENDIENTE: duración/formato exacto — Q54]"
+  ]
+}

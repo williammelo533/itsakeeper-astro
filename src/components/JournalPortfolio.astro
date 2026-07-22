@@ -11,6 +11,19 @@ const layoutPresets = new Set([
   "tall-stack",
 ]);
 const tapePresets = new Set(["sage", "oatmeal", "sand"]);
+const INITIAL_EAGER_PAGE_COUNT = 1;
+const pageWidth = 520;
+const photoWidthPercentages: Record<string, number[]> = {
+  "hero-note": [62, 37, 29, 31],
+  "offset-pair": [50, 47, 29, 30],
+  "story-grid": [55, 35, 49, 31],
+  "tall-stack": [55, 42, 36, 30],
+};
+const photoSizes = (layout: string, photoIndex: number) => {
+  const widthPercentage = photoWidthPercentages[layout]?.[photoIndex] || 50;
+  const maximumWidth = Math.ceil(pageWidth * (widthPercentage / 100));
+  return `(max-width: 768px) ${widthPercentage}vw, ${maximumWidth}px`;
+};
 const pages = (data?.journalPageConnection?.edges || [])
   .map((edge: any) => edge?.node)
   .filter(Boolean)
@@ -88,6 +101,8 @@ const formatDate = (value?: string) => {
               <div class="journal-sheet__photos">
                 {(page.photos || []).slice(0, 4).map((photo: any, photoIndex: number) => {
                   const formattedDate = formatDate(photo.date);
+                  const isInitiallyEager = pageIndex < INITIAL_EAGER_PAGE_COUNT;
+                  const isInitialLcpCandidate = pageIndex === 0 && photoIndex === 0;
                   return (
                     <figure
                       class={`journal-photo journal-photo--${photoIndex + 1}`}
@@ -99,11 +114,11 @@ const formatDate = (value?: string) => {
                         imgClass="journal-photo__image"
                         src={photo.image}
                         alt={photo.alt}
-                        loading={pageIndex < 4 ? "eager" : "lazy"}
+                        loading={isInitiallyEager ? "eager" : "lazy"}
                         decoding="async"
-                        fetchpriority={pageIndex < 2 ? "high" : "low"}
-                        optimizedMobileWidth={400}
-                        optimizedDesktopWidth={400}
+                        fetchpriority={isInitialLcpCandidate ? "high" : isInitiallyEager ? "auto" : "low"}
+                        sizes={photoSizes(layout, photoIndex)}
+                        responsiveSrcset
                         dataTinaField={tinaField(photo, "image")}
                       />
                       {(photo.caption || formattedDate) && (
@@ -174,7 +189,18 @@ const formatDate = (value?: string) => {
   const journal = document.querySelector<HTMLElement>("journal-book");
 
   if (journal) {
-    const loadController = () => void import("../scripts/journal-book");
+    let controllerRequested = false;
+    const loadController = () => {
+      if (controllerRequested) return;
+      controllerRequested = true;
+
+      const queueController = () => {
+        window.setTimeout(() => void import("../scripts/journal-book"), 250);
+      };
+
+      if (document.readyState === "complete") queueController();
+      else window.addEventListener("load", queueController, { once: true });
+    };
 
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver(

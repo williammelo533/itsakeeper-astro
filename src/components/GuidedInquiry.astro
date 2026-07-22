@@ -4,13 +4,13 @@ import { tinaField } from "@tinacms/astro/tina-field";
 import { telHref } from "../lib/content";
 import { imageMeta } from "../lib/images";
 
-const { inquiry, settings } = Astro.props;
+const { inquiry, settings, embedded = false } = Astro.props;
 const phoneHref = telHref(settings.phone);
 const confirmationMeta = imageMeta(inquiry.confirmation.image);
 ---
 
 <section
-  class="inquiry"
+  class:list={["inquiry", { "inquiry--embedded": embedded }]}
   id="inquire"
   aria-labelledby="inquiry-title"
   data-tina-field={tinaField(inquiry)}
@@ -58,16 +58,11 @@ const confirmationMeta = imageMeta(inquiry.confirmation.image);
       >
         {inquiry.buttonLabel}
       </button>
-      <noscript>
-        <p class="inquiry__noscript">
-          JavaScript is needed for the guided planner. You can still call Lisa at
-          <a href={`tel:${phoneHref}`}>{settings.phone}</a>.
-        </p>
-      </noscript>
+      <noscript><p class="inquiry__noscript">The complete inquiry form follows below. You can also call Lisa at <a href={`tel:${phoneHref}`}>{settings.phone}</a>.</p></noscript>
     </div>
   </div>
 
-  <div class="inquiry__workspace" data-inquiry-workspace hidden>
+  <div class="inquiry__workspace" data-inquiry-workspace>
     <div class="content-shell inquiry__shell">
       <div class="film-progress" data-film-progress>
         <span class="sr-only" id="inquiry-progress-label">Inquiry progress</span>
@@ -100,23 +95,27 @@ const confirmationMeta = imageMeta(inquiry.confirmation.image);
         </p>
       </div>
 
-      <!-- TODO: Replace /api/inquiry with the production form handler before launch. -->
       <form
         class="inquiry-form"
+        name="session-inquiry"
         method="post"
-        action="/api/inquiry"
+        action="/thank-you/"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
         data-inquiry-form
-        data-placeholder-handler
         toolname="plan_photography_session"
         tooldescription="Collects session preferences and contact details so Lisa can follow up about a portrait photography session in the Tri-Cities."
       >
+        <input type="hidden" name="form-name" value="session-inquiry" />
+        <p class="sr-only" aria-hidden="true">
+          <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
         <fieldset
           class="inquiry-step"
           data-form-step="1"
           aria-describedby="session-type-error"
         >
           <legend tabindex="-1">
-            <span class="inquiry-step__number">Frame one</span>
             {inquiry.stepSession.question}<span class="sr-only"> Required.</span>
           </legend>
           <div class="photo-options photo-options--five" data-radio-group>
@@ -162,7 +161,6 @@ const confirmationMeta = imageMeta(inquiry.confirmation.image);
           aria-describedby="booking-window-note season-error"
         >
           <legend tabindex="-1">
-            <span class="inquiry-step__number">Frame two</span>
             {inquiry.stepSeason.question}<span class="sr-only"> Required.</span>
           </legend>
           <div class="photo-options photo-options--five" data-radio-group>
@@ -213,7 +211,6 @@ const confirmationMeta = imageMeta(inquiry.confirmation.image);
           aria-describedby="location-error"
         >
           <legend tabindex="-1">
-            <span class="inquiry-step__number">Frame three</span>
             {inquiry.stepLocation.question}<span class="sr-only"> Required.</span>
           </legend>
           <div class="location-options" data-radio-group>
@@ -245,7 +242,6 @@ const confirmationMeta = imageMeta(inquiry.confirmation.image);
 
         <fieldset class="inquiry-step" data-form-step="4">
           <legend tabindex="-1">
-            <span class="inquiry-step__number">Frame four</span>
             {inquiry.stepStory.question}
           </legend>
           <div class="note-field">
@@ -274,7 +270,6 @@ const confirmationMeta = imageMeta(inquiry.confirmation.image);
 
         <fieldset class="inquiry-step" data-form-step="5">
           <legend tabindex="-1">
-            <span class="inquiry-step__number">Final frame</span>
             {inquiry.stepContact.question}
           </legend>
           <div class="contact-fields">
@@ -365,10 +360,7 @@ const confirmationMeta = imageMeta(inquiry.confirmation.image);
             </p>
           )}
           <h3 id="confirmation-title" tabindex="-1">{inquiry.confirmation.title}</h3>
-          <p>
-            {inquiry.confirmation.message} If you’d rather talk sooner, just call me at
-            <a href={`tel:${phoneHref}`}>{settings.phone}</a>.
-          </p>
+          <p>{inquiry.confirmation.message} If you’d rather talk sooner, just call me at <a href={`tel:${phoneHref}`}>{settings.phone}</a>.</p>
           <p class="sr-only" role="status" aria-live="polite" data-confirmation-status></p>
         </div>
       </section>

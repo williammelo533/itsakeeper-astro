@@ -1,0 +1,135 @@
+import { readFile, readdir } from "node:fs/promises";
+import { existsSync } from "node:fs";
+import path from "node:path";
+
+const mode = process.env.SITE_MODE || process.env.PUBLICATION_MODE || "staging";
+const root = process.cwd();
+const output = existsSync(path.join(root, "dist", "client"))
+  ? path.join(root, "dist", "client")
+  : path.join(root, "dist");
+
+const collectHtml = async (directory) => {
+  const entries = await readdir(directory, { withFileTypes: true });
+  const files = [];
+  for (const entry of entries) {
+    const target = path.join(directory, entry.name);
+    if (entry.isDirectory()) files.push(...(await collectHtml(target)));
+    else if (entry.name === "index.html") files.push(target);
+  }
+  return files;
+};
+
+const htmlFiles = (await collectHtml(output)).filter(
+  (file) => !file.includes(`${path.sep}admin${path.sep}`)
+);
+const failures = [];
+const indexableReleaseFiles = new Set([
+  "index.html",
+  `portfolio${path.sep}index.html`,
+]);
+
+for (const file of htmlFiles) {
+  const relative = path.relative(output, file);
+  const source = await readFile(file, "utf8");
+  const withoutComments = source.replace(/<!--[\s\S]*?-->/g, "");
+  const main = withoutComments.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || "";
+  const internalAnchors = [...main.matchAll(/<a\b[^>]*href=["']([^"']+)["']/gi)]
+    .map((match) => match[1])
+    .filter((href) => href.startsWith("/") && !href.startsWith("//") && !href.startsWith("/#"));
+
+  if (internalAnchors.length > 4) {
+    failures.push(`${relative}: ${internalAnchors.length} internal body links (${internalAnchors.join(", ")})`);
+  }
+  if (/\[(?:PENDIENTE|VALIDAR|FECHA)|CONTENT PENDING/i.test(withoutComments)) {
+    failures.push(`${relative}: unresolved placeholder leaked into rendered HTML`);
+  }
+  if (/62 Canyon St|maps\/search\/\?api=1/i.test(withoutComments)) {
+    failures.push(`${relative}: private street address or address-bearing map URL leaked`);
+  }
+  if (/\/api\/inquiry|It’s A Keeper inquiry payload|data-placeholder-handler/i.test(withoutComments)) {
+    failures.push(`${relative}: placeholder inquiry handler remains`);
+  }
+  if (mode === "staging" && !/<meta name="robots" content="noindex, nofollow, noarchive"/i.test(source)) {
+    failures.push(`${relative}: staging robots directive is missing`);
+  }
+  if (mode === "staging" && !/href="https:\/\/itsakeeperphotography\.netlify\.app(?:\/|[^\"]*\/)"/i.test(source)) {
+    failures.push(`${relative}: staging canonical does not use the Netlify foundation origin`);
+  }
+  if (mode === "release") {
+    const shouldIndex = indexableReleaseFiles.has(relative);
+    const expectedRobots = shouldIndex
+      ? /<meta name="robots" content="index, follow, max-image-preview:large"/i
+      : /<meta name="robots" content="noindex, nofollow, noarchive"/i;
+    if (!expectedRobots.test(source)) {
+      failures.push(`${relative}: release robots state does not match content readiness`);
+    }
+    if (!/href="https:\/\/www\.itsakeeperphotography\.com(?:\/|[^\"]*\/)"/i.test(source)) {
+      failures.push(`${relative}: release canonical does not use the custom-domain origin`);
+    }
+  }
+  if (
+    !["index.html", `portfolio${path.sep}index.html`].includes(relative) &&
+    !/data-signature-device="(?:arch|overlap|crossing-line)"/.test(source)
+  ) {
+    failures.push(`${relative}: signature composition marker is missing`);
+  }
+}
+
+const homepage = await readFile(path.join(output, "index.html"), "utf8");
+const contact = await readFile(path.join(output, "contact", "index.html"), "utf8");
+for (const [label, source] of [["homepage", homepage], ["contact", contact]]) {
+  if (!/<form\b[^>]*name="session-inquiry"[^>]*method="post"[^>]*action="\/thank-you\/"[^>]*data-netlify="true"/i.test(source)) {
+    failures.push(`${label}: statically detectable Netlify form is missing`);
+  }
+  if (!/name="form-name" value="session-inquiry"/.test(source) || !/name="bot-field"/.test(source)) {
+    failures.push(`${label}: Netlify form name or honeypot is missing`);
+  }
+}
+
+if (htmlFiles.length !== 21) failures.push(`expected 21 public HTML routes; found ${htmlFiles.length}`);
+
+const sitemap = await readFile(path.join(output, "sitemap.xml"), "utf8");
+const robots = await readFile(path.join(output, "robots.txt"), "utf8");
+const llms = await readFile(path.join(output, "llms.txt"), "utf8");
+const headers = await readFile(path.join(output, "_headers"), "utf8");
+
+if (mode === "staging") {
+  if (/<url>/.test(sitemap)) failures.push("sitemap.xml: staging sitemap must be empty");
+  if (!/staging preview/i.test(llms) || /\/family-photographer-tri-cities-wa\//.test(llms)) {
+    failures.push("llms.txt: staging citation gate is incorrect");
+  }
+  if (!/X-Robots-Tag: noindex, nofollow, noarchive/.test(headers)) {
+    failures.push("_headers: staging global X-Robots-Tag is missing");
+  }
+} else {
+  const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  const expectedSitemapUrls = [
+    "https://www.itsakeeperphotography.com/",
+    "https://www.itsakeeperphotography.com/portfolio/",
+  ];
+  if (JSON.stringify(sitemapUrls) !== JSON.stringify(expectedSitemapUrls)) {
+    failures.push(`sitemap.xml: release membership is ${sitemapUrls.join(", ") || "empty"}`);
+  }
+  if (!/Sitemap: https:\/\/www\.itsakeeperphotography\.com\/sitemap\.xml/.test(robots)) {
+    failures.push("robots.txt: release sitemap declaration is missing");
+  }
+  if (!/https:\/\/www\.itsakeeperphotography\.com\//.test(llms) || /\/portfolio\//.test(llms)) {
+    failures.push("llms.txt: release membership is incorrect");
+  }
+  for (const route of [
+    "/family-photographer-tri-cities-wa/*",
+    "/contact/*",
+    "/journal/*",
+    "/privacy/*",
+    "/thank-you/*",
+  ]) {
+    if (!headers.includes(route)) failures.push(`_headers: release noindex rule missing for ${route}`);
+  }
+}
+
+if (failures.length) {
+  console.error(failures.map((failure) => `- ${failure}`).join("\n"));
+  process.exitCode = 1;
+} else {
+  console.log(`Validated ${htmlFiles.length} public routes in ${mode} mode.`);
+}

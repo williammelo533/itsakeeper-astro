@@ -4,13 +4,14 @@
   --journal-ink: var(--reference-ink-core);
   --journal-line: var(--reference-line-warm);
   --journal-tape: var(--color-surface-oatmeal);
+  --color-focus-ring: var(--color-focus-ring-light);
   position: relative;
   overflow: clip;
   min-height: calc(100svh - var(--header-height));
   padding: clamp(5.5rem, 9vw, 9rem) max(var(--page-gutter-mobile), var(--safe-area-right))
     clamp(6rem, 10vw, 10rem) max(var(--page-gutter-mobile), var(--safe-area-left));
   background: var(--color-surface-sage);
-  color: var(--journal-ink);
+  color: var(--color-warm-ivory);
 }
 
 .journal-section__intro {
@@ -21,7 +22,7 @@
 
 .journal-section__intro .section-eyebrow {
   margin-bottom: var(--space-5);
-  color: var(--journal-ink);
+  color: var(--color-warm-ivory);
 }
 
 .journal-section__title {
@@ -81,9 +82,8 @@
   bottom: calc(var(--edge-index) * -0.08rem);
   width: calc(50% - 0.1rem);
   border: 1px solid color-mix(in srgb, var(--journal-line) 55%, transparent);
-  border-radius: 2px 5px 4px 1px;
+  border-radius: 0;
   background: var(--journal-paper-back);
-  box-shadow: 0 0.22rem 0.2rem rgba(73, 54, 33, 0.08);
 }
 
 .journal-book__edge--left {
@@ -109,7 +109,6 @@
   max-width: 65rem;
   aspect-ratio: 8 / 5;
   margin-inline: auto;
-  filter: drop-shadow(0 1.4rem 1.15rem rgba(73, 54, 33, 0.23));
   transition: opacity 120ms ease-out;
 }
 
@@ -161,20 +160,17 @@
   height: 100%;
   box-sizing: border-box;
   border: 1px solid color-mix(in srgb, var(--journal-line) 56%, transparent);
-  border-radius: 2px 5px 4px 1px;
+  border-radius: 0;
   background-color: var(--journal-paper);
   color: var(--journal-ink);
-  box-shadow: inset 0 0 2.6rem rgba(129, 122, 112, 0.13);
 }
 
 .journal-sheet.--left {
-  box-shadow: inset -1.1rem 0 1.7rem -1.25rem rgba(73, 54, 33, 0.58),
-    inset 0 0 2.6rem rgba(129, 122, 112, 0.13);
+  border-right-color: color-mix(in srgb, var(--journal-line) 82%, transparent);
 }
 
 .journal-sheet.--right {
-  box-shadow: inset 1.1rem 0 1.7rem -1.25rem rgba(73, 54, 33, 0.58),
-    inset 0 0 2.6rem rgba(129, 122, 112, 0.13);
+  border-left-color: color-mix(in srgb, var(--journal-line) 82%, transparent);
 }
 
 .journal-sheet__texture {
@@ -210,9 +206,8 @@
   box-sizing: border-box;
   padding: clamp(0.28rem, 1.1cqw, 0.58rem) clamp(0.28rem, 1.1cqw, 0.58rem)
     clamp(1.3rem, 5cqw, 2.5rem);
+  border: 1px solid color-mix(in srgb, var(--journal-line) 52%, transparent);
   background: var(--color-header);
-  box-shadow: 0 0.48rem 0.9rem rgba(73, 54, 33, 0.2),
-    0 0.1rem 0.18rem rgba(73, 54, 33, 0.18);
   transform: rotate(var(--photo-rotation));
   transform-origin: center;
 }
@@ -241,7 +236,6 @@
   width: 35%;
   height: clamp(0.65rem, 2.9cqw, 1.4rem);
   background: color-mix(in srgb, var(--journal-tape) 82%, transparent);
-  box-shadow: 0 0.08rem 0.12rem rgba(73, 54, 33, 0.12);
   transform: translateX(-50%) rotate(var(--tape-rotation, 0deg));
   clip-path: polygon(2% 9%, 98% 0, 95% 91%, 3% 100%);
 }
@@ -524,6 +518,7 @@
 }
 
 .journal-book__button {
+  --color-focus-ring: var(--color-focus-ring-light);
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
@@ -535,7 +530,7 @@
   border-bottom: 1px solid transparent;
   border-radius: 0;
   background: transparent;
-  color: var(--journal-ink);
+  color: var(--color-warm-ivory);
   font-family: var(--font-utility);
   font-size: var(--font-size-button);
   font-weight: var(--font-weight-medium);
@@ -567,7 +562,7 @@
 }
 
 .journal-book__button:disabled {
-  opacity: 0.32;
+  opacity: 1;
   cursor: default;
 }
 
@@ -590,7 +585,7 @@
 
 .journal-book__hint {
   margin: 0;
-  color: color-mix(in srgb, var(--journal-ink) 72%, transparent);
+  color: var(--color-warm-ivory);
   font-family: var(--font-body);
   font-size: var(--font-size-body-sm);
   font-style: italic;
@@ -609,7 +604,7 @@
   }
 
   .journal-section__intro {
-    margin-bottom: var(--space-12);
+    margin-bottom: clamp(22rem, 95vw, 26rem);
   }
 
   .journal-section__lede {

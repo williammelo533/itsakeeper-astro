@@ -1,21 +1,28 @@
 {
   "seo": {
-    "title": "Tri-Cities Senior & Family Photographer | It’s A Keeper",
-    "description": "Tri-Cities senior, family, couples, newborn and branding photographer in Richland. Outdoor golden-hour sessions with Lisa."
+    "title": "Tri-Cities WA Photographer | It's A Keeper Photography",
+    "description": "Warm, natural portraits for seniors, families, newborns and businesses in Richland, Kennewick and Pasco. 20+ years behind the camera. 96 five-star reviews."
   },
   "hero": {
     "visible": true,
     "image": "/uploads/hero-couple-golden-hour-richland.jpg",
-    "imageAlt": "A couple sharing a quiet embrace beneath autumn trees during a golden-hour session in Richland",
-    "heading": "Tri-Cities Portraits In Warm Light",
-    "scriptLine": "keep the way this felt"
+    "imageAlt": "A couple sharing a quiet embrace beneath autumn trees during a golden-hour session in Richland, WA",
+    "heading": "Tri-Cities Photographer for the Seasons Worth Keeping",
+    "subhead": "Warm, natural portraits for seniors, families, newborns and businesses across Richland, Kennewick and Pasco — photographed in golden light, guided so you never have to wonder what to do with your hands.",
+    "scriptLine": "keep the way this felt",
+    "primaryCtaLabel": "Let's Plan Your Session",
+    "primaryCtaHref": "/contact/",
+    "secondaryCtaLabel": "See How It Works",
+    "secondaryCtaHref": "#how-it-works",
+    "trustBar": "20+ years behind the camera · 96 five-star Google reviews · Richland, WA — serving all of the Tri-Cities"
   },
   "why": {
     "visible": true,
     "eyebrow": "A session with Lisa",
-    "headingLine1": "Unhurried. Natural.",
-    "headingLine2": "Entirely Personal.",
-    "paragraph": "I’ll guide you when you need it, then leave room for the laugh, the hand squeeze, and the look that happens on its own. We’ll choose a Tri-Cities location that feels like you and follow the light together.",
+    "headingLine1": "A Session With Lisa — Unhurried,",
+    "headingLine2": "Natural, Entirely Personal",
+    "paragraph": "I'll guide you when you need it, then leave room for the laugh, the hand squeeze, and the look that happens on its own. We'll choose a Tri-Cities location that feels like you and follow the light together.",
+    "reassurance": "You never have to worry about knowing how to pose — that's my job. I'll help you plan what to wear ahead of time, and during the session I'll give you simple prompts that help you relax and just be yourselves. Most people tell me the same thing afterward: \"That was actually fun.\"",
     "buttonLabel": "How it works",
     "scriptLine": "let the real moments lead",
     "rearImage": "/uploads/autumn-senior-portrait-tricities.jpg",
@@ -26,35 +33,48 @@
   "sessions": {
     "visible": true,
     "eyebrow": "Ways to remember",
-    "heading": "Choose the story you’re in",
+    "heading": "Choose the Story You're In",
+    "intro": "Every season deserves to be remembered. These are the ones I photograph best.",
     "cards": [
       {
         "label": "Seniors",
         "image": "/uploads/senior-portrait-golden-hour-richland.jpg",
         "imageAlt": "High school senior in a black dress photographed at golden hour in Richland",
         "link": "#inquire",
-        "prefill": "Senior"
+        "prefill": "Senior",
+        "description": "Your senior year only happens once. Relaxed, confident senior pictures that actually look like you — not a pose from someone else's Pinterest board."
       },
       {
         "label": "Families",
         "image": "/uploads/family-portrait-outdoors-tricities.jpg",
         "imageAlt": "A family laughing together during an outdoor Tri-Cities portrait session",
         "link": "#inquire",
-        "prefill": "Family"
-      },
-      {
-        "label": "Couples",
-        "image": "/uploads/couples-portrait-outdoors-richland.jpg",
-        "imageAlt": "A couple sharing an easy outdoor moment near Richland, Washington",
-        "link": "#inquire",
-        "prefill": "Couple"
+        "prefill": "Family",
+        "description": "The tiny hands, the real laughs, the way everyone piles together — golden-hour family sessions that feel like play, not like standing still."
       },
       {
         "label": "Newborns",
         "image": "/uploads/newborn-portrait-with-mother-richland.jpg",
-        "imageAlt": "A mother kissing her newborn during a gentle lifestyle session in Richland",
+        "imageAlt": "A mother kissing her newborn during a gentle in-home newborn session in Richland",
         "link": "#inquire",
-        "prefill": "Newborn"
+        "prefill": "Newborn",
+        "description": "Those first days pass so quickly. Gentle, unhurried newborn sessions that preserve just how small they started."
+      },
+      {
+        "label": "Branding",
+        "image": "/uploads/business-branding-portrait-richland.jpg",
+        "imageAlt": "Tri-Cities business owner photographed during a custom branding session",
+        "link": "#inquire",
+        "prefill": "My Business",
+        "description": "Custom business photography for Tri-Cities entrepreneurs — images that show the person and heart behind your work."
+      },
+      {
+        "label": "Headshots",
+        "image": "",
+        "imageAlt": "Professional headshot of a Tri-Cities professional in natural light",
+        "link": "#inquire",
+        "prefill": "Headshot",
+        "description": "A headshot you're proud to put on LinkedIn, your website, and everywhere your name shows up."
       }
     ]
   },
@@ -63,22 +83,26 @@
     "image": "/uploads/family-golden-hour-columbia-basin.jpg",
     "imageAlt": "Parents holding their young child in glowing Columbia Basin evening light",
     "scriptPhrase": "the light moves; the feeling stays",
-    "srHeading": "Golden-hour family photography in the Tri-Cities"
+    "srHeading": "Golden-Hour Photography in Richland, Kennewick & Pasco",
+    "heading": "Golden-Hour Photography in Richland, Kennewick & Pasco",
+    "paragraph": "I've called the Tri-Cities home since 2005, and after twenty years of chasing evening light here, I know where it lands — the river paths, the orchards, the open fields, and the quiet corners most people drive past. Whether we meet in Richland, Kennewick or Pasco, I'll bring you somewhere the light — and your family — can do what they do best.",
+    "buttonLabel": "Best places to take pictures in the Tri-Cities",
+    "buttonHref": "/journal/family-photo-locations-tri-cities/"
   },
   "meetLisa": {
     "visible": true,
     "eyebrow": "Meet Lisa",
     "headingLine1": "I Know How Much A",
     "headingLine2": "Photograph Can Hold",
-    "story": "I grew up in Wisconsin and made the Tri-Cities home in 2005. Photography became personal after my daughter faced early health challenges; it taught me to notice how quickly the smallest, most ordinary moments become the ones we miss.",
-    "credit": "My camera has taken me to a session with a Grammy winner and assignments for a local magazine, but the heart of the work is still the person standing in front of me.",
+    "story": "My journey into photography began with my own children, not a business plan. When they were little, I wanted more than rushed studio portraits — I wanted photographs that captured who they truly were. What started with my own kids has become the privilege of documenting life's most meaningful moments for hundreds of Tri-Cities families, seniors and couples over the past 20 years.",
+    "credit": "I photographed my own grandparents once — laughing, holding hands, sharing the quiet love they'd built over a lifetime. I had no idea how precious those photographs would become after my grandpa passed away. That's the truth I carry into every session: I'm not just taking photographs for today. I'm preserving moments that may one day be a family's most treasured memories.",
     "portrait": "/uploads/lisa-photographer-tricities.jpg",
     "portraitAlt": "Lisa, owner of It’s A Keeper Photography, holding her camera in the Tri-Cities"
   },
   "howItWorks": {
     "visible": true,
     "eyebrow": "How a session works",
-    "heading": "A little care before the light",
+    "heading": "How a Session Works",
     "intro": "I reserve most sessions four to six weeks ahead so we have time to plan it right.",
     "steps": [
       {
@@ -87,23 +111,53 @@
       },
       {
         "title": "We talk",
-        "sentence": "We’ll plan by phone, with wardrobe guidance and location ideas chosen for you."
+        "sentence": "We'll plan everything by phone — wardrobe guidance, location ideas, and the little details that make it feel like you."
       },
       {
         "title": "Golden hour",
-        "sentence": "We meet outdoors, move gently, and let natural connection do most of the work."
+        "sentence": "We meet outdoors, move gently, and let natural connection do most of the work. You'll probably hear me say \"get closer… closer!\" more than once."
       },
       {
         "title": "Your gallery",
         "sentence": "I edit each frame in my warm, true-to-you style and send your story home."
       }
-    ]
+    ],
+    "buttonLabel": "The full experience, start to finish",
+    "buttonHref": "/investment/"
   },
   "kindWords": {
     "visible": true,
     "eyebrow": "Kind words",
-    "heading": "What people remember",
-    "reviewsLine": "96 five-star reviews on Google"
+    "heading": "What Tri-Cities Families Remember",
+    "reviewsLine": "Read 96 five-star reviews",
+    "buttonHref": "/reviews/"
+  },
+  "faq": {
+    "visible": true,
+    "eyebrow": "A few good questions",
+    "heading": "Questions Families Ask Me",
+    "items": [
+      {
+        "question": "What areas do you serve?",
+        "answer": "I'm based in Richland, Washington, and photograph throughout the Tri-Cities — Richland, Kennewick, Pasco and the surrounding areas. Most sessions happen outdoors at golden hour, at a location we choose together."
+      },
+      {
+        "question": "How far in advance should I book?",
+        "answer": "I reserve most sessions four to six weeks ahead. Senior sessions and fall family sessions fill fastest, so if you have a season in mind, reach out early and we'll plan it right."
+      },
+      {
+        "question": "What if we're awkward in front of the camera?",
+        "answer": "Then you're my favorite kind of client. Most people who step in front of my camera feel a little nervous at first — my whole approach is built around gentle prompts and guidance, so you always know what to do. You'll leave saying it was actually fun. Promise."
+      },
+      {
+        "question": "Do you photograph weddings?",
+        "answer": "I photograph small, intimate elopements only — not full wedding days or events. If you're planning something small and meaningful, I'd love to hear about it."
+      },
+      {
+        "question": "What should we wear?",
+        "answer": "That's something we figure out together before your session. I'll help you choose outfits that photograph beautifully and that you can actually move, sit and play in comfortably."
+      }
+    ]
   },
   "inquiry": {
     "visible": true,
@@ -126,16 +180,16 @@
           "image": "/uploads/family-portrait-outdoors-tricities.jpg"
         },
         {
-          "label": "Couple",
-          "image": "/uploads/couples-portrait-outdoors-richland.jpg"
-        },
-        {
           "label": "Newborn",
           "image": "/uploads/newborn-portrait-with-mother-richland.jpg"
         },
         {
           "label": "My Business",
           "image": "/uploads/business-branding-portrait-richland.jpg"
+        },
+        {
+          "label": "Headshot",
+          "image": "/uploads/lisa-photographer-tricities.jpg"
         }
       ]
     },
@@ -197,7 +251,7 @@
     "confirmation": {
       "scriptLine": "it’s a keeper.",
       "title": "Your note is with Lisa",
-      "message": "I read every inquiry myself and will reach out within two business days.",
+      "message": "I read every inquiry myself and will be in touch.",
       "image": "/uploads/family-newborn-connection-richland.jpg"
     }
   }

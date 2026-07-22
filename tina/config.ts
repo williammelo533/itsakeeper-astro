@@ -60,6 +60,53 @@ const visibilityToggle: TinaField = {
   description: "Turn this off to temporarily hide the whole section.",
 };
 
+const pageLinkFields: TinaField[] = [
+  { type: "string", name: "label", label: "Link text", required: true },
+  { type: "string", name: "href", label: "Destination", required: true },
+  { type: "boolean", name: "external", label: "External link" },
+];
+
+const pageItemFields: TinaField[] = [
+  { type: "string", name: "eyebrow", label: "Small label" },
+  { type: "string", name: "heading", label: "Heading" },
+  { type: "string", name: "detail", label: "Small detail", ui: { component: "textarea" } },
+  { type: "string", name: "paragraphs", label: "Paragraphs", list: true, ui: { component: "textarea" } },
+  { type: "string", name: "quote", label: "Quotation", ui: { component: "textarea" } },
+  { type: "string", name: "attribution", label: "Attribution" },
+  { type: "image", name: "image", label: "Photograph" },
+  { type: "string", name: "imageAlt", label: "Photograph description" },
+  { type: "object", name: "links", label: "Links", list: true, fields: pageLinkFields },
+];
+
+const pageSectionFields: TinaField[] = [
+  { type: "string", name: "id", label: "Section ID", required: true },
+  {
+    type: "string",
+    name: "kind",
+    label: "Composition",
+    required: true,
+    options: ["prose", "split", "steps", "faq", "quote", "reviews", "locations", "services", "comparison", "checklist", "article-list", "form"],
+  },
+  {
+    type: "string",
+    name: "tone",
+    label: "Surface tone",
+    required: true,
+    options: ["umber", "walnut", "earth", "olive", "sand", "ivory"],
+  },
+  { type: "string", name: "eyebrow", label: "Small label" },
+  { type: "string", name: "heading", label: "Heading" },
+  { type: "string", name: "intro", label: "Intro", ui: { component: "textarea" } },
+  { type: "string", name: "paragraphs", label: "Paragraphs", list: true, ui: { component: "textarea" } },
+  { type: "object", name: "items", label: "Section entries", list: true, fields: pageItemFields },
+  { type: "image", name: "image", label: "Primary photograph" },
+  { type: "string", name: "imageAlt", label: "Primary photograph description" },
+  { type: "image", name: "secondaryImage", label: "Overlapping photograph" },
+  { type: "string", name: "secondaryImageAlt", label: "Overlapping photograph description" },
+  { type: "string", name: "scriptLine", label: "Short handwritten phrase" },
+  { type: "object", name: "links", label: "Links", list: true, fields: pageLinkFields },
+];
+
 export default defineConfig({
   branch,
 
@@ -129,12 +176,13 @@ export default defineConfig({
           {
             type: "object",
             name: "address",
-            label: "Studio address",
+            label: "Legacy studio address (not published)",
+            description: "Retained only for internal records. The public site displays Lisa's Richland service area, not a street address or map pin.",
             fields: [
-              { type: "string", name: "street", label: "Street", required: true },
-              { type: "string", name: "city", label: "City", required: true },
-              { type: "string", name: "state", label: "State (2 letters)", required: true, ui: { validate: maxChars(2) } },
-              { type: "string", name: "zip", label: "ZIP code", required: true, ui: { validate: maxChars(10) } },
+              { type: "string", name: "street", label: "Street" },
+              { type: "string", name: "city", label: "City" },
+              { type: "string", name: "state", label: "State (2 letters)", ui: { validate: maxChars(2) } },
+              { type: "string", name: "zip", label: "ZIP code", ui: { validate: maxChars(10) } },
             ],
           },
           {
@@ -160,7 +208,7 @@ export default defineConfig({
                 type: "string",
                 name: "googleProfile",
                 label: "Google reviews link",
-                description: "Where the “five-star reviews on Google” line sends people.",
+                description: "Use Lisa's direct Google Business Profile review link only. Never paste a Maps search URL containing a street address.",
               },
             ],
           },
@@ -255,7 +303,7 @@ export default defineConfig({
                 name: "heading",
                 label: "Main headline",
                 required: true,
-                ui: { validate: maxChars(45) },
+                ui: { validate: maxChars(60) },
               },
               {
                 type: "string",
@@ -264,6 +312,22 @@ export default defineConfig({
                 required: true,
                 description: "The short cursive line under the headline.",
                 ui: { validate: maxChars(35) },
+              },
+              {
+                type: "string",
+                name: "subhead",
+                label: "Introduction under the headline",
+                ui: { component: "textarea", validate: maxChars(280) },
+              },
+              { type: "string", name: "primaryCtaLabel", label: "Primary button text" },
+              { type: "string", name: "primaryCtaHref", label: "Primary button destination" },
+              { type: "string", name: "secondaryCtaLabel", label: "Secondary button text" },
+              { type: "string", name: "secondaryCtaHref", label: "Secondary button destination" },
+              {
+                type: "string",
+                name: "trustBar",
+                label: "Trust line",
+                ui: { component: "textarea", validate: maxChars(180) },
               },
             ],
           },
@@ -286,7 +350,7 @@ export default defineConfig({
                 name: "headingLine1",
                 label: "Heading — first line",
                 required: true,
-                ui: { validate: maxChars(30) },
+                ui: { validate: maxChars(35) },
               },
               {
                 type: "string",
@@ -300,6 +364,12 @@ export default defineConfig({
                 label: "Paragraph",
                 required: true,
                 ui: { component: "textarea", validate: maxChars(320) },
+              },
+              {
+                type: "string",
+                name: "reassurance",
+                label: "Reassurance paragraph",
+                ui: { component: "textarea", validate: maxChars(520) },
               },
               {
                 type: "string",
@@ -348,13 +418,19 @@ export default defineConfig({
                 ui: { validate: maxChars(45) },
               },
               {
+                type: "string",
+                name: "intro",
+                label: "Short introduction",
+                ui: { component: "textarea", validate: maxChars(180) },
+              },
+              {
                 type: "object",
                 name: "cards",
                 label: "Cards",
                 list: true,
                 ui: {
                   min: 3,
-                  max: 4,
+                  max: 5,
                   itemProps: (item?: { label?: string }) => ({
                     label: item?.label || "New card",
                   }),
@@ -367,11 +443,13 @@ export default defineConfig({
                     required: true,
                     ui: { validate: maxChars(20) },
                   },
-                  ...imageWithAlt(
-                    "image",
-                    "Photo",
-                    "A vertical photo works best for these cards."
-                  ),
+                  {
+                    type: "image",
+                    name: "image",
+                    label: "Photo",
+                    description: "A vertical photo works best. Leave empty until Lisa supplies and approves the matching service photograph.",
+                  },
+                  { type: "string", name: "imageAlt", label: "Describe this photo" },
                   {
                     type: "string",
                     name: "link",
@@ -385,6 +463,12 @@ export default defineConfig({
                     label: "Planner choice to pre-select",
                     description:
                       "When someone clicks this card, the planner opens with this session type already chosen. Must match one of the choices in the planner's first question exactly (e.g. Senior, Family, Couple, Newborn).",
+                  },
+                  {
+                    type: "string",
+                    name: "description",
+                    label: "Short service description",
+                    ui: { component: "textarea", validate: maxChars(240) },
                   },
                 ],
               },
@@ -417,6 +501,10 @@ export default defineConfig({
                   "Not shown on screen — read aloud by screen readers and seen by Google. A plain description of the photo section.",
                 ui: { validate: maxChars(80) },
               },
+              { type: "string", name: "heading", label: "Visible heading" },
+              { type: "string", name: "paragraph", label: "Local introduction", ui: { component: "textarea" } },
+              { type: "string", name: "buttonLabel", label: "Guide link text" },
+              { type: "string", name: "buttonHref", label: "Guide link destination" },
             ],
           },
 
@@ -451,13 +539,13 @@ export default defineConfig({
                 name: "story",
                 label: "Your story",
                 required: true,
-                ui: { component: "textarea", validate: maxChars(340) },
+                ui: { component: "textarea", validate: maxChars(400) },
               },
               {
                 type: "string",
                 name: "credit",
                 label: "Second paragraph (highlights)",
-                ui: { component: "textarea", validate: maxChars(260) },
+                ui: { component: "textarea", validate: maxChars(400) },
               },
               ...imageWithAlt(
                 "portrait",
@@ -519,10 +607,12 @@ export default defineConfig({
                     name: "sentence",
                     label: "One sentence about this step",
                     required: true,
-                    ui: { component: "textarea", validate: maxChars(120) },
+                    ui: { component: "textarea", validate: maxChars(160) },
                   },
                 ],
               },
+              { type: "string", name: "buttonLabel", label: "Experience link text" },
+              { type: "string", name: "buttonHref", label: "Experience link destination" },
             ],
           },
 
@@ -554,6 +644,28 @@ export default defineConfig({
                 label: "Google reviews line",
                 description: "e.g. “96 five-star reviews on Google” — update the number as reviews grow.",
                 ui: { validate: maxChars(60) },
+              },
+              { type: "string", name: "buttonHref", label: "Reviews page destination" },
+            ],
+          },
+
+          {
+            type: "object",
+            name: "faq",
+            label: "Questions families ask",
+            fields: [
+              visibilityToggle,
+              { type: "string", name: "eyebrow", label: "Small label" },
+              { type: "string", name: "heading", label: "Heading", required: true },
+              {
+                type: "object",
+                name: "items",
+                label: "Questions and answers",
+                list: true,
+                fields: [
+                  { type: "string", name: "question", label: "Question", required: true },
+                  { type: "string", name: "answer", label: "Answer", required: true, ui: { component: "textarea" } },
+                ],
               },
             ],
           },
@@ -836,7 +948,113 @@ export default defineConfig({
       },
 
       /* ------------------------------------------------------------------ */
-      /* Journal pages                                                       */
+      /* Search-facing and utility pages                                     */
+      /* ------------------------------------------------------------------ */
+      {
+        name: "contentPage",
+        label: "Site Pages",
+        path: "content/pages",
+        format: "json",
+        ui: {
+          router: ({ document }) => document.route || "/",
+          allowedActions: { create: false, delete: false },
+        },
+        fields: [
+          { type: "string", name: "route", label: "Route", required: true },
+          {
+            type: "string",
+            name: "family",
+            label: "Page family",
+            required: true,
+            options: ["service", "trust", "city", "journal-hub", "article", "utility"],
+          },
+          {
+            type: "string",
+            name: "contentStatus",
+            label: "Publication readiness",
+            required: true,
+            options: ["draft", "ready"],
+            description: "Only change to ready after facts, media, links and QA have all been approved.",
+          },
+          {
+            type: "string",
+            name: "searchVisibility",
+            label: "Search visibility",
+            required: true,
+            options: ["index", "noindex"],
+          },
+          {
+            type: "string",
+            name: "schemaType",
+            label: "Structured data type",
+            required: true,
+            options: ["WebPage", "Service", "AboutPage", "ContactPage", "CollectionPage", "Article"],
+          },
+          {
+            type: "string",
+            name: "signature",
+            label: "Signature composition device",
+            required: true,
+            options: ["arch", "overlap", "crossing-line"],
+          },
+          { type: "string", name: "title", label: "Search title", required: true },
+          { type: "string", name: "description", label: "Search description", required: true, ui: { component: "textarea" } },
+          {
+            type: "object",
+            name: "hero",
+            label: "Page opening",
+            required: true,
+            fields: [
+              {
+                type: "string",
+                name: "tone",
+                label: "Opening tone",
+                required: true,
+                options: ["umber", "walnut", "earth", "olive", "sand", "ivory"],
+              },
+              { type: "string", name: "eyebrow", label: "Small label" },
+              { type: "string", name: "heading", label: "Main heading", required: true },
+              { type: "string", name: "intro", label: "Introduction", ui: { component: "textarea" } },
+              { type: "string", name: "scriptLine", label: "Short handwritten phrase" },
+              { type: "image", name: "image", label: "Primary photograph" },
+              { type: "string", name: "imageAlt", label: "Primary photograph description" },
+              { type: "image", name: "secondaryImage", label: "Overlapping photograph" },
+              { type: "string", name: "secondaryImageAlt", label: "Overlapping photograph description" },
+              { type: "object", name: "links", label: "Opening links", list: true, fields: pageLinkFields },
+            ],
+          },
+          { type: "object", name: "sections", label: "Page sections", list: true, fields: pageSectionFields },
+          {
+            type: "object",
+            name: "finalCta",
+            label: "Final invitation",
+            fields: [
+              {
+                type: "string",
+                name: "tone",
+                label: "Surface tone",
+                required: true,
+                options: ["umber", "walnut", "earth", "olive", "sand", "ivory"],
+              },
+              { type: "string", name: "eyebrow", label: "Small label" },
+              { type: "string", name: "heading", label: "Heading", required: true },
+              { type: "string", name: "paragraphs", label: "Paragraphs", list: true, ui: { component: "textarea" } },
+              { type: "object", name: "link", label: "Final link", fields: pageLinkFields },
+            ],
+          },
+          {
+            type: "string",
+            name: "pending",
+            label: "Unresolved facts and media",
+            list: true,
+            description: "Never render these notes. Resolve them before changing this page to ready.",
+            ui: { component: "textarea" },
+          },
+        ],
+      },
+
+      /* ------------------------------------------------------------------ */
+      /* Journal portfolio pages                                             */
       /* ------------------------------------------------------------------ */
       {
         name: "journalPage",

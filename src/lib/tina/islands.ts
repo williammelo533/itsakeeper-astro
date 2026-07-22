@@ -2,17 +2,10 @@ import type { QueryResult } from "@tinacms/astro/data";
 import type { IslandRegistry } from "@tinacms/astro/experimental";
 import HomepagePage from "../../components/HomepagePage.astro";
 import JournalPortfolio from "../../components/JournalPortfolio.astro";
-import { getHomepagePage, getPortfolioPage } from "./data";
-
-export const homepageWrapper = {
-  tag: "div",
-  className: "tina-page-shell",
-};
-
-export const portfolioWrapper = {
-  tag: "div",
-  className: "tina-page-shell tina-portfolio-shell",
-};
+import ContentPage from "../../components/pages/ContentPage.astro";
+import { editorialManifest } from "../page-manifest";
+import { getContentPageTina, getHomepagePage, getPortfolioPage } from "./data";
+import { contentPageWrapper, homepageWrapper, portfolioWrapper } from "./wrappers";
 
 export const islands: IslandRegistry = {
   homepage: {
@@ -30,5 +23,24 @@ export const islands: IslandRegistry = {
     propsFromData: (result) => ({
       data: (result as QueryResult<Record<string, unknown>>).data,
     }),
+  },
+  contentPage: {
+    fetch: (_request, params) => {
+      const pagePath = params.get("path") || "";
+      if (!editorialManifest.some((entry) => entry.contentPath === pagePath)) {
+        return Promise.reject(new Error("Unknown content page path."));
+      }
+      return getContentPageTina(pagePath);
+    },
+    component: ContentPage,
+    wrapper: contentPageWrapper,
+    propsFromData: (result) => {
+      const data = (result as QueryResult<Record<string, any>>).data;
+      return {
+        page: data.contentPage,
+        settings: data.settings,
+        inquiry: data.homepage?.inquiry,
+      };
+    },
   },
 };

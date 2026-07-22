@@ -1,0 +1,38 @@
+---
+import Base from "../layouts/Base.astro";
+import TinaIsland from "@tinacms/astro/TinaIsland.astro";
+import ContentPage from "../components/pages/ContentPage.astro";
+import SiteShell from "../components/SiteShell.astro";
+import { getContentPage } from "../lib/content-pages";
+import { topLevelEditorialManifest } from "../lib/page-manifest";
+import { getStaticHomepagePage } from "../lib/static-content";
+import { contentPageWrapper } from "../lib/tina/wrappers";
+
+export function getStaticPaths() {
+  return topLevelEditorialManifest.map((entry) => ({
+    params: { slug: entry.path.split("/").filter(Boolean)[0] },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const page = getContentPage(entry.contentPath);
+const shared = getStaticHomepagePage();
+const { homepage, settings } = shared.data;
+---
+
+<Base
+  title={page.title}
+  description={page.description}
+  settings={settings}
+  canonicalPath={entry.path}
+  searchVisibility={entry.searchVisibility}
+  schemaType={entry.schemaType}
+  loadEditorialMotion={entry.id === "contact"}
+>
+  <SiteShell settings={settings} homepage={homepage} currentPath={entry.path}>
+    <TinaIsland name="contentPage" wrapper={contentPageWrapper} params={{ path: entry.contentPath }} primary>
+      <ContentPage page={page} settings={settings} inquiry={homepage.inquiry} />
+    </TinaIsland>
+  </SiteShell>
+</Base>

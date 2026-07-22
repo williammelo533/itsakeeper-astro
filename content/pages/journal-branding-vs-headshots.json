@@ -1,0 +1,176 @@
+{
+  "route": "/journal/branding-photos-vs-headshots/",
+  "family": "article",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "Article",
+  "signature": "crossing-line",
+  "title": "Branding Photos vs. Headshots: What's the Difference?",
+  "description": "What are branding photos, how are they different from headshots, and which does your business need first? A working photographer's plain-English breakdown.",
+  "hero": {
+    "tone": "earth",
+    "heading": "Branding Photos vs. Headshots: What's the Difference?"
+  },
+  "sections": [
+    {
+      "id": "the-short-answer",
+      "kind": "quote",
+      "tone": "ivory",
+      "heading": "The Short Answer",
+      "paragraphs": [
+        "A headshot is one great portrait of you. Branding photos are a full library of images about your business — you working, your space, your tools, your process, your personality. A headshot answers \"who is this person?\"; branding photos answer \"what would it be like to work with them?\" Most businesses eventually need both, but they solve different problems."
+      ]
+    },
+    {
+      "id": "what-are-branding-photos",
+      "kind": "checklist",
+      "tone": "sand",
+      "heading": "What Are Branding Photos?",
+      "intro": "Branding photos (sometimes called a personal branding session or custom business photography) are a planned collection of images built around your brand. A typical branding gallery includes:",
+      "items": [
+        {
+          "detail": "Portraits of you that feel like your brand — not stiff, not generic"
+        },
+        {
+          "detail": "You doing the work: hands, tools, process, craft"
+        },
+        {
+          "detail": "Your space — studio, shop, office, or wherever the magic happens"
+        },
+        {
+          "detail": "Details: products, textures, materials, the things clients notice"
+        },
+        {
+          "detail": "Lifestyle moments that show the experience of working with you"
+        }
+      ],
+      "paragraphs": [
+        "The point is variety and consistency: months of website, social, newsletter and press images that all look like your business."
+      ]
+    },
+    {
+      "id": "what-is-a-headshot",
+      "kind": "split",
+      "tone": "olive",
+      "heading": "What Is a Headshot?",
+      "paragraphs": [
+        "A headshot is a professional portrait — usually shoulders-up, clean background, focused entirely on you. It lives on LinkedIn, your company's team page, conference programs, proposals and anywhere your name appears. A great headshot is warm, confident and current (that last one matters — a ten-year-old headshot works against you)."
+      ]
+    },
+    {
+      "id": "side-by-side",
+      "kind": "comparison",
+      "tone": "earth",
+      "heading": "Side by Side: Branding Photos vs. Headshots",
+      "items": [
+        {
+          "heading": "Headshot",
+          "paragraphs": [
+            "What you get: 1–3 polished portraits",
+            "Focus: You",
+            "Session length: Under an hour",
+            "Where it lives: LinkedIn, team page, bios",
+            "Refresh cycle: Every 2–3 years",
+            "Best first step for: Employees, job seekers, professionals"
+          ]
+        },
+        {
+          "heading": "Branding photos",
+          "paragraphs": [
+            "What you get: A full library of varied images",
+            "Focus: You + your work + your space + your story",
+            "Session length: Half a day, typically",
+            "Where it lives: Website, social, marketing, press",
+            "Refresh cycle: 1–2 times a year",
+            "Best first step for: Business owners, personal brands"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "which-does-your-business-need-first",
+      "kind": "steps",
+      "tone": "ivory",
+      "heading": "Which Does Your Business Need First?",
+      "items": [
+        {
+          "heading": "Start with a headshot if…",
+          "paragraphs": [
+            "You mainly need to look credible and current — you work for a company, you're job hunting, or your face appears in bios and proposals more than in marketing."
+          ]
+        },
+        {
+          "heading": "Start with a branding session if…",
+          "paragraphs": [
+            "Your business is personal. Clients choose you — your style, your process, your story — and your marketing needs a steady supply of images that feel like you. If you're posting on social weekly and reusing the same three photos, you're overdue."
+          ]
+        },
+        {
+          "heading": "The honest truth: most businesses end up with both",
+          "paragraphs": [
+            "Every branding session I photograph includes headshots — it's the natural starting point of the session. So if you're unsure, a branding session is the answer that covers both."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "Branding photography in the Tri-Cities",
+          "href": "/branding-photographer-tri-cities-wa/"
+        },
+        {
+          "label": "Just need the headshot?",
+          "href": "/headshot-photographer-tri-cities-wa/"
+        }
+      ]
+    },
+    {
+      "id": "what-happens-in-a-branding-session",
+      "kind": "prose",
+      "tone": "olive",
+      "heading": "What Happens in a Branding Session?",
+      "paragraphs": [
+        "With me, it starts with a strategy call: where will these images live, what do clients need to feel, what makes your business unmistakably yours. Then we shoot on location at your workspace or a Tri-Cities spot that fits your brand — guided the entire time, because feeling awkward in front of a camera at your own business is completely normal and completely fixable. You walk away with a warm, consistent library sized for real use."
+      ]
+    },
+    {
+      "id": "common-questions",
+      "kind": "faq",
+      "tone": "sand",
+      "heading": "Common Questions",
+      "items": [
+        {
+          "heading": "What should I wear for branding photos?",
+          "paragraphs": [
+            "Your brand's colors, your real working clothes, and one \"elevated\" option. We plan it together — the goal is recognizably you, one notch polished."
+          ]
+        },
+        {
+          "heading": "How often should branding photos be updated?",
+          "paragraphs": [
+            "Most businesses refresh once or twice a year as offers, seasons and spaces change. Headshots: every two to three years, or after any big change."
+          ]
+        },
+        {
+          "heading": "Are branding photos worth it for a very small business?",
+          "paragraphs": [
+            "Small businesses benefit most — you are the brand. In a community like the Tri-Cities, people hire the person they feel they already know, and branding photos are how they meet you before the first call."
+          ]
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "umber",
+    "heading": "Show Them Who You Are",
+    "paragraphs": [
+      "Whether you need one great headshot or a full brand library, the goal is the same: when someone finds your business, they should meet a real person they'd want to work with."
+    ],
+    "link": {
+      "label": "Start planning",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[FECHA]"
+  ]
+}

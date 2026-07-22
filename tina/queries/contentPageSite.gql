@@ -1,0 +1,15 @@
+query contentPageSite(
+  $pagePath: String!
+  $homepagePath: String!
+  $settingsPath: String!
+) {
+  contentPage(relativePath: $pagePath) {
+    ...ContentPageParts
+  }
+  homepage(relativePath: $homepagePath) {
+    ...HomepageParts
+  }
+  settings(relativePath: $settingsPath) {
+    ...SettingsParts
+  }
+}

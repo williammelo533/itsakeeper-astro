@@ -1,0 +1,148 @@
+{
+  "route": "/family-photographer-tri-cities-wa/",
+  "family": "service",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "Service",
+  "signature": "overlap",
+  "title": "Family Photographer Tri-Cities WA | Golden-Hour Sessions",
+  "description": "Relaxed, golden-hour family photography in Richland, Kennewick and Pasco. Gentle guidance, real laughter, and photographs your family will keep for generations.",
+  "hero": {
+    "tone": "sand",
+    "heading": "Family Photographer in the Tri-Cities, WA",
+    "intro": "Golden-hour family sessions in Richland, Kennewick and Pasco — unhurried, full of real laughter, and guided so gently your kids won't realize they're being photographed.",
+    "links": [
+      {
+        "label": "Let's Plan Your Session",
+        "href": "/contact/"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "sessions-that-feel-like-play",
+      "kind": "prose",
+      "tone": "ivory",
+      "heading": "Sessions That Feel Like Play, Not Like Posing",
+      "paragraphs": [
+        "If the thought of getting everyone dressed, out the door, and smiling at a camera sounds exhausting — I understand. I raised two children of my own, and those years taught me just how quickly childhood passes. The little moments that feel ordinary at the time — tiny hands, genuine laughter, the way your youngest still reaches for you — become the memories you wish you could hold onto forever.",
+        "That's why my family sessions aren't about perfect posing. I'll guide you with simple prompts — get closer, walk together, tickle somebody — and then leave room for what happens on its own. The squeeze, the giggle, the pile-up. That's the good stuff.",
+        "You'll never hear me say \"say cheese.\" Not once."
+      ]
+    },
+    {
+      "id": "family-session-process",
+      "kind": "steps",
+      "tone": "olive",
+      "heading": "What a Family Session With Me Looks Like",
+      "items": [
+        {
+          "heading": "Before: we plan it together",
+          "paragraphs": [
+            "We'll talk by phone about your family, your kids' ages and personalities, and what this season looks like for you. I'll help you figure out what everyone should wear — outfits that photograph beautifully and that little ones can actually run and sit and play in. You just show up; I take care of the rest."
+          ]
+        },
+        {
+          "heading": "During: golden hour, gentle prompts, real moments",
+          "paragraphs": [
+            "We meet outdoors in that warm evening light, at a Tri-Cities location chosen for your family. Shy kids, wild kids, reluctant dads — I've photographed them all for twenty years, and I promise there's room for every personality. My job is to make everyone comfortable enough that the real moments unfold by themselves."
+          ]
+        },
+        {
+          "heading": "After: a gallery that feels like your family",
+          "paragraphs": [
+            "I hand-edit each image in my warm, true-to-you style and send your gallery home — photographs that don't just look beautiful, but actually feel like the people in them."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "family-heirlooms",
+      "kind": "split",
+      "tone": "sand",
+      "heading": "Photographs That Become Family Heirlooms",
+      "paragraphs": [
+        "I believe photographs become more valuable with every passing year. They begin as beautiful images, but over time they transform into treasured heirlooms — holding the memories, the emotions, and the people we never want to forget.",
+        "Many of my families return year after year as their children grow, trusting me to document each new chapter. Some of the photographs I've taken have become far more precious than any of us imagined at the time. That's a responsibility I never take lightly."
+      ]
+    },
+    {
+      "id": "family-photo-locations",
+      "kind": "locations",
+      "tone": "earth",
+      "heading": "Where We'll Go — Family Photo Locations Around the Tri-Cities",
+      "paragraphs": [
+        "After twenty years of chasing evening light here, I know where it falls — riverside paths in Richland, open fields near Kennewick, quiet corners in Pasco that most people drive right past. We'll choose a spot that fits your family, or you can bring me somewhere that already holds a memory for you."
+      ],
+      "links": [
+        {
+          "label": "My guide to the best places to take pictures in the Tri-Cities",
+          "href": "/journal/family-photo-locations-tri-cities/"
+        }
+      ]
+    },
+    {
+      "id": "what-parents-say",
+      "kind": "quote",
+      "tone": "ivory",
+      "heading": "What Parents Say",
+      "items": [
+        {
+          "quote": "Lisa's patience helps the whole session feel easy, even with little ones moving everywhere."
+        }
+      ],
+      "links": [
+        {
+          "label": "More client reviews",
+          "href": "/reviews/"
+        }
+      ]
+    },
+    {
+      "id": "family-session-questions",
+      "kind": "faq",
+      "tone": "olive",
+      "heading": "Family Session Questions",
+      "items": [
+        {
+          "heading": "What if my kids won't cooperate?",
+          "paragraphs": [
+            "Then they'll fit right in. Wiggles, shyness, and big feelings are all part of a real family session. I don't expect children to perform — I build the session around play and connection, and the photographs are better for it."
+          ]
+        },
+        {
+          "heading": "What time of day are sessions?",
+          "paragraphs": [
+            "Golden hour — the hour or so before sunset, when the Tri-Cities light turns warm and soft. For families with very young children, we'll talk about timing around naps and bedtimes during our planning call."
+          ]
+        },
+        {
+          "heading": "What should our family wear?",
+          "paragraphs": [
+            "We'll plan it together before the session. I'll guide you toward colors and textures that photograph beautifully — and away from bright logos and busy patterns."
+          ]
+        },
+        {
+          "heading": "When should we book?",
+          "paragraphs": [
+            "I reserve most sessions four to six weeks ahead, and fall dates fill fastest. If you're dreaming of autumn photos, reach out in late summer."
+          ]
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "umber",
+    "heading": "Let's Plan Your Family's Golden Hour",
+    "paragraphs": [
+      "Tell me about your family — who's in front of the camera, and what this season means to you. I read and answer every inquiry myself."
+    ],
+    "link": {
+      "label": "Start planning",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[PENDIENTE: 2–3 reseñas reales de familias, con nombre — Q47]"
+  ]
+}

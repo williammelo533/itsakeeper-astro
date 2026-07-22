@@ -33,3 +33,10 @@ public/uploads/*-640.webp
 public/uploads/*-960.webp
 public/uploads/*-1440.webp
 *.mp4
+
+# research and visual QA evidence generated during development
+.firecrawl/
+.playwright-cli/
+artifacts/qa/
+artifacts/lighthouse/
+artifacts/audits/

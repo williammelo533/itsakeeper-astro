@@ -31,12 +31,10 @@ const { kindWords, settings, testimonials } = Astro.props;
       ))}
     </div>
 
-    {kindWords.reviewsLine && settings.social.googleProfile && (
+    {kindWords.reviewsLine && kindWords.buttonHref && (
       <p class="kind-words__google">
         <a
-          href={settings.social.googleProfile}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={kindWords.buttonHref}
           aria-label={`Read ${kindWords.reviewsLine} for ${settings.businessName}`}
           data-tina-field={tinaField(kindWords, "reviewsLine")}
         >{kindWords.reviewsLine}</a>

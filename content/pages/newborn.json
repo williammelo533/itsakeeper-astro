@@ -1,0 +1,136 @@
+{
+  "route": "/newborn-photographer-tri-cities-wa/",
+  "family": "service",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "Service",
+  "signature": "crossing-line",
+  "title": "Newborn Photographer Tri-Cities WA | In-Home Sessions",
+  "description": "Gentle, unhurried newborn photography in the Tri-Cities. Relaxed in-home sessions in Richland, Kennewick and Pasco that preserve how small they started.",
+  "hero": {
+    "tone": "ivory",
+    "heading": "Newborn Photographer in the Tri-Cities, WA",
+    "intro": "Gentle, unhurried newborn sessions in Richland, Kennewick and Pasco — photographs that preserve just how small they started, and how it felt to hold them.",
+    "links": [
+      {
+        "label": "Plan Your Newborn Session",
+        "href": "/contact/"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "those-first-days",
+      "kind": "prose",
+      "tone": "sand",
+      "heading": "Those First Days Pass So Quickly",
+      "paragraphs": [
+        "Everyone tells you the newborn days are a blur — and they're right. The tiny fingers curled around yours, the weight of them asleep on your chest, the way the whole house goes quiet when they finally do. These are the details you'll ache to remember, and the ones that slip away first.",
+        "I became a photographer because of my own children. I know from experience how fast this season moves, and I know the value of the photographs on the other side of it. They begin as beautiful images; over the years they become something closer to treasure."
+      ]
+    },
+    {
+      "id": "baby-led-sessions",
+      "kind": "split",
+      "tone": "olive",
+      "heading": "Gentle, Unhurried, Baby-Led Sessions",
+      "paragraphs": [
+        "My newborn sessions are relaxed and unforced. No rigid schedule, no elaborate props your baby will never wear again — just your family, soft natural light, and time enough for feeding, soothing and snuggling whenever baby needs it.",
+        "I photograph the real story of these days: baby in your arms, in the nursery you prepared, wrapped in the blanket that will someday live in a keepsake box. Big siblings and pets are always welcome — they're part of this chapter too."
+      ]
+    },
+    {
+      "id": "newborn-session-process",
+      "kind": "steps",
+      "tone": "ivory",
+      "heading": "What Your Newborn Session Looks Like",
+      "items": [
+        {
+          "heading": "Before baby arrives",
+          "paragraphs": [
+            "The best time to reach out is during your second or third trimester. We'll plan everything before your due date — timing, location, what to have ready — so that once baby is here, the only thing you have to do is text me."
+          ]
+        },
+        {
+          "heading": "Session day",
+          "paragraphs": [
+            "We work around your baby, not the clock. I'll guide you into natural, comfortable moments — no awkward posing, no pressure for baby to \"perform.\" Feeding breaks, diaper changes and pauses are simply part of the rhythm."
+          ]
+        },
+        {
+          "heading": "Your gallery",
+          "paragraphs": [
+            "Warm, true-to-life editing that keeps your baby looking like your baby — every tiny detail preserved, from eyelashes to toes."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "growing-families",
+      "kind": "services",
+      "tone": "earth",
+      "heading": "Growing Families Stay With Me",
+      "paragraphs": [
+        "Many of the families I photograph began with a newborn session — and came back for first birthdays, family sessions, and eventually senior pictures. It's one of the greatest privileges of twenty years in the Tri-Cities: watching the babies I photographed grow up in front of my camera."
+      ]
+    },
+    {
+      "id": "newborn-session-questions",
+      "kind": "faq",
+      "tone": "sand",
+      "heading": "Newborn Session Questions",
+      "items": [
+        {
+          "heading": "When should newborn photos be taken?",
+          "paragraphs": [
+            "There's no single \"right\" window. The classic sleepy-curled look happens in the first two weeks, but lifestyle sessions at home are beautiful anytime in the first couple of months. If your baby is already here, it's not too late — reach out and we'll plan it."
+          ]
+        },
+        {
+          "heading": "Should we do the session at home or outdoors?",
+          "paragraphs": [
+            "Both can be beautiful, and it depends on your comfort and the season."
+          ],
+          "links": [
+            {
+              "label": "My honest comparison: In-home vs. studio newborn photography",
+              "href": "/journal/in-home-vs-studio-newborn-photography/"
+            }
+          ]
+        },
+        {
+          "heading": "What if baby cries the whole time?",
+          "paragraphs": [
+            "Then we pause, feed, snuggle and try again. Sessions are unhurried on purpose. Babies set the pace — that's the whole philosophy."
+          ]
+        },
+        {
+          "heading": "Can siblings and pets be included?",
+          "paragraphs": [
+            "Always. This chapter belongs to them too."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "Reviews",
+          "href": "/reviews/"
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "walnut",
+    "heading": "Expecting? Let's Talk Early",
+    "paragraphs": [
+      "Due dates fill my calendar differently than any other session — reach out during pregnancy and we'll hold space for your baby's arrival."
+    ],
+    "link": {
+      "label": "Start planning",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[PENDIENTE: confirmar con Lisa formato exacto (in-home / lifestyle / outdoor para familias con newborn), y si menciona seguridad/posing seguro — Q41, Q63+]"
+  ]
+}

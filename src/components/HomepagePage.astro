@@ -1,6 +1,7 @@
 ---
 import Footer from "./Footer.astro";
 import GuidedInquiry from "./GuidedInquiry.astro";
+import HomeFaq from "./HomeFaq.astro";
 import Header from "./Header.astro";
 import Hero from "./Hero.astro";
 import HowItWorks from "./HowItWorks.astro";
@@ -23,7 +24,7 @@ const show = (section) => section?.visible !== false;
 
 <Header settings={settings} homepage={homepage} />
 
-<main id="main-content">
+<main id="main-content" class="homepage">
   {show(homepage.hero) && <Hero hero={homepage.hero} />}
   {show(homepage.why) && <TheWhy why={homepage.why} />}
   {show(homepage.sessions) && <SessionCategories sessions={homepage.sessions} />}
@@ -37,6 +38,8 @@ const show = (section) => section?.visible !== false;
       testimonials={testimonials}
     />
   )}
+  {show(homepage.faq) && <HomeFaq faq={homepage.faq} />}
+  <!-- CONTENT PENDING: [PENDIENTE: el bloque actual menciona los health challenges de la hija de Lisa y la sesión con ganador de Grammy — confirmar con Lisa antes de reutilizar cualquiera de los dos aquí o en /about/] -->
   {show(homepage.inquiry) && (
     <GuidedInquiry inquiry={homepage.inquiry} settings={settings} />
   )}

@@ -6,7 +6,7 @@ const { howItWorks } = Astro.props;
 
 <section
   class="process"
-  id="process"
+  id="how-it-works"
   aria-labelledby="process-title"
   data-tina-field={tinaField(howItWorks)}
 >
@@ -39,5 +39,6 @@ const { howItWorks } = Astro.props;
         </li>
       ))}
     </ol>
+    {howItWorks.buttonLabel && <p class="process__action"><a class="outline-button" href={howItWorks.buttonHref}>{howItWorks.buttonLabel}</a></p>}
   </div>
 </section>

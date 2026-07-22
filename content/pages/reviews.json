@@ -1,0 +1,56 @@
+{
+  "route": "/reviews/",
+  "family": "trust",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "WebPage",
+  "signature": "crossing-line",
+  "title": "Client Reviews | It's A Keeper Photography",
+  "description": "96 five-star Google reviews from Tri-Cities families, seniors and business owners. Read what it's really like to be photographed by Lisa.",
+  "hero": {
+    "tone": "olive",
+    "eyebrow": "★★★★★ 96 five-star reviews on Google",
+    "heading": "What Tri-Cities Families Say",
+    "intro": "I could tell you what a session with me feels like — but the people who've stood in front of my camera say it better."
+  },
+  "sections": [
+    {
+      "id": "every-one-is-a-story",
+      "kind": "prose",
+      "tone": "ivory",
+      "heading": "96 Five-Star Reviews — and Every One Is a Story",
+      "paragraphs": [
+        "The compliment I treasure most, and the one that appears again and again in my reviews, is this: how comfortable and at ease people felt — even the ones who normally hate being photographed. That's not an accident. It's the entire way I've built my sessions for twenty years."
+      ]
+    },
+    {
+      "id": "leave-the-nerves-at-home",
+      "kind": "quote",
+      "tone": "sand",
+      "heading": "Leave the Nerves at Home",
+      "items": [
+        {
+          "quote": "If you noticed a theme — \"I was so nervous, and then…\" — that's the part I want you to hear. Almost everyone arrives a little unsure. Almost everyone leaves saying it was actually fun. You will too."
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "umber",
+    "heading": "Your Story Could Be Next",
+    "link": {
+      "label": "Start planning your session",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[PENDIENTE CRÍTICO: Q47 — selección de 8–12 reseñas reales de Google con permiso/nombres. La estructura queda lista; las citas de ejemplo son placeholders de las 3 del sitio actual.]",
+    "[link al perfil de Google]",
+    "[Nombre, Richland]",
+    "[PENDIENTE: +2 reseñas de familias]",
+    "[PENDIENTE: reseñas de seniors — priorizar las que mencionen confianza/comodidad y el reveal]",
+    "[PENDIENTE: reseñas newborn]",
+    "[PENDIENTE: reseñas de branding/headshots]",
+    "[link externo]"
+  ]
+}

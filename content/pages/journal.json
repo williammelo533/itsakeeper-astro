@@ -1,0 +1,71 @@
+{
+  "route": "/journal/",
+  "family": "journal-hub",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "CollectionPage",
+  "signature": "overlap",
+  "title": "Photography Journal | Tips & Locations From Lisa",
+  "description": "First-hand planning advice from a Tri-Cities photographer — when to book, where to go, what to wear, and how to get photographs worth keeping forever.",
+  "hero": {
+    "tone": "walnut",
+    "heading": "The Journal",
+    "intro": "Twenty years of Tri-Cities sessions have taught me a few things — when to book, where the light falls, what to wear, and how to make the whole thing feel easy. I write it all down here, so you can plan like an insider."
+  },
+  "sections": [
+    {
+      "id": "planning-guides",
+      "kind": "article-list",
+      "tone": "ivory",
+      "heading": "Planning Guides",
+      "items": [
+        {
+          "heading": "12 Best Places to Take Pictures in the Tri-Cities, WA",
+          "detail": "Where the light falls in Richland, Kennewick and Pasco, from a photographer who's chased it for twenty years.",
+          "links": [
+            {
+              "label": "12 Best Places to Take Pictures in the Tri-Cities, WA",
+              "href": "/journal/family-photo-locations-tri-cities/"
+            }
+          ]
+        },
+        {
+          "heading": "When to Take Senior Pictures: A Tri-Cities Timeline",
+          "detail": "The honest answer to \"is it too late?\", plus the booking calendar nobody tells you about.",
+          "links": [
+            {
+              "label": "When to Take Senior Pictures: A Tri-Cities Timeline",
+              "href": "/journal/when-to-book-senior-pictures-tri-cities/"
+            }
+          ]
+        },
+        {
+          "heading": "In-Home vs. Studio Newborn Photography",
+          "detail": "An honest comparison to help you choose what's right for your family's first days."
+        },
+        {
+          "heading": "Branding Photos vs. Headshots: What Your Business Actually Needs",
+          "detail": "The difference, the overlap, and how to decide where to start."
+        }
+      ],
+      "links": [
+        {
+          "label": "Photography Portfolio",
+          "href": "/portfolio/"
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "umber",
+    "heading": "Start With Your Session",
+    "paragraphs": [
+      "Reading is planning — but the light won't wait forever."
+    ],
+    "link": {
+      "label": "Let's plan yours",
+      "href": "/contact/"
+    }
+  },
+  "pending": []
+}

@@ -61,9 +61,10 @@ const { why } = Astro.props;
       <p class="editorial-copy" data-tina-field={tinaField(why, "paragraph")}>
         {why.paragraph}
       </p>
+      {why.reassurance && <p class="editorial-copy story__reassurance">{why.reassurance}</p>}
       <a
         class="outline-button"
-        href="#process"
+        href="#how-it-works"
         data-tina-field={tinaField(why, "buttonLabel")}
       >{why.buttonLabel}</a>
     </div>

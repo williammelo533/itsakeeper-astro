@@ -21,28 +21,32 @@ const { sessions } = Astro.props;
       id="sessions-title"
       data-tina-field={tinaField(sessions, "heading")}
     >{sessions.heading}</h2>
+    {sessions.intro && <p class="editorial-copy portfolio__intro-copy">{sessions.intro}</p>}
   </div>
 
   <div class="portfolio__grid">
     {sessions.cards.map((card, index) => (
-      <a
+      <button
         class="portfolio-card"
         id={slugify(card.label)}
-        href={card.link || "#inquire"}
+        type="button"
         data-session-prefill={card.prefill || undefined}
-        aria-label={`Plan a ${card.label.toLowerCase()} photography session with Lisa`}
       >
         <span class="portfolio-card__image">
-          <Picture
-            imgClass="photo--editorial"
-            src={card.image}
-            alt={card.imageAlt}
-            loading="lazy"
-            decoding="async"
-            optimizedMobileWidth={640}
-            optimizedDesktopWidth={640}
-            dataTinaField={tinaField(sessions, "cards", index)}
-          />
+          {card.image ? (
+            <Picture
+              imgClass="photo--editorial"
+              src={card.image}
+              alt={card.imageAlt}
+              loading="lazy"
+              decoding="async"
+              optimizedMobileWidth={640}
+              optimizedDesktopWidth={640}
+              dataTinaField={tinaField(sessions, "cards", index)}
+            />
+          ) : (
+            <span class="portfolio-card__type-only" aria-hidden="true">{card.label}</span>
+          )}
         </span>
         <span class="portfolio-card__label-wrap">
           <span
@@ -50,7 +54,8 @@ const { sessions } = Astro.props;
             data-tina-field={tinaField(card, "label")}
           >{card.label}</span>
         </span>
-      </a>
+        {card.description && <span class="portfolio-card__description">{card.description}</span>}
+      </button>
     ))}
   </div>
 </section>

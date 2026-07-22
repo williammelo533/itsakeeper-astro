@@ -1,0 +1,179 @@
+---
+import type { EditorialPageData, PageSection } from "../../content/page-types";
+import GuidedInquiry from "../GuidedInquiry.astro";
+import Picture from "../Picture.astro";
+import "../../styles/content-page.css";
+
+interface Props {
+  page: EditorialPageData;
+  settings: any;
+  inquiry?: any;
+}
+
+const { page, settings, inquiry } = Astro.props;
+
+const faqSchema = page.sections
+  .filter((section) => section.kind === "faq")
+  .flatMap((section) => section.items || [])
+  .filter((item) => item.heading && item.paragraphs?.length)
+  .map((item) => ({
+    "@type": "Question",
+    name: item.heading,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.paragraphs?.join(" "),
+    },
+  }));
+
+const hasMedia = (section: PageSection) => Boolean(section.image || section.secondaryImage);
+---
+
+<article
+  class:list={["content-page", `content-page--${page.family}`, `content-page--${page.signature}`]}
+  data-content-status={page.contentStatus}
+  data-signature-device={page.signature}
+>
+  <header class:list={["page-hero", `tone-${page.hero.tone}`, { "page-hero--with-media": page.hero.image }]}> 
+    <div class="page-hero__construction" aria-hidden="true"></div>
+    {page.hero.image && (
+      <div class="page-hero__media">
+        <Picture
+          src={page.hero.image}
+          alt={page.hero.imageAlt || ""}
+          loading="eager"
+          fetchpriority="high"
+          responsive
+          imgClass="photo--editorial"
+        />
+        {page.hero.secondaryImage && (
+          <Picture
+            src={page.hero.secondaryImage}
+            alt={page.hero.secondaryImageAlt || ""}
+            loading="eager"
+            optimizedMobileWidth={640}
+            optimizedDesktopWidth={960}
+            imgClass="photo--editorial"
+          />
+        )}
+      </div>
+    )}
+    <div class="page-hero__copy">
+      {page.hero.eyebrow && <p class="page-eyebrow">{page.hero.eyebrow}</p>}
+      <h1>{page.hero.heading}</h1>
+      {page.hero.scriptLine && <p class="page-script" aria-hidden="true">{page.hero.scriptLine}</p>}
+      {page.hero.intro && <p class="page-dek">{page.hero.intro}</p>}
+      {page.hero.links?.length && (
+        <div class="page-actions">
+          {page.hero.links.map((link) => <a class="outline-button" href={link.href}>{link.label}</a>)}
+        </div>
+      )}
+    </div>
+  </header>
+
+  {page.sections.map((section, sectionIndex) => (
+    <section
+      class:list={[
+        "editorial-section",
+        `editorial-section--${section.kind}`,
+        `tone-${section.tone}`,
+        { "editorial-section--media": hasMedia(section), "editorial-section--reverse": sectionIndex % 2 === 1 },
+      ]}
+      id={section.id}
+      aria-labelledby={section.heading ? `${section.id}-title` : undefined}
+    >
+      <div class="editorial-section__line" aria-hidden="true"></div>
+      <div class="editorial-section__inner">
+        {(section.image || section.secondaryImage) && (
+          <div class="editorial-section__media">
+            {section.image && (
+              <figure class="editorial-print editorial-print--primary">
+                <Picture
+                  src={section.image}
+                  alt={section.imageAlt || ""}
+                  loading="lazy"
+                  optimizedMobileWidth={640}
+                  optimizedDesktopWidth={960}
+                  imgClass="photo--editorial"
+                />
+              </figure>
+            )}
+            {section.secondaryImage && (
+              <figure class="editorial-print editorial-print--secondary">
+                <Picture
+                  src={section.secondaryImage}
+                  alt={section.secondaryImageAlt || ""}
+                  loading="lazy"
+                  optimizedMobileWidth={400}
+                  optimizedDesktopWidth={640}
+                  imgClass="photo--editorial"
+                />
+              </figure>
+            )}
+            {section.scriptLine && <p class="page-script" aria-hidden="true">{section.scriptLine}</p>}
+          </div>
+        )}
+
+        <div class="editorial-section__copy">
+          {section.eyebrow && <p class="page-eyebrow">{section.eyebrow}</p>}
+          {section.heading && <h2 id={`${section.id}-title`}>{section.heading}</h2>}
+          {section.intro && <p class="editorial-lead">{section.intro}</p>}
+          {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+
+          {section.kind === "form" && inquiry && (
+            <GuidedInquiry inquiry={inquiry} settings={settings} embedded />
+          )}
+
+          {section.items?.length && (
+            <div class:list={["editorial-items", `editorial-items--${section.kind}`]}>
+              {section.items.map((item, itemIndex) => (
+                <article class="editorial-item">
+                  <span class="editorial-item__number" aria-hidden="true">{String(itemIndex + 1).padStart(2, "0")}</span>
+                  {item.eyebrow && <p class="page-eyebrow">{item.eyebrow}</p>}
+                  {item.heading && <h3>{item.heading}</h3>}
+                  {item.quote && <blockquote><p>{item.quote}</p></blockquote>}
+                  {item.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+                  {item.detail && <p class="editorial-item__detail">{item.detail}</p>}
+                  {item.attribution && <p class="editorial-item__attribution">{item.attribution}</p>}
+                  {item.links?.map((link) => <a class="text-link" href={link.href}>{link.label}</a>)}
+                </article>
+              ))}
+            </div>
+          )}
+
+          {section.links?.length && (
+            <div class="section-links">
+              {section.links.map((link) => (
+                <a
+                  class="text-link"
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                >{link.label}</a>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  {page.finalCta && (
+    <section class:list={["page-final", `tone-${page.finalCta.tone}`]} aria-labelledby="page-final-title">
+      <div class="page-final__line" aria-hidden="true"></div>
+      <div class="page-final__inner">
+        {page.finalCta.eyebrow && <p class="page-eyebrow">{page.finalCta.eyebrow}</p>}
+        <h2 id="page-final-title">{page.finalCta.heading}</h2>
+        {page.finalCta.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        {page.finalCta.link && <a class="outline-button" href={page.finalCta.link.href}>{page.finalCta.link.label}</a>}
+      </div>
+    </section>
+  )}
+
+  {faqSchema.length > 0 && (
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqSchema })}
+    />
+  )}
+</article>

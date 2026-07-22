@@ -8,6 +8,7 @@ export interface ImageMeta {
   /** Path to a same-name .webp twin, when one exists in /public. */
   webp?: string;
   /** Optional hand-optimized variants for responsive hero/banner delivery. */
+  mobileAvif?: string;
   mobileWebp?: string;
   desktopWebp?: string;
   desktopAvif?: string;
@@ -46,9 +47,13 @@ export function imageMeta(src: string): ImageMeta {
   }
 
   const webpBase = clean.replace(/\.(?:jpe?g|png|webp)$/i, "");
+  const mobileAvif = `${webpBase}-mobile.avif`;
   const mobileWebp = `${webpBase}-mobile.webp`;
   const desktopWebp = `${webpBase}-desktop.webp`;
   const desktopAvif = `${webpBase}-desktop.avif`;
+  if (fs.existsSync(path.join(publicDir, mobileAvif))) {
+    meta.mobileAvif = mobileAvif;
+  }
   if (fs.existsSync(path.join(publicDir, mobileWebp))) {
     meta.mobileWebp = mobileWebp;
   }

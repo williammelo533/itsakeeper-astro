@@ -1,0 +1,25 @@
+{
+  "route": "/thank-you/",
+  "family": "utility",
+  "contentStatus": "ready",
+  "searchVisibility": "noindex",
+  "schemaType": "WebPage",
+  "signature": "arch",
+  "title": "Thank You | It's A Keeper Photography",
+  "description": "A warm confirmation after sending an inquiry.",
+  "hero": {
+    "tone": "sand",
+    "heading": "Thank you for reaching out.",
+    "intro": "Your message has been sent. I'm glad you're here."
+  },
+  "sections": [],
+  "finalCta": {
+    "tone": "umber",
+    "heading": "Keep exploring",
+    "link": {
+      "label": "Return home",
+      "href": "/"
+    }
+  },
+  "pending": []
+}

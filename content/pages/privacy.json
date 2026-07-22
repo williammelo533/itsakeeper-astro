@@ -1,0 +1,19 @@
+{
+  "route": "/privacy/",
+  "family": "utility",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "WebPage",
+  "signature": "crossing-line",
+  "title": "Privacy | It's A Keeper Photography",
+  "description": "Privacy information for It's A Keeper Photography.",
+  "hero": {
+    "tone": "ivory",
+    "heading": "Privacy",
+    "intro": "Privacy information for It's A Keeper Photography."
+  },
+  "sections": [],
+  "pending": [
+    "[PENDIENTE: contenido legal de privacidad revisado y aprobado antes de publicar]"
+  ]
+}

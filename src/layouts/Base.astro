@@ -1,7 +1,10 @@
 ---
 import "../styles/styles.css";
+import "../styles/palette.css";
 import { telHref } from "../lib/content";
 import { imageMeta } from "../lib/images";
+import type { SchemaType, SearchVisibility } from "../content/page-types";
+import { absoluteUrl, robotsDirective, siteOrigin } from "../lib/site-environment";
 
 interface Props {
   title: string;
@@ -11,6 +14,10 @@ interface Props {
   canonicalPath?: string;
   seoImage?: string;
   seoImageAlt?: string;
+  searchVisibility?: SearchVisibility;
+  schemaType?: SchemaType;
+  additionalSchema?: Record<string, unknown>[];
+  loadEditorialMotion?: boolean;
 }
 
 const {
@@ -21,15 +28,19 @@ const {
   canonicalPath = "/",
   seoImage: pageSeoImage,
   seoImageAlt: pageSeoImageAlt,
+  searchVisibility = "index",
+  schemaType = "WebPage",
+  additionalSchema = [],
+  loadEditorialMotion = Boolean(homepage),
 } = Astro.props;
 
-const siteUrl = (settings.advanced.siteUrl || "").replace(/\/$/, "");
-const absolute = (path: string) => `${siteUrl}${path}`;
-const siteRoot = `${siteUrl}/`;
 const normalizedCanonicalPath = canonicalPath === "/"
   ? "/"
   : `/${canonicalPath.replace(/^\/+|\/+$/g, "")}/`;
-const canonical = `${siteUrl}${normalizedCanonicalPath}`;
+const canonical = absoluteUrl(normalizedCanonicalPath);
+const siteRoot = `${siteOrigin}/`;
+const absolute = (path: string) => new URL(path, siteRoot).toString();
+const robots = robotsDirective(searchVisibility);
 
 const seoImage = pageSeoImage || settings.seoImage;
 const seoImageAlt = pageSeoImageAlt || settings.seoImageAlt;
@@ -45,6 +56,7 @@ const responsivePreloadImage =
   heroMeta.responsiveWebp?.at(-1)?.path || preloadImage;
 const hasResponsiveHero = Boolean(
   heroMeta.desktopAvif ||
+  heroMeta.mobileAvif ||
   heroMeta.mobileWebp ||
   heroMeta.desktopWebp
 );
@@ -62,20 +74,14 @@ const localBusinessSchema = {
   logo: absolute(settings.logo),
   founder: {
     "@type": "Person",
+    "@id": `${siteRoot}#lisa`,
     name: settings.advanced.founderName,
   },
   address: {
     "@type": "PostalAddress",
-    streetAddress: settings.address.street,
-    addressLocality: settings.address.city,
-    addressRegion: settings.address.state,
-    postalCode: settings.address.zip,
+    addressLocality: "Richland",
+    addressRegion: "WA",
     addressCountry: "US",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: settings.advanced.latitude,
-    longitude: settings.advanced.longitude,
   },
   areaServed: settings.serviceAreas.map((city) => ({ "@type": "City", name: city })),
   sameAs: [settings.social.instagram, settings.social.facebook].filter(Boolean),
@@ -110,7 +116,7 @@ const webSiteSchema = {
 const webPageSchema = normalizedCanonicalPath !== "/"
   ? {
       "@context": "https://schema.org",
-      "@type": "CollectionPage",
+      "@type": schemaType,
       "@id": `${canonical}#webpage`,
       url: canonical,
       name: title,
@@ -134,8 +140,8 @@ const webPageSchema = normalizedCanonicalPath !== "/"
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#F8F6F1" />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#281E10" />
     <link rel="canonical" href={canonical} />
     <link
       rel="icon"
@@ -174,13 +180,16 @@ const webPageSchema = normalizedCanonicalPath !== "/"
     {webPageSchema && (
       <script type="application/ld+json" is:inline set:html={JSON.stringify(webPageSchema)} />
     )}
+    {additionalSchema.map((schema) => (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+    ))}
 
-    {hero?.visible !== false && heroMeta.mobileWebp && (
+    {hero?.visible !== false && (heroMeta.mobileAvif || heroMeta.mobileWebp) && (
       <link
         rel="preload"
         as="image"
-        href={heroMeta.mobileWebp}
-        type="image/webp"
+        href={heroMeta.mobileAvif || heroMeta.mobileWebp}
+        type={heroMeta.mobileAvif ? "image/avif" : "image/webp"}
         media="(max-width: 767px)"
         fetchpriority="high"
       />
@@ -213,13 +222,17 @@ const webPageSchema = normalizedCanonicalPath !== "/"
       href="/fonts/cormorant-garamond-latin-400.woff2"
       crossorigin
     />
-    <script src="/vendor/gsap-3.15.0.min.js" defer is:inline></script>
-    <script
-      src="/vendor/scroll-trigger-3.15.0.min.js"
-      defer
-      is:inline
-    ></script>
-    <script src="/scripts/site.min.js" defer is:inline></script>
+    {loadEditorialMotion && (
+      <>
+        <script src="/vendor/gsap-3.15.0.min.js" defer is:inline></script>
+        <script src="/vendor/scroll-trigger-3.15.0.min.js" defer is:inline></script>
+      </>
+    )}
+    {loadEditorialMotion ? (
+      <script src="/scripts/site.min.js" defer is:inline></script>
+    ) : (
+      <script src="/scripts/chrome.min.js" defer is:inline></script>
+    )}
   </head>
 
   <body>

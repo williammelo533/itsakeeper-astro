@@ -1,0 +1,135 @@
+{
+  "route": "/journal/in-home-vs-studio-newborn-photography/",
+  "family": "article",
+  "contentStatus": "draft",
+  "searchVisibility": "noindex",
+  "schemaType": "Article",
+  "signature": "overlap",
+  "title": "In-Home vs. Studio Newborn Photography: How to Choose",
+  "description": "In-home or studio newborn photos? An honest comparison from a Tri-Cities newborn photographer — comfort, style, timing and what each session really feels like.",
+  "hero": {
+    "tone": "walnut",
+    "heading": "In-Home vs. Studio Newborn Photography"
+  },
+  "sections": [
+    {
+      "id": "the-short-answer",
+      "kind": "quote",
+      "tone": "ivory",
+      "heading": "The Short Answer",
+      "paragraphs": [
+        "In-home newborn photography happens in your own house — natural light, your nursery, your everyday life with baby. Studio newborn photography happens in a photographer's controlled space, usually with posed setups, props and backdrops. Neither is \"better\"; they're different kinds of memories. Here's the honest comparison I walk every expecting family through."
+      ]
+    },
+    {
+      "id": "what-is-in-home-newborn-photography",
+      "kind": "split",
+      "tone": "sand",
+      "heading": "What Is In-Home Newborn Photography?",
+      "paragraphs": [
+        "Also called a lifestyle newborn session, an in-home session documents your baby's real first days in the place where they're happening. Baby in the nursery you spent months preparing. Feeding in your favorite chair. Big siblings peeking into the bassinet. The window light in your own bedroom.",
+        "Nothing is staged beyond gentle guidance — the photographer works with your home's light and your baby's rhythm. Pauses for feeding, soothing and diaper changes aren't interruptions; they're the session."
+      ]
+    },
+    {
+      "id": "what-is-studio-newborn-photography",
+      "kind": "prose",
+      "tone": "earth",
+      "heading": "What Is Studio Newborn Photography?",
+      "paragraphs": [
+        "Studio sessions are the posed, curled-baby portraits you've seen — baby wrapped and sleeping in a basket, on a backdrop, in themed setups. They require a controlled environment, specialized safety training for posing, and typically need to happen in the first two weeks, while babies are sleepy enough to curl.",
+        "Done well, studio work is genuinely artful. It's also a different product: styled portraits of your baby, rather than documentation of your life with your baby."
+      ]
+    },
+    {
+      "id": "the-honest-comparison",
+      "kind": "comparison",
+      "tone": "olive",
+      "heading": "The Honest Comparison",
+      "items": [
+        {
+          "heading": "Comfort (yours and baby's)",
+          "paragraphs": [
+            "Recovering from birth, you may not want to pack up a days-old baby and drive anywhere. At home, everything you need is within reach — snacks, changes of clothes, your own bathroom, your own couch. Studios counter with amenities and a \"handled-for-you\" experience. For most postpartum parents, home wins on comfort."
+          ]
+        },
+        {
+          "heading": "Style of the photographs",
+          "paragraphs": [
+            "Studio: polished, styled, timeless-formal. In-home: warm, personal, documentary — photographs where you can feel the season of life. Ask yourself which one you'll want on the wall in twenty years; that answer differs by family, and both are valid."
+          ]
+        },
+        {
+          "heading": "Timing and flexibility",
+          "paragraphs": [
+            "Studio posing usually needs the first 10–14 days. In-home sessions are far more forgiving — beautiful at two weeks or two months, because they don't depend on a curled sleepy pose. If your baby is \"already too old\" for studio work, an in-home session isn't a consolation prize; it's arguably the more meaningful record."
+          ]
+        },
+        {
+          "heading": "Preparation and effort",
+          "paragraphs": [
+            "Studio: drive there, hand over the reins. In-home: no travel, but a little tidying — and only of the corners we'll actually use. (A good photographer needs one clean window, not a spotless house. Truly.)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "which-one-will-you-treasure-more",
+      "kind": "quote",
+      "tone": "sand",
+      "heading": "Which One Will You Treasure More?",
+      "paragraphs": [
+        "After twenty years of photographing families, here's what I've seen: the photographs families cry over a decade later are rarely the most styled ones. They're the ones with their people in their place — the nursery that got repainted, the house they moved away from, the way dad held the baby in that particular chair. Choose the session that preserves what you most want to remember."
+      ],
+      "links": [
+        {
+          "label": "See how my newborn sessions work",
+          "href": "/newborn-photographer-tri-cities-wa/"
+        },
+        {
+          "label": "Family Photography",
+          "href": "/family-photographer-tri-cities-wa/"
+        }
+      ]
+    },
+    {
+      "id": "common-questions",
+      "kind": "faq",
+      "tone": "ivory",
+      "heading": "Common Questions",
+      "items": [
+        {
+          "heading": "When should I book newborn photos?",
+          "paragraphs": [
+            "During your second or third trimester. Photographers hold flexible space around due dates — reaching out early means your spot is safe no matter when baby arrives."
+          ]
+        },
+        {
+          "heading": "Is my house too small or too dark for in-home photos?",
+          "paragraphs": [
+            "Almost never. One good window and a few honest square feet are enough — finding the light is the photographer's job, not yours."
+          ]
+        },
+        {
+          "heading": "What if we missed the two-week window?",
+          "paragraphs": [
+            "For in-home lifestyle photos, there's no missed window. Two months old is still brand new, still tiny, still worth documenting."
+          ]
+        }
+      ]
+    }
+  ],
+  "finalCta": {
+    "tone": "umber",
+    "heading": "Planning Your Baby's First Photos in the Tri-Cities",
+    "link": {
+      "label": "Expecting? Let's talk early",
+      "href": "/contact/"
+    }
+  },
+  "pending": [
+    "[VALIDAR CON LISA]",
+    "[VALIDAR: formato exacto que ofrece Lisa]",
+    "[FECHA]"
+  ]
+}

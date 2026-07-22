@@ -20,3 +20,13 @@ export const getPortfolioPage = () =>
     }),
     { priority: "primary" }
   );
+
+export const getContentPageTina = (pagePath: string) =>
+  requestWithMetadata(
+    (client.queries as any).contentPageSite({
+      pagePath,
+      homepagePath: "index.json",
+      settingsPath: "index.json",
+    }),
+    { priority: "primary" }
+  );
