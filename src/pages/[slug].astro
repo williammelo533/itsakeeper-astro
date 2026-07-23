@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import TinaIsland from "@tinacms/astro/TinaIsland.astro";
-import ContentPage from "../components/pages/ContentPage.astro";
+import EditorialPageRouter from "../components/pages/EditorialPageRouter.astro";
 import SiteShell from "../components/SiteShell.astro";
 import { getContentPage } from "../lib/content-pages";
 import { topLevelEditorialManifest } from "../lib/page-manifest";
@@ -32,7 +32,7 @@ const { homepage, settings } = shared.data;
 >
   <SiteShell settings={settings} homepage={homepage} currentPath={entry.path}>
     <TinaIsland name="contentPage" wrapper={contentPageWrapper} params={{ path: entry.contentPath }} primary>
-      <ContentPage page={page} settings={settings} inquiry={homepage.inquiry} />
+      <EditorialPageRouter page={page} settings={settings} inquiry={homepage.inquiry} />
     </TinaIsland>
   </SiteShell>
 </Base>

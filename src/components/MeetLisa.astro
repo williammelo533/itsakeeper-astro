@@ -3,6 +3,15 @@ import Picture from "./Picture.astro";
 import { tinaField } from "@tinacms/astro/tina-field";
 
 const { meetLisa } = Astro.props;
+
+const headingLine2 = (meetLisa.headingLine2 || "").trim();
+const accentBreak = headingLine2.lastIndexOf(" ");
+const headingLine2Stem = accentBreak > -1
+  ? headingLine2.slice(0, accentBreak)
+  : "";
+const headingAccent = accentBreak > -1
+  ? headingLine2.slice(accentBreak + 1)
+  : headingLine2;
 ---
 
 <section
@@ -17,12 +26,19 @@ const { meetLisa } = Astro.props;
         {meetLisa.eyebrow}
       </p>
       <h2 class="section-heading" id="biography-title">
-        <span data-tina-field={tinaField(meetLisa, "headingLine1")}>
+        <span
+          class="biography__heading-line"
+          data-tina-field={tinaField(meetLisa, "headingLine1")}
+        >
           {meetLisa.headingLine1}
         </span>
-        {meetLisa.headingLine2 && (
-          <span data-tina-field={tinaField(meetLisa, "headingLine2")}>
-            {meetLisa.headingLine2}
+        {headingLine2 && (
+          <span
+            class="biography__heading-line biography__heading-line--accent"
+            data-tina-field={tinaField(meetLisa, "headingLine2")}
+          >
+            {headingLine2Stem && `${headingLine2Stem} `}
+            <em class="biography__script-word">{headingAccent}</em>
           </span>
         )}
       </h2>
@@ -35,12 +51,15 @@ const { meetLisa } = Astro.props;
           data-tina-field={tinaField(meetLisa, "credit")}
         >{meetLisa.credit}</p>
       )}
+      <a class="outline-button outline-button--light biography__action" href="/about/">
+        Meet Lisa
+      </a>
     </div>
 
     <div class="biography__media">
       <div class="biography__line biography__line--vertical" aria-hidden="true"></div>
       <div class="biography__line biography__line--horizontal" aria-hidden="true"></div>
-      <figure class="biography__portrait">
+      <figure class="biography__portrait" data-biography-arch>
         <Picture
           imgClass="photo--editorial"
           src={meetLisa.portrait}
@@ -52,6 +71,18 @@ const { meetLisa } = Astro.props;
           dataTinaField={tinaField(meetLisa, "portrait")}
         />
       </figure>
+      <div class="biography__print" aria-hidden="true" data-biography-print>
+        <span class="biography__tape"></span>
+        <Picture
+          pictureClass="biography__print-picture"
+          imgClass="photo--editorial biography__print-image"
+          src={meetLisa.portrait}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          optimizedMobileWidth={400}
+        />
+      </div>
     </div>
   </div>
 </section>

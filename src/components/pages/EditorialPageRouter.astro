@@ -1,0 +1,16 @@
+---
+import type { EditorialPageData } from "../../content/page-types";
+import AboutPage from "./AboutPage.astro";
+import ContentPage from "./ContentPage.astro";
+
+interface Props {
+  page: EditorialPageData;
+  settings: any;
+  inquiry?: any;
+}
+
+const props = Astro.props;
+const isAboutPage = props.page.route === "/about/";
+---
+
+{isAboutPage ? <AboutPage {...props} /> : <ContentPage {...props} />}

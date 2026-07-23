@@ -10,7 +10,9 @@
   "hero": {
     "tone": "earth",
     "heading": "Meet Lisa — The Heart Behind It's A Keeper",
-    "intro": "Professional senior, family and couples photographer in Richland, WA. Twenty years behind the camera, fourteen years in business, and hundreds of Tri-Cities stories preserved."
+    "intro": "Professional senior, family and couples photographer in Richland, WA. Twenty years behind the camera, fourteen years in business, and hundreds of Tri-Cities stories preserved.",
+    "image": "/uploads/lisa-photographer-tricities.jpg",
+    "imageAlt": "Lisa, owner of It’s A Keeper Photography, holding her camera in the Tri-Cities"
   },
   "sections": [
     {
@@ -42,7 +44,9 @@
         "As my passion grew, I knew I wanted a real camera. When I found what seemed like the perfect deal on a DSLR on eBay, we took a leap of faith — and it turned out to be a scam. We lost money we couldn't really afford to lose.",
         "Looking back, that disappointment became one of the greatest reminders of God's faithfulness in my life. What I couldn't see was that a way was already being made: someone had been placed on a path to gift me that exact camera, just in time for me to photograph my first two weddings. That gift was more than a camera — it was confirmation. A door was opening, and I was being invited to step into the calling prepared for me.",
         "Over the past twenty years, doors have kept opening. What started with photographing my own children has become the privilege of documenting life's most meaningful moments for hundreds of families, couples and seniors across the Tri-Cities."
-      ]
+      ],
+      "image": "/uploads/lisa-photographer-tricities.jpg",
+      "imageAlt": "Detail of Lisa holding the camera she uses to preserve Tri-Cities stories"
     },
     {
       "id": "what-twenty-years-behind-the-camera-has-taught-me",
@@ -53,6 +57,20 @@
         "I once photographed my own grandparents — laughing, holding hands, sharing the quiet love they'd built over a lifetime. I had no idea how precious those photographs would become after my grandpa passed away.",
         "Moments like that have taught me what this work really is. I'm not just taking photographs for today; I'm preserving moments that may one day become a family's most treasured memories. It's a responsibility I never take lightly — and one of the greatest reasons I love what I do.",
         "It's also taught me about people. Watching a shy teenager's face light up at the back of my camera. Sitting in a coffee shop while parents see their senior's gallery and their eyes fill — because their \"baby\" grew up, or because their child was truly captured for who they are. The pieces of people's stories I get to be part of become part of me."
+      ],
+      "items": [
+        {
+          "image": "/uploads/senior-portrait-golden-hour-richland.jpg",
+          "imageAlt": "High school senior in a black dress photographed at golden hour in Richland"
+        },
+        {
+          "image": "/uploads/family-portrait-outdoors-tricities.jpg",
+          "imageAlt": "A family laughing together during an outdoor Tri-Cities portrait session"
+        },
+        {
+          "image": "/uploads/newborn-portrait-with-mother-richland.jpg",
+          "imageAlt": "A mother kissing her newborn during a gentle in-home newborn session in Richland"
+        }
       ]
     },
     {
@@ -68,7 +86,9 @@
         {
           "quote": "To feel seen. That's the whole thing."
         }
-      ]
+      ],
+      "image": "/uploads/family-golden-hour-columbia-basin.jpg",
+      "imageAlt": "Parents holding their young child in glowing Columbia Basin evening light"
     },
     {
       "id": "lisa-off-camera",

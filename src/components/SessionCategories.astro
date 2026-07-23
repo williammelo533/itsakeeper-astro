@@ -54,7 +54,9 @@ const { sessions } = Astro.props;
             data-tina-field={tinaField(card, "label")}
           >{card.label}</span>
         </span>
-        {card.description && <span class="portfolio-card__description">{card.description}</span>}
+        {card.description && (
+          <span class="portfolio-card__description sr-only">{card.description}</span>
+        )}
       </button>
     ))}
   </div>

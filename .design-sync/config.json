@@ -1,0 +1,10 @@
+{
+  "projectId": "5bfddc4f-8f4a-4420-8701-a9e90b4cefbd",
+  "pkg": "its-a-keeper-astro",
+  "globalName": "ItsAKeeper",
+  "shape": "package",
+  "buildCmd": "node .design-sync/build-styles.mjs",
+  "entry": ".design-sync/.cache/ds-entry.mjs",
+  "cssEntry": ".design-sync/.cache/ds-styles.css",
+  "guidelinesGlob": ["DESIGN.md"]
+}

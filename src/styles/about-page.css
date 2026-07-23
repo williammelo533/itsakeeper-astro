@@ -1,0 +1,882 @@
+.about-page {
+  --about-shell-width: var(--container-content);
+  --about-section-space: clamp(7rem, 10vw, 10rem);
+  --about-hero-overlap: clamp(4.5rem, 7vw, 7rem);
+  --about-copy-width: 42rem;
+  overflow: clip;
+  color: var(--color-deep-umber);
+  background: var(--color-warm-ivory);
+}
+
+.about-shell {
+  width: min(100%, var(--about-shell-width));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter-desktop);
+}
+
+.about-page h1,
+.about-page h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: var(--tracking-heading);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.about-page h2 {
+  font-size: clamp(2.7rem, 4.5vw, 4.75rem);
+}
+
+.about-page p,
+.about-page li {
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 1.5vw, 1.3125rem);
+  font-style: italic;
+  line-height: 1.64;
+  text-wrap: pretty;
+}
+
+.about-hero {
+  position: relative;
+  min-height: 49rem;
+  color: var(--color-warm-ivory);
+}
+
+.about-hero__inner {
+  position: relative;
+  z-index: var(--layer-story);
+  min-height: 49rem;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-6);
+  align-items: end;
+}
+
+.about-hero__copy {
+  grid-column: 1 / span 7;
+  padding-block: clamp(8rem, 12vw, 11rem) clamp(6rem, 9vw, 8.5rem);
+}
+
+.about-hero h1 {
+  max-width: 13ch;
+  font-size: clamp(3.5rem, 6.1vw, 5.9rem);
+}
+
+.about-hero__copy p {
+  max-width: 39rem;
+  margin: var(--space-8) 0 0;
+  color: var(--color-warm-ivory);
+}
+
+.about-hero__portrait {
+  position: relative;
+  z-index: var(--layer-media-front);
+  grid-column: 8 / 13;
+  width: min(100%, 29rem);
+  height: clamp(37rem, 45vw, 43rem);
+  justify-self: end;
+  margin: 0 0 calc(var(--about-hero-overlap) * -1);
+  overflow: hidden;
+  border-radius: var(--radius-arch);
+  background: var(--color-walnut);
+}
+
+.about-hero__portrait picture,
+.about-hero__portrait img {
+  width: 100%;
+  height: 100%;
+}
+
+.about-hero__portrait img {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.about-hero__rule {
+  position: absolute;
+  z-index: var(--layer-base);
+  inset: 0 auto calc(var(--about-hero-overlap) * -1) 67%;
+  width: var(--border-hairline);
+  background: currentColor;
+  opacity: 0.34;
+}
+
+.about-hero__rule::after {
+  position: absolute;
+  top: 37%;
+  right: 0;
+  width: 42vw;
+  height: var(--border-hairline);
+  background: currentColor;
+  content: "";
+}
+
+.about-origin {
+  position: relative;
+  padding-block: calc(var(--about-section-space) + (var(--about-hero-overlap) / 2)) var(--about-section-space);
+}
+
+.about-origin__inner,
+.about-name__inner,
+.about-personal__inner,
+.about-final__inner {
+  position: relative;
+  z-index: var(--layer-story);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.about-origin h2 {
+  grid-column: 1 / span 5;
+  max-width: 10ch;
+}
+
+.about-origin__copy {
+  grid-column: 7 / 13;
+  max-width: var(--about-copy-width);
+}
+
+.about-origin__copy p {
+  margin: 0;
+}
+
+.about-origin__copy p + p {
+  margin-top: var(--space-6);
+}
+
+.about-origin__lead {
+  font-size: clamp(1.5rem, 2.2vw, 2rem) !important;
+  line-height: 1.45 !important;
+}
+
+.about-origin__rule {
+  position: absolute;
+  top: 18%;
+  bottom: -3rem;
+  left: 49%;
+  width: var(--border-hairline);
+  background: currentColor;
+  opacity: 0.25;
+}
+
+.about-origin__rule::after {
+  position: absolute;
+  top: 32%;
+  right: 0;
+  width: 31vw;
+  height: var(--border-hairline);
+  background: currentColor;
+  content: "";
+}
+
+.about-name {
+  position: relative;
+  border-block: var(--border-hairline) solid color-mix(in srgb, currentColor 28%, transparent);
+}
+
+.about-name__inner {
+  padding-block: clamp(5.5rem, 8vw, 8rem);
+  align-items: center;
+}
+
+.about-name h2 {
+  grid-column: 1 / span 4;
+  max-width: 7ch;
+}
+
+.about-name__copy {
+  grid-column: 6 / 13;
+  max-width: 49rem;
+  padding-left: clamp(2rem, 5vw, 5rem);
+  border-left: var(--border-hairline) solid currentColor;
+}
+
+.about-name__copy p {
+  margin: 0;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.55;
+}
+
+.about-camera {
+  position: relative;
+  color: var(--color-warm-ivory);
+  padding-block: calc(var(--about-section-space) + var(--space-10)) var(--about-section-space);
+}
+
+.about-camera__inner {
+  position: relative;
+  z-index: var(--layer-story);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.about-camera__print {
+  position: relative;
+  z-index: var(--layer-media-front);
+  grid-column: 1 / span 5;
+  aspect-ratio: 1;
+  margin: calc((var(--about-section-space) + var(--space-6)) * -1) 0 0;
+  overflow: hidden;
+  border: var(--space-3) solid var(--color-warm-ivory);
+  background: var(--color-walnut);
+}
+
+.about-camera__print picture,
+.about-camera__print img {
+  width: 100%;
+  height: 100%;
+}
+
+.about-camera__print img {
+  object-fit: cover;
+  object-position: center 88%;
+  transform: scale(1.52);
+  transform-origin: 50% 88%;
+}
+
+.about-camera__copy {
+  grid-column: 6 / 13;
+  padding-left: clamp(2rem, 5vw, 5rem);
+}
+
+.about-camera h2 {
+  max-width: 13ch;
+}
+
+.about-camera__paragraphs {
+  max-width: var(--about-copy-width);
+  margin-top: var(--space-10);
+}
+
+.about-camera__paragraphs p {
+  margin: 0;
+}
+
+.about-camera__paragraphs p + p {
+  margin-top: var(--space-6);
+}
+
+.about-camera__rule {
+  position: absolute;
+  inset: -4rem auto -4rem 38%;
+  width: var(--border-hairline);
+  background: currentColor;
+  opacity: 0.3;
+}
+
+.about-camera__rule::after {
+  position: absolute;
+  top: 52%;
+  left: -38vw;
+  width: 76vw;
+  height: var(--border-hairline);
+  background: currentColor;
+  content: "";
+}
+
+.about-lessons {
+  position: relative;
+  color: var(--color-warm-ivory);
+  padding-block: var(--about-section-space);
+}
+
+.about-lessons__inner {
+  position: relative;
+  z-index: var(--layer-story);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.about-lessons__copy {
+  grid-column: 1 / span 5;
+  max-width: 38rem;
+}
+
+.about-lessons h2 {
+  max-width: 11ch;
+}
+
+.about-lessons__copy > p {
+  margin: var(--space-6) 0 0;
+}
+
+.about-lessons__lead {
+  margin-top: var(--space-10) !important;
+  font-size: clamp(1.35rem, 1.8vw, 1.65rem) !important;
+  line-height: 1.52 !important;
+}
+
+.about-lessons__prints {
+  position: relative;
+  grid-column: 7 / 13;
+  min-height: 47rem;
+}
+
+.about-lessons__print {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  background: var(--color-walnut);
+}
+
+.about-lessons__print picture,
+.about-lessons__print img {
+  width: 100%;
+  height: 100%;
+}
+
+.about-lessons__print img {
+  object-fit: cover;
+}
+
+.about-lessons__print--1 {
+  z-index: 1;
+  top: 4.5rem;
+  left: 0;
+  width: 48%;
+  height: 58%;
+}
+
+.about-lessons__print--2 {
+  z-index: 2;
+  top: 0;
+  right: 0;
+  width: 52%;
+  height: 68%;
+  border-radius: var(--radius-arch);
+}
+
+.about-lessons__print--3 {
+  z-index: 3;
+  bottom: 0;
+  left: 24%;
+  width: 46%;
+  height: 51%;
+  border: var(--space-3) solid var(--color-warm-ivory);
+}
+
+.about-lessons__crossline {
+  position: absolute;
+  z-index: var(--layer-base);
+  top: 48%;
+  right: 0;
+  left: 0;
+  height: var(--border-hairline);
+  background: currentColor;
+  opacity: 0.28;
+}
+
+.about-lessons__crossline::after {
+  position: absolute;
+  top: -30rem;
+  bottom: -30rem;
+  left: 65%;
+  width: var(--border-hairline);
+  background: currentColor;
+  content: "";
+}
+
+.about-belief {
+  position: relative;
+}
+
+.about-belief__image {
+  position: relative;
+  min-height: clamp(36rem, 53vw, 47rem);
+  display: grid;
+  align-items: end;
+  overflow: hidden;
+  color: var(--color-warm-ivory);
+}
+
+.about-belief__image picture,
+.about-belief__image img,
+.about-belief__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.about-belief__image img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-belief__overlay {
+  background: color-mix(in srgb, var(--color-deep-umber) 66%, transparent);
+}
+
+.about-belief__statement {
+  position: relative;
+  z-index: var(--layer-story);
+  padding-block: clamp(6rem, 9vw, 9rem);
+}
+
+.about-belief h2 {
+  max-width: 12ch;
+  font-size: clamp(2.25rem, 3.7vw, 3.75rem);
+}
+
+.about-belief blockquote {
+  width: min(100%, 38rem);
+  margin: var(--space-10) 0 0 auto;
+}
+
+.about-belief blockquote p {
+  margin: 0;
+  color: var(--color-warm-ivory);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-style: normal;
+  line-height: 1.02;
+  letter-spacing: var(--tracking-heading);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.about-belief__prose {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(3rem, 7vw, 7rem);
+  padding-block: var(--about-section-space);
+}
+
+.about-belief__prose::before {
+  position: absolute;
+  top: calc(var(--space-10) * -1);
+  bottom: calc(var(--space-10) * -1);
+  left: 50%;
+  width: var(--border-hairline);
+  background: currentColor;
+  content: "";
+  opacity: 0.28;
+}
+
+.about-belief__prose p {
+  max-width: 37rem;
+  margin: 0;
+}
+
+.about-belief__prose p:last-child {
+  justify-self: end;
+}
+
+.about-personal {
+  position: relative;
+  padding-block: var(--about-section-space);
+}
+
+.about-personal__inner {
+  align-items: center;
+}
+
+.about-personal h2 {
+  grid-column: 2 / span 4;
+  max-width: 8ch;
+}
+
+.about-personal__copy {
+  grid-column: 7 / span 5;
+  max-width: 37rem;
+}
+
+.about-personal__copy p {
+  margin: 0;
+}
+
+.about-personal__rule {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: var(--border-hairline);
+  background: currentColor;
+  opacity: 0.22;
+}
+
+.about-personal__rule::after {
+  position: absolute;
+  top: -18rem;
+  left: 50%;
+  width: var(--border-hairline);
+  height: 36rem;
+  background: currentColor;
+  content: "";
+}
+
+.about-proof {
+  color: var(--color-warm-ivory);
+  padding-block: var(--about-section-space);
+}
+
+.about-proof__inner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.about-proof h2 {
+  grid-column: 1 / span 4;
+  max-width: 9ch;
+}
+
+.about-proof__ledger {
+  grid-column: 6 / 13;
+  margin: 0;
+  padding: 0;
+  border-top: var(--border-hairline) solid currentColor;
+  list-style: none;
+}
+
+.about-proof__ledger li {
+  margin: 0;
+  padding: var(--space-8) 0;
+  border-bottom: var(--border-hairline) solid currentColor;
+  color: var(--color-warm-ivory);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: var(--tracking-utility);
+  text-transform: uppercase;
+}
+
+.about-final {
+  position: relative;
+  color: var(--color-warm-ivory);
+  padding-block: var(--about-section-space);
+}
+
+.about-final h2 {
+  grid-column: 1 / span 6;
+  max-width: 10ch;
+}
+
+.about-final__invitation {
+  grid-column: 8 / 13;
+  max-width: 35rem;
+}
+
+.about-final__invitation p {
+  margin: 0;
+  color: var(--color-warm-ivory);
+}
+
+.about-final .outline-button {
+  margin-top: var(--space-8);
+  border-color: var(--color-warm-ivory);
+  color: var(--color-warm-ivory);
+}
+
+.about-final__rule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 55%;
+  width: var(--border-hairline);
+  background: currentColor;
+  opacity: 0.28;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about-final .outline-button:hover {
+    background: var(--color-warm-ivory);
+    color: var(--color-deep-umber);
+  }
+}
+
+@media (max-width: 1250px) {
+  .about-page {
+    --about-section-space: clamp(6rem, 9vw, 8rem);
+  }
+
+  .about-hero,
+  .about-hero__inner {
+    min-height: 45rem;
+  }
+
+  .about-hero__portrait {
+    height: clamp(34rem, 48vw, 40rem);
+  }
+
+  .about-lessons__prints {
+    min-height: 42rem;
+  }
+}
+
+@media (max-width: 1050px) {
+  .about-shell {
+    padding-inline: var(--page-gutter-tablet);
+  }
+
+  .about-hero__copy {
+    grid-column: 1 / span 6;
+  }
+
+  .about-hero h1 {
+    font-size: clamp(3.2rem, 6.5vw, 4.8rem);
+  }
+
+  .about-hero__portrait {
+    grid-column: 7 / 13;
+    width: min(100%, 25rem);
+  }
+
+  .about-origin h2,
+  .about-lessons__copy {
+    grid-column: 1 / span 6;
+  }
+
+  .about-origin__copy,
+  .about-lessons__prints {
+    grid-column: 7 / 13;
+  }
+
+  .about-camera__print {
+    grid-column: 1 / span 5;
+  }
+
+  .about-camera__copy {
+    grid-column: 6 / 13;
+    padding-left: var(--space-8);
+  }
+
+  .about-lessons__inner {
+    align-items: start;
+  }
+
+  .about-lessons__prints {
+    min-height: 38rem;
+  }
+
+  .about-personal h2 {
+    grid-column: 1 / span 5;
+  }
+
+  .about-personal__copy {
+    grid-column: 7 / 13;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-page {
+    --about-section-space: var(--space-20);
+    --about-hero-overlap: var(--space-16);
+  }
+
+  .about-shell {
+    padding-inline: var(--page-gutter-mobile);
+  }
+
+  .about-page h2 {
+    font-size: clamp(2.35rem, 10.5vw, 3.7rem);
+  }
+
+  .about-hero,
+  .about-hero__inner {
+    min-height: auto;
+  }
+
+  .about-hero__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-hero__copy {
+    padding-block: var(--space-20) var(--space-10);
+  }
+
+  .about-hero h1 {
+    max-width: 11ch;
+    font-size: clamp(2.75rem, 12.5vw, 4rem);
+  }
+
+  .about-hero__copy p {
+    margin-top: var(--space-6);
+  }
+
+  .about-hero__portrait {
+    width: min(86%, 24rem);
+    height: min(116vw, 33rem);
+    margin: 0 0 calc(var(--about-hero-overlap) * -1) auto;
+  }
+
+  .about-hero__rule {
+    left: 18%;
+  }
+
+  .about-hero__rule::after {
+    top: 43%;
+    width: 68vw;
+  }
+
+  .about-origin {
+    padding-top: calc(var(--about-section-space) + var(--about-hero-overlap));
+  }
+
+  .about-origin__inner,
+  .about-name__inner,
+  .about-camera__inner,
+  .about-lessons__inner,
+  .about-belief__prose,
+  .about-personal__inner,
+  .about-proof__inner,
+  .about-final__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+  }
+
+  .about-origin h2,
+  .about-name h2,
+  .about-camera h2,
+  .about-lessons h2,
+  .about-personal h2,
+  .about-proof h2,
+  .about-final h2 {
+    max-width: 10ch;
+  }
+
+  .about-origin__copy,
+  .about-name__copy,
+  .about-camera__copy,
+  .about-lessons__copy,
+  .about-personal__copy,
+  .about-proof__ledger,
+  .about-final__invitation {
+    width: 100%;
+    max-width: none;
+  }
+
+  .about-origin__rule {
+    left: 14%;
+  }
+
+  .about-name__inner {
+    padding-block: var(--space-20);
+  }
+
+  .about-name__copy {
+    padding: var(--space-8) 0 0;
+    border-top: var(--border-hairline) solid currentColor;
+    border-left: 0;
+  }
+
+  .about-camera {
+    padding-top: calc(var(--about-section-space) + var(--space-16));
+  }
+
+  .about-camera__print {
+    width: min(86%, 24rem);
+    margin: calc((var(--about-section-space) + var(--space-8)) * -1) 0 var(--space-8) auto;
+  }
+
+  .about-camera__copy {
+    padding-left: 0;
+  }
+
+  .about-camera__paragraphs {
+    margin-top: var(--space-8);
+  }
+
+  .about-camera__rule {
+    left: 17%;
+  }
+
+  .about-lessons__prints {
+    width: 100%;
+    min-height: 39rem;
+  }
+
+  .about-lessons__print--1 {
+    width: 54%;
+    height: 52%;
+  }
+
+  .about-lessons__print--2 {
+    width: 56%;
+    height: 62%;
+  }
+
+  .about-lessons__print--3 {
+    left: 25%;
+    width: 54%;
+    height: 48%;
+  }
+
+  .about-lessons__crossline::after {
+    left: 17%;
+  }
+
+  .about-belief__image {
+    min-height: 42rem;
+  }
+
+  .about-belief__statement {
+    padding-block: var(--space-20);
+  }
+
+  .about-belief blockquote {
+    margin: var(--space-16) 0 0;
+  }
+
+  .about-belief blockquote p {
+    font-size: clamp(2.8rem, 13vw, 4.5rem);
+  }
+
+  .about-belief__prose {
+    padding-block: var(--space-20);
+  }
+
+  .about-belief__prose::before {
+    top: 0;
+    bottom: 0;
+    left: 17%;
+  }
+
+  .about-belief__prose p {
+    position: relative;
+    max-width: none;
+    padding-left: var(--space-8);
+  }
+
+  .about-personal__rule::after,
+  .about-final__rule {
+    left: 17%;
+  }
+
+  .about-proof__ledger li {
+    font-size: clamp(1.35rem, 6vw, 1.8rem);
+  }
+}
+
+@media (max-width: 479px) {
+  .about-hero__portrait {
+    width: 91%;
+    height: 29rem;
+  }
+
+  .about-camera__print {
+    width: 91%;
+  }
+
+  .about-lessons__prints {
+    min-height: 34rem;
+  }
+
+  .about-lessons__print--3 {
+    border-width: var(--space-2);
+  }
+}

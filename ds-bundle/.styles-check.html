@@ -1,0 +1,42 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>styles.css closure check</title>
+<link rel="stylesheet" href="./styles.css">
+<style>
+  body { margin: 0; padding: 48px; background: var(--color-canvas); color: var(--color-body-cool); }
+  section { max-width: 900px; margin: 0 auto 40px; }
+  .row { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
+  .sw { width: 120px; }
+  .sw i { display: block; height: 56px; border: 1px solid var(--color-line-cool); }
+  .sw b { font: 400 12px/1.6 var(--font-utility); display: block; margin-top: 6px; }
+</style>
+
+<section>
+  <p style="font-family: var(--font-script); font-size: var(--font-size-script-hero); line-height: 1; color: var(--color-header);">Allura script fallback</p>
+  <h1 style="font-family: var(--font-display); font-size: var(--font-size-h1); line-height: var(--line-height-h1); letter-spacing: var(--tracking-heading); text-transform: uppercase; color: var(--color-heading-cool);">Cormorant display</h1>
+  <p style="font-family: var(--font-body); font-size: var(--font-size-body); line-height: var(--line-height-body);">Crimson Text body copy — the quick brown fox jumps over the lazy dog, and the shipped serif should read as a warm bookish face rather than a system default.</p>
+  <p style="font-family: var(--font-utility); font-size: var(--font-size-nav); letter-spacing: var(--tracking-utility); text-transform: uppercase;">Cabin utility / nav</p>
+</section>
+
+<section>
+  <div class="row">
+    <div class="sw"><i style="background: var(--color-canvas)"></i><b>canvas</b></div>
+    <div class="sw"><i style="background: var(--color-surface-sand)"></i><b>surface-sand</b></div>
+    <div class="sw"><i style="background: var(--color-surface-sage)"></i><b>surface-sage</b></div>
+    <div class="sw"><i style="background: var(--color-surface-oatmeal)"></i><b>surface-oatmeal</b></div>
+    <div class="sw"><i style="background: var(--color-surface-decorative)"></i><b>surface-decorative</b></div>
+    <div class="sw"><i style="background: var(--color-header)"></i><b>header</b></div>
+    <div class="sw"><i style="background: var(--color-icon-muted)"></i><b>icon-muted</b></div>
+  </div>
+</section>
+
+<script>
+  const cs = getComputedStyle(document.documentElement);
+  const probe = ['--color-canvas', '--font-display', '--font-body', '--font-script', '--font-utility', '--space-8', '--font-size-h1'];
+  const tokens = Object.fromEntries(probe.map(k => [k, cs.getPropertyValue(k).trim()]));
+  document.fonts.ready.then(() => {
+    const loaded = [...document.fonts].map(f => `${f.family} ${f.status}`);
+    window.__check = { tokens, loaded, faceCount: document.fonts.size };
+    console.log(JSON.stringify(window.__check, null, 2));
+  });
+</script>
