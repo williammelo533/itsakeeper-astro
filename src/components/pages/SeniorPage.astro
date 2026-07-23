@@ -1,0 +1,345 @@
+---
+import type { EditorialPageData, PageSection } from "../../content/page-types";
+import Picture from "../Picture.astro";
+import "../../styles/senior-page.css";
+
+interface Props {
+  page: EditorialPageData;
+  settings: any;
+  inquiry?: any;
+}
+
+const { page } = Astro.props;
+
+const requireSection = (id: string): PageSection => {
+  const section = page.sections.find((candidate) => candidate.id === id);
+  if (!section) throw new Error(`Senior page is missing the required section: ${id}`);
+  return section;
+};
+
+const yearOnly = requireSection("this-year-only-happens-once");
+const photogenic = requireSection("not-photogenic");
+const process = requireSection("senior-session-process");
+const parents = requireSection("for-parents");
+const questions = requireSection("senior-picture-questions");
+
+const heroSideImage = "/uploads/spring-portrait-blossoms-tricities.jpg";
+const parentRearImage = "/uploads/autumn-senior-portrait-tricities.jpg";
+const [heroHeadingLead, heroHeadingTail] = page.hero.heading.split(" in ");
+
+const faqSchema = (questions.items || [])
+  .filter((item) => item.heading && item.paragraphs?.length)
+  .map((item) => ({
+    "@type": "Question",
+    name: item.heading,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.paragraphs?.join(" "),
+    },
+  }));
+---
+
+<article
+  class="senior-page"
+  data-content-status={page.contentStatus}
+  data-signature-device={page.signature}
+>
+  <header class="senior-hero" aria-labelledby="senior-hero-title">
+    <div class="senior-hero__background">
+      {page.hero.image && (
+        <Picture
+          src={page.hero.image}
+          alt={page.hero.imageAlt || ""}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          responsiveSrcset
+          sizes="100vw"
+          imgClass="senior-hero__background-image"
+        />
+      )}
+      <div class="senior-hero__wash" aria-hidden="true"></div>
+    </div>
+
+    <figure class="senior-hero__print senior-hero__print--left" aria-hidden="true">
+      <Picture
+        src={heroSideImage}
+        alt=""
+        loading="eager"
+        decoding="async"
+        optimizedMobileWidth={400}
+        imgClass="photo--editorial"
+      />
+    </figure>
+
+    <div class="senior-hero__copy">
+      <p class="senior-script senior-hero__script" aria-hidden="true">this year</p>
+      <h1 id="senior-hero-title">
+        <span>{heroHeadingLead}</span>
+        {heroHeadingTail && <span>in {heroHeadingTail}</span>}
+      </h1>
+      {page.hero.intro && <p class="senior-hero__intro">{page.hero.intro}</p>}
+      {page.hero.links?.length && (
+        <div class="senior-hero__actions">
+          {page.hero.links.map((link) => (
+            <a class="outline-button" href={link.href}>{link.label}</a>
+          ))}
+        </div>
+      )}
+    </div>
+
+    {page.hero.secondaryImage && (
+      <figure class="senior-hero__print senior-hero__print--right" aria-hidden="true">
+        <Picture
+          src={page.hero.secondaryImage}
+          alt=""
+          loading="eager"
+          decoding="async"
+          optimizedMobileWidth={400}
+          optimizedDesktopWidth={640}
+          imgClass="photo--editorial"
+        />
+      </figure>
+    )}
+
+    <div class="senior-hero__paper-edge" aria-hidden="true"></div>
+  </header>
+
+  <section
+    class:list={["senior-year", `tone-${yearOnly.tone}`]}
+    aria-labelledby={`${yearOnly.id}-title`}
+  >
+    <div class="senior-year__rule" aria-hidden="true"></div>
+    <div class="senior-shell senior-year__inner">
+      {yearOnly.image && (
+        <figure class="senior-year__arch">
+          <Picture
+            src={yearOnly.image}
+            alt={yearOnly.imageAlt || ""}
+            loading="eager"
+            decoding="async"
+            optimizedMobileWidth={640}
+            imgClass="photo--editorial"
+          />
+        </figure>
+      )}
+
+      <div class="senior-year__copy">
+        <p class="senior-eyebrow">Who you are right now</p>
+        <h2 id={`${yearOnly.id}-title`}>{yearOnly.heading}</h2>
+        <div class="senior-prose">
+          {yearOnly.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class:list={["senior-confidence", `tone-${photogenic.tone}`]}
+    aria-labelledby={`${photogenic.id}-title`}
+  >
+    <div class="senior-confidence__rule" aria-hidden="true"></div>
+    <div class="senior-shell senior-confidence__inner">
+      <div class="senior-confidence__copy">
+        <p class="senior-eyebrow">My favorite moment of every shoot</p>
+        <h2 id={`${photogenic.id}-title`}>{photogenic.heading}</h2>
+        <div class="senior-prose">
+          {photogenic.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+
+      {photogenic.image && (
+        <div class="senior-confidence__media">
+          <figure class="senior-print senior-confidence__primary">
+            <span class="senior-tape senior-tape--top" aria-hidden="true"></span>
+            <Picture
+              src={photogenic.image}
+              alt={photogenic.imageAlt || ""}
+              loading="lazy"
+              decoding="async"
+              imgClass="photo--editorial"
+            />
+          </figure>
+
+          {photogenic.secondaryImage && (
+            <figure class="senior-print senior-confidence__secondary" aria-hidden="true">
+              <Picture
+                src={photogenic.secondaryImage}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                optimizedMobileWidth={400}
+                imgClass="photo--editorial"
+              />
+            </figure>
+          )}
+
+          <p class="senior-script senior-confidence__script" aria-hidden="true">just one more</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section
+    class:list={["senior-process", `tone-${process.tone}`]}
+    aria-labelledby={`${process.id}-title`}
+  >
+    <div class="senior-process__rule" aria-hidden="true"></div>
+    <div class="senior-shell senior-process__inner">
+      <div class="senior-process__heading">
+        <h2 id={`${process.id}-title`}>{process.heading}</h2>
+        <ol class="senior-process__index" aria-label="Session stages">
+          {process.items?.map((item) => (
+            <li>{item.heading?.split(" ")[0]}</li>
+          ))}
+        </ol>
+      </div>
+
+      {process.image && (
+        <figure class="senior-print senior-process__print">
+          <span class="senior-tape senior-tape--top" aria-hidden="true"></span>
+          <Picture
+            src={process.image}
+            alt={process.imageAlt || ""}
+            loading="lazy"
+            decoding="async"
+            imgClass="photo--editorial"
+          />
+          <figcaption class="senior-script" aria-hidden="true">zero awkwardness</figcaption>
+        </figure>
+      )}
+
+      {process.items?.length && (
+        <ol class="senior-process__ledger">
+          {process.items.map((item, index) => (
+            <li>
+              <span class="senior-process__number" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              {item.heading && <h3>{item.heading}</h3>}
+              {item.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  </section>
+
+  <section
+    class:list={["senior-parents", `tone-${parents.tone}`]}
+    aria-labelledby={`${parents.id}-title`}
+  >
+    <div class="senior-parents__background" aria-hidden="true">
+      {parents.image && (
+        <Picture
+          src={parents.image}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          responsiveSrcset
+          sizes="100vw"
+          imgClass="senior-parents__background-image"
+        />
+      )}
+      <div class="senior-parents__wash"></div>
+    </div>
+    <div class="senior-parents__rule" aria-hidden="true"></div>
+
+    <div class="senior-shell senior-parents__inner">
+      <div class="senior-parents__copy">
+        <p class="senior-eyebrow">The season you're walking through</p>
+        <h2 id={`${parents.id}-title`}>{parents.heading}</h2>
+        <div class="senior-prose">
+          {parents.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+
+      <div class="senior-parents__prints">
+        <figure class="senior-print senior-parents__print senior-parents__print--rear" aria-hidden="true">
+          <Picture
+            src={parentRearImage}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            optimizedMobileWidth={640}
+            imgClass="photo--editorial"
+          />
+        </figure>
+
+        {parents.secondaryImage && (
+          <figure class="senior-print senior-parents__print senior-parents__print--front">
+            <span class="senior-tape senior-tape--corner" aria-hidden="true"></span>
+            <Picture
+              src={parents.secondaryImage}
+              alt={parents.secondaryImageAlt || ""}
+              loading="lazy"
+              decoding="async"
+              imgClass="photo--editorial"
+            />
+          </figure>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section
+    class:list={["senior-faq", `tone-${questions.tone}`]}
+    aria-labelledby={`${questions.id}-title`}
+  >
+    <div class="senior-faq__rule" aria-hidden="true"></div>
+    <div class="senior-shell senior-faq__inner">
+      <header class="senior-faq__heading">
+        <h2 id={`${questions.id}-title`}>{questions.heading}</h2>
+        {questions.links?.length && (
+          <div class="senior-faq__links">
+            {questions.links.map((link) => (
+              <a class="senior-text-link" href={link.href}>{link.label}</a>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {questions.items?.length && (
+        <div class="senior-faq__list">
+          {questions.items.map((item, index) => (
+            <details class="senior-faq__item" open={index === 0}>
+              <summary>
+                <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <span class="senior-faq__question" role="heading" aria-level="3">{item.heading}</span>
+                <span class="senior-faq__mark" aria-hidden="true"></span>
+              </summary>
+              <div class="senior-faq__answer">
+                {item.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+                {item.links?.map((link) => (
+                  <a class="senior-text-link" href={link.href}>{link.label}</a>
+                ))}
+              </div>
+            </details>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  {page.finalCta && (
+    <section class:list={["senior-final", `tone-${page.finalCta.tone}`]} aria-labelledby="senior-final-title">
+      <div class="senior-final__rule" aria-hidden="true"></div>
+      <div class="senior-shell senior-final__inner">
+        <p class="senior-script" aria-hidden="true">find your light</p>
+        <h2 id="senior-final-title">{page.finalCta.heading}</h2>
+        {page.finalCta.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        {page.finalCta.link && (
+          <a class="outline-button" href={page.finalCta.link.href}>{page.finalCta.link.label}</a>
+        )}
+      </div>
+    </section>
+  )}
+
+  {faqSchema.length > 0 && (
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqSchema })}
+    />
+  )}
+</article>

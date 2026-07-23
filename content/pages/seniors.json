@@ -11,6 +11,10 @@
     "tone": "earth",
     "heading": "Senior Pictures in the Tri-Cities, WA",
     "intro": "Relaxed, confident senior pictures in Richland, Kennewick and Pasco — planned around your style, photographed in golden light, and guided so you never have to wonder what to do with your hands.",
+    "image": "/uploads/senior-session-summer-light-richland.jpg",
+    "imageAlt": "A senior standing in a sunlit Tri-Cities field near the end of the day",
+    "secondaryImage": "/uploads/autumn-senior-portrait-tricities.jpg",
+    "secondaryImageAlt": "A high school senior standing among warm autumn leaves in the Tri-Cities",
     "links": [
       {
         "label": "Plan Your Senior Session",
@@ -24,6 +28,8 @@
       "kind": "prose",
       "tone": "sand",
       "heading": "This Year Only Happens Once",
+      "image": "/uploads/senior-portrait-golden-hour-richland.jpg",
+      "imageAlt": "High school senior in a black dress photographed at golden hour in Richland",
       "paragraphs": [
         "Senior year moves fast — school, games, applications, lasts of everything. Your senior pictures are the one place where all of it slows down for an evening: who you are right now, before everything changes.",
         "I've photographed seniors across the Tri-Cities for two decades, and here's what I've learned: the best senior pictures don't come from copying someone else's Pinterest board. They come from celebrating your personality, your style, and your story. That's what we'll capture."
@@ -34,6 +40,10 @@
       "kind": "split",
       "tone": "ivory",
       "heading": "\"I'm Not Photogenic\" — Yes, You Are",
+      "image": "/uploads/autumn-senior-portrait-tricities.jpg",
+      "imageAlt": "A high school senior standing among warm autumn leaves in the Tri-Cities",
+      "secondaryImage": "/uploads/spring-portrait-blossoms-tricities.jpg",
+      "secondaryImageAlt": "A high school senior in a white dress photographed among spring blossoms in the Tri-Cities",
       "paragraphs": [
         "Almost every senior tells me some version of this before their session. And then there's my favorite moment of every shoot: turning the camera around and showing them the back of it. Watching a shy or unsure teenager's face light up when they see just how beautiful they are — that never gets old. Not after hundreds of sessions.",
         "You don't need to know how to pose. That's my job. I'll guide you with simple prompts the whole way — walk here, look there, take a deep breath in through your nose and out through your mouth — and somewhere between \"get closer!\" and \"just one more!\" (it's basically never just one more), you'll forget the camera is there."
@@ -44,6 +54,8 @@
       "kind": "steps",
       "tone": "olive",
       "heading": "How Your Senior Session Works",
+      "image": "/uploads/spring-portrait-blossoms-tricities.jpg",
+      "imageAlt": "A high school senior in a white dress photographed among spring blossoms in the Tri-Cities",
       "items": [
         {
           "heading": "Plan (outfits, locations, the vibe)",
@@ -70,6 +82,10 @@
       "kind": "quote",
       "tone": "earth",
       "heading": "For Parents",
+      "image": "/uploads/senior-session-summer-light-richland.jpg",
+      "imageAlt": "A senior standing in a sunlit Tri-Cities field near the end of the day",
+      "secondaryImage": "/uploads/senior-portrait-golden-hour-richland.jpg",
+      "secondaryImageAlt": "High school senior in a black dress photographed at golden hour in Richland",
       "paragraphs": [
         "I know these photos are for both of you — for the announcement, the wall, and the season you're walking through as a family. My promise to you: your senior will be guided, safe and comfortable the entire session, and the photographs will show the young adult you know — not a stiff, over-posed version of them. Many of my senior families have been with me since those seniors were little."
       ]

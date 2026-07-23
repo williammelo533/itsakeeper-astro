@@ -2,6 +2,7 @@
 import type { EditorialPageData } from "../../content/page-types";
 import AboutPage from "./AboutPage.astro";
 import ContentPage from "./ContentPage.astro";
+import SeniorPage from "./SeniorPage.astro";
 
 interface Props {
   page: EditorialPageData;
@@ -11,6 +12,11 @@ interface Props {
 
 const props = Astro.props;
 const isAboutPage = props.page.route === "/about/";
+const isSeniorPage = props.page.route === "/senior-photographer-tri-cities-wa/";
 ---
 
-{isAboutPage ? <AboutPage {...props} /> : <ContentPage {...props} />}
+{isAboutPage
+  ? <AboutPage {...props} />
+  : isSeniorPage
+    ? <SeniorPage {...props} />
+    : <ContentPage {...props} />}
