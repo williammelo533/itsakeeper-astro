@@ -29,6 +29,8 @@
       "heading": "It Started With My Own Children",
       "image": "/uploads/lisa-photographer-at-work-black-white.jpg",
       "imageAlt": "Lisa seated with her camera between photographs",
+      "secondaryImage": "/uploads/about-origin-family-newborn-tricities.jpg",
+      "secondaryImageAlt": "Parents and their children gathered close around a newborn at home",
       "paragraphs": [
         "My journey into photography began with my children, not a business plan.",
         "Before photography became my career, I was a stay-at-home mom raising my two kids. When they were little, I wanted more than rushed studio portraits — I wanted photographs that captured who they truly were. My husband bought me my first point-and-shoot camera, and I quickly fell in love with preserving the everyday moments that would one day become treasured memories.",
@@ -69,16 +71,16 @@
       ],
       "items": [
         {
-          "image": "/uploads/senior-portrait-golden-hour-richland.jpg",
-          "imageAlt": "High school senior in a black dress photographed at golden hour in Richland"
+          "image": "/uploads/about-origin-family-newborn-tricities.jpg",
+          "imageAlt": "Parents and their children gathered close around a newborn at home"
         },
         {
-          "image": "/uploads/family-portrait-outdoors-tricities.jpg",
-          "imageAlt": "A family laughing together during an outdoor Tri-Cities portrait session"
+          "image": "/uploads/about-final-couple-golden-hour-tricities.jpg",
+          "imageAlt": "A couple laughing together in warm Columbia Basin evening light"
         },
         {
-          "image": "/uploads/newborn-portrait-with-mother-richland.jpg",
-          "imageAlt": "A mother kissing her newborn during a gentle in-home newborn session in Richland"
+          "image": "/uploads/about-story-senior-horse-tricities.jpg",
+          "imageAlt": "A high school senior walking with her horse in the Tri-Cities landscape"
         }
       ]
     },
@@ -96,8 +98,8 @@
           "quote": "To feel seen. That's the whole thing."
         }
       ],
-      "image": "/uploads/family-golden-hour-columbia-basin.jpg",
-      "imageAlt": "Parents holding their young child in glowing Columbia Basin evening light"
+      "image": "/uploads/about-belief-family-golden-hour-tricities.jpg",
+      "imageAlt": "Parents holding their young child in glowing Tri-Cities evening light"
     },
     {
       "id": "lisa-off-camera",
@@ -136,6 +138,8 @@
     "paragraphs": [
       "Every person who steps in front of my camera has a story worth remembering. I'd love to hear yours."
     ],
+    "image": "/uploads/about-final-couple-golden-hour-tricities.jpg",
+    "imageAlt": "A couple laughing together in warm Columbia Basin evening light",
     "link": {
       "label": "Start planning",
       "href": "/contact/"

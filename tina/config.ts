@@ -1039,6 +1039,8 @@ export default defineConfig({
               { type: "string", name: "eyebrow", label: "Small label" },
               { type: "string", name: "heading", label: "Heading", required: true },
               { type: "string", name: "paragraphs", label: "Paragraphs", list: true, ui: { component: "textarea" } },
+              { type: "image", name: "image", label: "Background photograph" },
+              { type: "string", name: "imageAlt", label: "Background photograph description" },
               { type: "object", name: "link", label: "Final link", fields: pageLinkFields },
             ],
           },

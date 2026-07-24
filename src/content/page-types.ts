@@ -94,6 +94,8 @@ export interface EditorialPageData {
     eyebrow?: string;
     heading: string;
     paragraphs?: string[];
+    image?: string;
+    imageAlt?: string;
     link?: PageLink;
   };
   pending: string[];
