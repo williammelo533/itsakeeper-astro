@@ -11,6 +11,11 @@
     "tone": "ivory",
     "heading": "Newborn Photographer in the Tri-Cities, WA",
     "intro": "Gentle, unhurried newborn sessions in Richland, Kennewick and Pasco — photographs that preserve just how small they started, and how it felt to hold them.",
+    "scriptLine": "keep the way this felt",
+    "image": "/uploads/family-newborn-sunset-tricities.jpg",
+    "imageAlt": "Family gathered around their baby in warm sunset light in the Tri-Cities",
+    "secondaryImage": "/uploads/newborn-portrait-with-mother-richland.jpg",
+    "secondaryImageAlt": "Mother kissing her newborn while holding the baby close",
     "links": [
       {
         "label": "Plan Your Newborn Session",
@@ -24,6 +29,8 @@
       "kind": "prose",
       "tone": "sand",
       "heading": "Those First Days Pass So Quickly",
+      "image": "/uploads/family-newborn-at-home-tricities.jpg",
+      "imageAlt": "Parents and big sister holding their sleeping newborn together at home",
       "paragraphs": [
         "Everyone tells you the newborn days are a blur — and they're right. The tiny fingers curled around yours, the weight of them asleep on your chest, the way the whole house goes quiet when they finally do. These are the details you'll ache to remember, and the ones that slip away first.",
         "I became a photographer because of my own children. I know from experience how fast this season moves, and I know the value of the photographs on the other side of it. They begin as beautiful images; over the years they become something closer to treasure."
@@ -34,6 +41,11 @@
       "kind": "split",
       "tone": "olive",
       "heading": "Gentle, Unhurried, Baby-Led Sessions",
+      "image": "/uploads/newborn-portrait-with-mother-richland.jpg",
+      "imageAlt": "Mother kissing her newborn during a quiet in-home session",
+      "secondaryImage": "/uploads/family-newborn-connection-richland.jpg",
+      "secondaryImageAlt": "Parents and an older sibling gathered closely around their baby outdoors",
+      "scriptLine": "baby sets the pace",
       "paragraphs": [
         "My newborn sessions are relaxed and unforced. No rigid schedule, no elaborate props your baby will never wear again — just your family, soft natural light, and time enough for feeding, soothing and snuggling whenever baby needs it.",
         "I photograph the real story of these days: baby in your arms, in the nursery you prepared, wrapped in the blanket that will someday live in a keepsake box. Big siblings and pets are always welcome — they're part of this chapter too."
@@ -44,21 +56,32 @@
       "kind": "steps",
       "tone": "ivory",
       "heading": "What Your Newborn Session Looks Like",
+      "eyebrow": "A quiet, unhurried morning",
+      "image": "/uploads/family-newborn-at-home-tricities.jpg",
+      "imageAlt": "A family holding their newborn together on the bed at home",
+      "secondaryImage": "/uploads/family-newborn-connection-richland.jpg",
+      "secondaryImageAlt": "Family sharing a close, quiet moment with their baby",
       "items": [
         {
           "heading": "Before baby arrives",
+          "image": "/uploads/newborn-portrait-with-mother-richland.jpg",
+          "imageAlt": "Mother holding her newborn close",
           "paragraphs": [
             "The best time to reach out is during your second or third trimester. We'll plan everything before your due date — timing, location, what to have ready — so that once baby is here, the only thing you have to do is text me."
           ]
         },
         {
           "heading": "Session day",
+          "image": "/uploads/family-newborn-at-home-tricities.jpg",
+          "imageAlt": "Parents and big sister holding a sleeping newborn at home",
           "paragraphs": [
             "We work around your baby, not the clock. I'll guide you into natural, comfortable moments — no awkward posing, no pressure for baby to \"perform.\" Feeding breaks, diaper changes and pauses are simply part of the rhythm."
           ]
         },
         {
           "heading": "Your gallery",
+          "image": "/uploads/family-newborn-connection-richland.jpg",
+          "imageAlt": "Family gathered closely around their baby",
           "paragraphs": [
             "Warm, true-to-life editing that keeps your baby looking like your baby — every tiny detail preserved, from eyelashes to toes."
           ]
@@ -70,6 +93,10 @@
       "kind": "services",
       "tone": "earth",
       "heading": "Growing Families Stay With Me",
+      "image": "/uploads/family-with-baby-golden-hour-embrace-tricities.jpg",
+      "imageAlt": "Parents holding their growing baby together at golden hour",
+      "secondaryImage": "/uploads/family-with-baby-black-white-tricities.jpg",
+      "secondaryImageAlt": "Parents embracing their growing baby in a black-and-white family portrait",
       "paragraphs": [
         "Many of the families I photograph began with a newborn session — and came back for first birthdays, family sessions, and eventually senior pictures. It's one of the greatest privileges of twenty years in the Tri-Cities: watching the babies I photographed grow up in front of my camera."
       ]

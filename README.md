@@ -58,6 +58,18 @@ npm run dev
 Local mode intentionally has no login. Tina writes directly to the JSON files on
 your machine. Production authentication is supplied by TinaCloud.
 
+### Visual feedback with Agentation
+
+[Agentation](https://www.agentation.com/install) mounts automatically on every
+page when the site runs through `npm run dev`. Use its desktop toolbar to point
+at an element, attach feedback, and copy structured context for a coding agent.
+
+The integration is injected by Astro only for the `dev` command. It is absent
+from production builds, Netlify deploys, and `npm run preview:static`.
+
+Real-time MCP syncing is optional and is not configured by this repository
+because it changes each developer's agent configuration outside the project.
+
 Other commands:
 
 ```bash

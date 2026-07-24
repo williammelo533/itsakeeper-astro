@@ -1,0 +1,1302 @@
+.newborn-page {
+  --newborn-umber: var(--color-canvas);
+  --newborn-walnut: var(--color-surface-decorative);
+  --newborn-earth: var(--color-surface-sand);
+  --newborn-olive: var(--color-surface-sage);
+  --newborn-sand: var(--color-surface-oatmeal);
+  --newborn-ivory: var(--color-header);
+  --newborn-clay: var(--color-icon-muted);
+  color: var(--newborn-umber);
+  background: var(--newborn-ivory);
+  overflow-x: clip;
+}
+
+.newborn-page :where(h1, h2, h3, p, figure) {
+  margin: 0;
+}
+
+.newborn-page :where(h1, h2, h3) {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+}
+
+.newborn-page picture,
+.newborn-page picture img {
+  display: block;
+  width: 100%;
+}
+
+.newborn-page picture img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.newborn-shell {
+  position: relative;
+  width: min(calc(100% - 5rem), 73.75rem);
+  margin-inline: auto;
+}
+
+.newborn-prose {
+  display: grid;
+  gap: 1.1rem;
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 1.5vw, 1.3125rem);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.newborn-script {
+  font-family: var(--font-script);
+  font-weight: var(--font-weight-regular);
+  line-height: 0.9;
+}
+
+.newborn-rule {
+  display: block;
+  width: 3.75rem;
+  height: 1px;
+  margin-bottom: 1.5rem;
+  background: currentColor;
+  opacity: 0.58;
+}
+
+.newborn-print {
+  padding: 0.625rem 0.625rem 1.65rem;
+  background: var(--newborn-ivory);
+}
+
+.newborn-tape {
+  position: absolute;
+  z-index: 4;
+  top: -1.05rem;
+  right: 2.25rem;
+  width: 7.1rem;
+  height: 1.75rem;
+  background: rgba(182, 169, 151, 0.72);
+  transform: rotate(24deg);
+  transform-origin: center;
+}
+
+.newborn-text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--minimum-hit-area);
+  border-bottom: 1px solid currentColor;
+  color: inherit;
+  font-family: var(--font-utility);
+  font-size: var(--font-size-button);
+  letter-spacing: var(--tracking-button);
+  line-height: 1.25;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* Hero */
+
+.newborn-hero {
+  position: relative;
+  z-index: 3;
+  min-height: clamp(39rem, 50vw, 45rem);
+  color: var(--newborn-ivory);
+  background: var(--newborn-umber);
+  isolation: isolate;
+}
+
+.newborn-hero__background,
+.newborn-hero__background picture,
+.newborn-hero__background img,
+.newborn-hero__wash {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.newborn-hero__background {
+  z-index: -2;
+}
+
+.newborn-hero__background-image {
+  object-position: 50% 50%;
+  filter:
+    saturate(var(--photo-hero-saturation))
+    contrast(var(--photo-hero-contrast))
+    brightness(0.8)
+    sepia(var(--photo-hero-sepia));
+}
+
+.newborn-hero__wash {
+  z-index: 1;
+  background: rgba(40, 30, 16, 0.54);
+}
+
+.newborn-hero__copy {
+  position: absolute;
+  z-index: 3;
+  top: 48%;
+  left: 50%;
+  width: min(45rem, 52vw);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.newborn-hero__script {
+  margin-bottom: 0.45rem;
+  font-size: clamp(2.65rem, 4.2vw, 4.25rem);
+}
+
+.newborn-hero h1 {
+  max-width: 44rem;
+  margin-inline: auto;
+  font-size: clamp(3.45rem, 5vw, 4.8rem);
+  letter-spacing: 0.025em;
+  line-height: 0.93;
+  text-wrap: balance;
+}
+
+.newborn-hero h1::after {
+  display: block;
+  width: 4rem;
+  height: 1px;
+  margin: 1.45rem auto 1.3rem;
+  background: currentColor;
+  content: "";
+  opacity: 0.72;
+}
+
+.newborn-hero__intro {
+  max-width: 39rem;
+  margin-inline: auto;
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 1.55vw, 1.3125rem);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.newborn-hero__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.newborn-hero .outline-button {
+  border-color: currentColor;
+  color: var(--newborn-ivory);
+}
+
+.newborn-hero__print {
+  position: absolute;
+  z-index: 4;
+  width: clamp(8.75rem, 12vw, 11rem);
+  padding: 0.5rem 0.5rem 1.45rem;
+  background: var(--newborn-ivory);
+}
+
+.newborn-hero__print picture,
+.newborn-hero__print img {
+  aspect-ratio: 3 / 4;
+}
+
+.newborn-hero__print--left-rear {
+  bottom: -3.75rem;
+  left: -2.7rem;
+  width: clamp(10rem, 14vw, 12.5rem);
+  transform: rotate(-3deg);
+}
+
+.newborn-hero__print--left-front {
+  bottom: 1rem;
+  left: clamp(1.4rem, 3vw, 3.4rem);
+  transform: rotate(4deg);
+}
+
+.newborn-hero__print--right-rear {
+  right: -2.8rem;
+  bottom: -3rem;
+  width: clamp(10rem, 14vw, 12.5rem);
+  transform: rotate(3deg);
+}
+
+.newborn-hero__print--right-front {
+  right: clamp(1.2rem, 3vw, 3.4rem);
+  bottom: 1.75rem;
+  transform: rotate(-4deg);
+}
+
+.newborn-hero__paper-edge {
+  position: absolute;
+  z-index: 5;
+  right: -1%;
+  bottom: -1px;
+  left: -1%;
+  height: 1.4rem;
+  background: var(--newborn-ivory);
+  clip-path: polygon(
+    0 67%,
+    4% 49%,
+    8% 58%,
+    13% 43%,
+    18% 55%,
+    24% 40%,
+    30% 55%,
+    36% 45%,
+    42% 59%,
+    48% 41%,
+    54% 53%,
+    60% 39%,
+    66% 58%,
+    72% 44%,
+    78% 56%,
+    84% 39%,
+    90% 53%,
+    95% 43%,
+    100% 58%,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Those first days */
+
+.newborn-first-days {
+  position: relative;
+  z-index: 2;
+  padding: 6.75rem 0 0;
+  background: var(--newborn-ivory);
+}
+
+.newborn-first-days__inner {
+  display: grid;
+  grid-template-columns: minmax(20rem, 25rem) minmax(0, 1fr);
+  gap: clamp(4rem, 8vw, 7.75rem);
+  align-items: center;
+}
+
+.newborn-first-days__arch {
+  position: relative;
+  z-index: 3;
+  align-self: end;
+  width: 100%;
+  height: 29.5rem;
+  overflow: hidden;
+  border-radius: 999px 999px 0 0;
+  transform: translateY(2rem);
+}
+
+.newborn-first-days__arch img {
+  object-position: 50% 44%;
+}
+
+.newborn-first-days__copy {
+  max-width: 36rem;
+  padding-bottom: 7.75rem;
+}
+
+.newborn-first-days h2 {
+  max-width: 34rem;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2.8rem, 4.3vw, 4rem);
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+/* Baby-led */
+
+.newborn-baby-led {
+  position: relative;
+  padding: 9.25rem 0 8.5rem;
+  color: var(--newborn-ivory);
+  background: var(--newborn-olive);
+}
+
+.newborn-baby-led__inner {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.78fr) minmax(30rem, 1.35fr);
+  gap: clamp(4rem, 7vw, 7.5rem);
+  align-items: center;
+}
+
+.newborn-baby-led__copy {
+  max-width: 31rem;
+}
+
+.newborn-baby-led h2 {
+  margin-bottom: 1.65rem;
+  font-size: clamp(2.85rem, 4.4vw, 4.15rem);
+  letter-spacing: 0.015em;
+  line-height: 0.93;
+  text-wrap: balance;
+}
+
+.newborn-baby-led__media {
+  position: relative;
+  min-height: 31rem;
+}
+
+.newborn-baby-led__primary {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(100%, 36rem);
+}
+
+.newborn-baby-led__primary picture,
+.newborn-baby-led__primary img {
+  aspect-ratio: 4 / 3;
+}
+
+.newborn-baby-led__primary img {
+  object-position: 50% 42%;
+}
+
+.newborn-baby-led__secondary {
+  position: absolute;
+  z-index: 3;
+  right: -1.5rem;
+  bottom: -0.5rem;
+  width: 11.75rem;
+  padding-bottom: 1.35rem;
+  transform: rotate(3deg);
+}
+
+.newborn-baby-led__secondary picture,
+.newborn-baby-led__secondary img {
+  aspect-ratio: 3 / 4;
+}
+
+.newborn-baby-led__script {
+  position: absolute;
+  z-index: 4;
+  right: 9.75rem;
+  bottom: 0.4rem;
+  font-size: clamp(2.6rem, 4vw, 3.75rem);
+  white-space: nowrap;
+}
+
+/* Process */
+
+.newborn-process {
+  padding: 8rem 0 8.5rem;
+  background: var(--newborn-ivory);
+}
+
+.newborn-process__heading {
+  max-width: 48rem;
+  margin: 0 auto 8.5rem;
+  text-align: center;
+}
+
+.newborn-process__heading .newborn-rule {
+  margin-inline: auto;
+}
+
+.newborn-process h2 {
+  font-size: clamp(2.85rem, 4.6vw, 4.25rem);
+  letter-spacing: 0.015em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.newborn-process__triptych {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.newborn-process__item {
+  min-width: 0;
+}
+
+.newborn-process__image-row {
+  position: relative;
+  display: flex;
+  height: 27rem;
+  align-items: flex-end;
+}
+
+.newborn-process__photo {
+  width: 100%;
+  height: 14.25rem;
+  overflow: hidden;
+}
+
+.newborn-process__photo picture,
+.newborn-process__photo img {
+  height: 100%;
+}
+
+.newborn-process__photo img {
+  object-position: 50% 42%;
+}
+
+.newborn-process__item--arch .newborn-process__photo {
+  height: 27rem;
+  border-radius: 999px 999px 0 0;
+}
+
+.newborn-process__item--arch .newborn-process__photo img {
+  object-position: 50% 43%;
+}
+
+.newborn-process__arc-copy {
+  position: absolute;
+  z-index: 2;
+  top: -5rem;
+  left: 50%;
+  width: min(26rem, 118%);
+  overflow: visible;
+  transform: translateX(-50%);
+}
+
+.newborn-process__arc-copy path {
+  fill: none;
+}
+
+.newborn-process__arc-copy text {
+  fill: var(--newborn-clay);
+  font-family: var(--font-utility);
+  font-size: 0.78rem;
+  letter-spacing: 0.2rem;
+}
+
+.newborn-process__copy {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-bottom: 1px solid rgba(73, 54, 33, 0.6);
+  padding-bottom: 1.65rem;
+}
+
+.newborn-process__number {
+  color: var(--newborn-clay);
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 3.5vw, 3.25rem);
+  line-height: 0.9;
+}
+
+.newborn-process h3 {
+  margin-bottom: 0.55rem;
+  font-size: clamp(1.55rem, 2.2vw, 2rem);
+  line-height: 1;
+}
+
+.newborn-process__copy p {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+/* Growing families */
+
+.newborn-growing {
+  position: relative;
+  min-height: 40rem;
+  color: var(--newborn-ivory);
+  background: var(--newborn-umber);
+  isolation: isolate;
+}
+
+.newborn-growing__background,
+.newborn-growing__background picture,
+.newborn-growing__background img,
+.newborn-growing__wash {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.newborn-growing__background {
+  z-index: -2;
+}
+
+.newborn-growing__background-image {
+  object-position: 50% 62%;
+  filter:
+    saturate(var(--photo-banner-saturation))
+    contrast(var(--photo-banner-contrast))
+    brightness(0.82)
+    sepia(var(--photo-banner-sepia));
+}
+
+.newborn-growing__wash {
+  background: rgba(40, 30, 16, 0.55);
+}
+
+.newborn-growing__inner {
+  display: grid;
+  grid-template-columns: minmax(20rem, 0.86fr) minmax(27rem, 1.14fr);
+  gap: clamp(4rem, 7vw, 7rem);
+  align-items: center;
+  min-height: 40rem;
+  padding-block: 5.25rem 6.75rem;
+}
+
+.newborn-growing__copy {
+  position: relative;
+  z-index: 3;
+  max-width: 32rem;
+}
+
+.newborn-growing h2 {
+  margin-bottom: 1.45rem;
+  font-size: clamp(3rem, 4.7vw, 4.35rem);
+  letter-spacing: 0.015em;
+  line-height: 0.94;
+  text-wrap: balance;
+}
+
+.newborn-growing .newborn-text-link {
+  margin-top: 1.5rem;
+}
+
+.newborn-growing__prints {
+  position: relative;
+  z-index: 3;
+  min-height: 30rem;
+}
+
+.newborn-growing__print {
+  position: absolute;
+}
+
+.newborn-growing__print--rear {
+  top: 0;
+  right: 0;
+  width: min(18.5rem, 58%);
+  transform: rotate(2deg);
+}
+
+.newborn-growing__print--rear picture,
+.newborn-growing__print--rear img {
+  aspect-ratio: 3 / 4;
+}
+
+.newborn-growing__print--rear img {
+  object-position: 50% 61%;
+}
+
+.newborn-growing__print--front {
+  bottom: 0.4rem;
+  left: 0;
+  width: min(22rem, 69%);
+  padding-bottom: 1.35rem;
+  transform: rotate(-2deg);
+}
+
+.newborn-growing__print--front picture,
+.newborn-growing__print--front img {
+  aspect-ratio: 3 / 2;
+}
+
+.newborn-growing__paper-edge {
+  position: absolute;
+  z-index: 5;
+  right: -1%;
+  bottom: -1px;
+  left: -1%;
+  height: 1.6rem;
+  background: var(--newborn-ivory);
+  clip-path: polygon(
+    0 54%,
+    5% 39%,
+    11% 57%,
+    17% 36%,
+    23% 51%,
+    29% 33%,
+    35% 58%,
+    41% 38%,
+    47% 55%,
+    53% 32%,
+    59% 50%,
+    65% 35%,
+    71% 58%,
+    77% 36%,
+    83% 53%,
+    89% 34%,
+    95% 55%,
+    100% 39%,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* FAQ + pinned closing note */
+
+.newborn-faq {
+  padding: 7.5rem 0 8.5rem;
+  background: var(--newborn-ivory);
+}
+
+.newborn-faq__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(20rem, 0.72fr);
+  gap: clamp(4rem, 7vw, 7.5rem);
+  align-items: start;
+}
+
+.newborn-faq__heading {
+  margin-bottom: 2.25rem;
+}
+
+.newborn-faq h2 {
+  font-size: clamp(2.85rem, 4.4vw, 4rem);
+  line-height: 0.96;
+}
+
+.newborn-faq__list {
+  border-bottom: 1px solid rgba(73, 54, 33, 0.58);
+}
+
+.newborn-faq__item {
+  border-top: 1px solid rgba(73, 54, 33, 0.58);
+}
+
+.newborn-faq__item summary {
+  display: grid;
+  grid-template-columns: 2.3rem 1fr 1.5rem;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 4.75rem;
+  padding-block: 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.newborn-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.newborn-faq__item summary:focus-visible {
+  outline: 2px solid var(--color-focus-ring-dark);
+  outline-offset: 0.25rem;
+}
+
+.newborn-faq__number {
+  color: var(--newborn-clay);
+  font-family: var(--font-utility);
+  font-size: var(--font-size-caption);
+  letter-spacing: var(--tracking-caption);
+}
+
+.newborn-faq__question {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.15;
+}
+
+.newborn-faq__mark {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  justify-self: end;
+}
+
+.newborn-faq__mark::before,
+.newborn-faq__mark::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.newborn-faq__mark::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.newborn-faq__item[open] .newborn-faq__mark::after {
+  display: none;
+}
+
+.newborn-faq__answer {
+  max-width: 42rem;
+  padding: 0 2.25rem 1.75rem 3.05rem;
+}
+
+.newborn-faq__answer p {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.newborn-faq__answer .newborn-text-link {
+  margin-top: 0.9rem;
+}
+
+.newborn-faq__links {
+  margin-top: 1.5rem;
+}
+
+.newborn-note {
+  position: relative;
+  margin-top: 2.5rem;
+  padding: 4.4rem 3.25rem 3.75rem;
+  color: var(--newborn-ivory);
+  background: var(--newborn-walnut);
+  clip-path: polygon(
+    0 1.5%,
+    9% 0,
+    18% 1.2%,
+    30% 0.4%,
+    43% 1.4%,
+    56% 0.2%,
+    69% 1.2%,
+    82% 0.3%,
+    93% 1.5%,
+    100% 0.5%,
+    99.3% 98.6%,
+    87% 100%,
+    73% 98.8%,
+    59% 99.7%,
+    45% 98.6%,
+    31% 99.8%,
+    17% 98.7%,
+    0.6% 99.5%
+  );
+  transform: rotate(0.7deg);
+}
+
+.newborn-note__pin {
+  position: absolute;
+  top: 1.25rem;
+  left: 50%;
+  width: 0.82rem;
+  height: 0.82rem;
+  border: 1px solid rgba(242, 232, 215, 0.55);
+  border-radius: 50%;
+  background: var(--newborn-clay);
+  transform: translateX(-50%);
+}
+
+.newborn-note h2 {
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.6rem, 4vw, 3.5rem);
+  text-wrap: balance;
+}
+
+.newborn-note p {
+  font-family: var(--font-body);
+  font-size: 1.1875rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.newborn-note .outline-button {
+  margin-top: 1.8rem;
+  border-color: currentColor;
+  color: var(--newborn-ivory);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .newborn-text-link:hover {
+    color: var(--newborn-clay);
+  }
+
+  .newborn-hero .outline-button:hover,
+  .newborn-note .outline-button:hover {
+    color: var(--newborn-umber);
+    background: var(--newborn-ivory);
+  }
+}
+
+@media (max-width: 78.125rem) {
+  .newborn-shell {
+    width: min(calc(100% - 8rem), 67rem);
+  }
+
+  .newborn-hero {
+    min-height: clamp(39rem, 52vw, 41rem);
+  }
+
+  .newborn-hero__copy {
+    width: min(42rem, 56vw);
+  }
+
+  .newborn-first-days__inner {
+    grid-template-columns: minmax(19rem, 22.5rem) minmax(0, 1fr);
+    gap: 5rem;
+  }
+
+  .newborn-first-days__arch {
+    height: 27rem;
+  }
+
+  .newborn-baby-led__inner {
+    grid-template-columns: minmax(17rem, 0.8fr) minmax(26rem, 1.2fr);
+    gap: 4.5rem;
+  }
+}
+
+@media (max-width: 65.625rem) {
+  .newborn-shell {
+    width: min(calc(100% - 4.5rem), 58rem);
+  }
+
+  .newborn-hero {
+    min-height: 35.5rem;
+  }
+
+  .newborn-hero__copy {
+    width: min(38rem, 66vw);
+  }
+
+  .newborn-hero h1 {
+    font-size: clamp(3rem, 6vw, 3.8rem);
+  }
+
+  .newborn-hero__print--left-rear {
+    left: -3rem;
+    width: 8.75rem;
+  }
+
+  .newborn-hero__print--right-rear {
+    right: -3rem;
+    width: 8.75rem;
+  }
+
+  .newborn-hero__print--left-front {
+    left: -1.5rem;
+    bottom: -0.3rem;
+  }
+
+  .newborn-hero__print--right-front {
+    right: -1.5rem;
+    bottom: 0.6rem;
+  }
+
+  .newborn-first-days {
+    padding-top: 5.5rem;
+  }
+
+  .newborn-first-days__inner {
+    grid-template-columns: minmax(16rem, 18rem) minmax(0, 1fr);
+    gap: 3.4rem;
+  }
+
+  .newborn-first-days__arch {
+    height: 22rem;
+  }
+
+  .newborn-first-days__copy {
+    padding-bottom: 6.5rem;
+  }
+
+  .newborn-baby-led {
+    padding-block: 7.5rem 6.75rem;
+  }
+
+  .newborn-baby-led__inner {
+    grid-template-columns: minmax(15.5rem, 0.8fr) minmax(22rem, 1.2fr);
+    gap: 2.75rem;
+  }
+
+  .newborn-baby-led__media {
+    min-height: 25rem;
+  }
+
+  .newborn-baby-led__secondary {
+    right: -1rem;
+    width: 9rem;
+  }
+
+  .newborn-baby-led__script {
+    right: 11rem;
+    font-size: 2.65rem;
+  }
+
+  .newborn-process {
+    padding-block: 7rem;
+  }
+
+  .newborn-process__heading {
+    margin-bottom: 7.75rem;
+  }
+
+  .newborn-process__image-row {
+    height: 22rem;
+  }
+
+  .newborn-process__photo {
+    height: 11.75rem;
+  }
+
+  .newborn-process__item--arch .newborn-process__photo {
+    height: 22rem;
+  }
+
+  .newborn-process__copy {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .newborn-growing,
+  .newborn-growing__inner {
+    min-height: 36rem;
+  }
+
+  .newborn-growing__inner {
+    grid-template-columns: minmax(17rem, 0.85fr) minmax(21rem, 1.15fr);
+    gap: 3rem;
+  }
+
+  .newborn-growing__prints {
+    min-height: 25rem;
+  }
+
+  .newborn-faq {
+    padding-block: 6.5rem 7rem;
+  }
+
+  .newborn-faq__inner {
+    grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.7fr);
+    gap: 3.5rem;
+  }
+
+  .newborn-note {
+    padding-inline: 2.35rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .newborn-shell {
+    width: min(calc(100% - 3rem), 35rem);
+  }
+
+  .newborn-prose {
+    font-size: 1.125rem;
+  }
+
+  .newborn-hero {
+    min-height: 37rem;
+  }
+
+  .newborn-hero__background-image {
+    object-position: 57% 50%;
+  }
+
+  .newborn-hero__copy {
+    top: 43%;
+    width: min(calc(100% - 2.75rem), 31rem);
+  }
+
+  .newborn-hero__script {
+    font-size: 2.75rem;
+  }
+
+  .newborn-hero h1 {
+    max-width: 28rem;
+    font-size: clamp(2.7rem, 12vw, 3.35rem);
+    line-height: 0.95;
+  }
+
+  .newborn-hero h1::after {
+    margin-block: 1.1rem 1rem;
+  }
+
+  .newborn-hero__intro {
+    max-width: 28rem;
+    font-size: 1.0625rem;
+    line-height: 1.4;
+  }
+
+  .newborn-hero__actions {
+    margin-top: 1.25rem;
+  }
+
+  .newborn-hero__print {
+    width: 7.6rem;
+    padding: 0.35rem 0.35rem 1rem;
+  }
+
+  .newborn-hero__print--left-front {
+    left: -2.9rem;
+    bottom: -1.1rem;
+    transform: rotate(-4deg);
+  }
+
+  .newborn-hero__print--right-front {
+    right: -2.9rem;
+    bottom: -0.8rem;
+    transform: rotate(4deg);
+  }
+
+  .newborn-hero__print--left-rear,
+  .newborn-hero__print--right-rear {
+    display: none;
+  }
+
+  .newborn-first-days {
+    padding-top: 4.75rem;
+  }
+
+  .newborn-first-days__inner,
+  .newborn-baby-led__inner,
+  .newborn-growing__inner,
+  .newborn-faq__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .newborn-first-days__inner {
+    gap: 4.75rem;
+  }
+
+  .newborn-first-days__arch {
+    width: min(18rem, 84vw);
+    height: 22rem;
+    margin-inline: auto;
+    transform: none;
+  }
+
+  .newborn-first-days__copy {
+    max-width: 35rem;
+    padding-bottom: 5.75rem;
+  }
+
+  .newborn-first-days h2,
+  .newborn-baby-led h2,
+  .newborn-process h2,
+  .newborn-growing h2,
+  .newborn-faq h2 {
+    font-size: clamp(2.55rem, 11vw, 3.2rem);
+  }
+
+  .newborn-baby-led {
+    padding-block: 5.75rem 6.5rem;
+  }
+
+  .newborn-baby-led__inner {
+    gap: 3.75rem;
+  }
+
+  .newborn-baby-led__copy {
+    max-width: 35rem;
+  }
+
+  .newborn-baby-led__media {
+    min-height: 25.5rem;
+  }
+
+  .newborn-baby-led__primary {
+    right: auto;
+    left: 0;
+    width: calc(100% - 1rem);
+  }
+
+  .newborn-baby-led__secondary {
+    right: -0.65rem;
+    bottom: -0.5rem;
+    width: 8.25rem;
+  }
+
+  .newborn-baby-led__script {
+    right: 9.25rem;
+    bottom: 0.3rem;
+    font-size: 2.25rem;
+  }
+
+  .newborn-tape {
+    right: 1.4rem;
+    width: 5.25rem;
+    height: 1.3rem;
+  }
+
+  .newborn-process {
+    padding-block: 6.25rem;
+  }
+
+  .newborn-process__heading {
+    margin-bottom: 4.75rem;
+  }
+
+  .newborn-process__arc-copy {
+    display: none;
+  }
+
+  .newborn-process__triptych {
+    grid-template-columns: 1fr;
+    gap: 4.5rem;
+  }
+
+  .newborn-process__item {
+    width: 100%;
+  }
+
+  .newborn-process__image-row {
+    width: 100%;
+    height: auto;
+  }
+
+  .newborn-process__photo,
+  .newborn-process__item--arch .newborn-process__photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .newborn-process__item--arch .newborn-process__photo {
+    width: min(18rem, 82vw);
+    margin-inline: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .newborn-process__arc-copy {
+    top: -4.8rem;
+    width: min(22rem, 112%);
+  }
+
+  .newborn-process__copy {
+    grid-template-columns: auto 1fr;
+  }
+
+  .newborn-growing {
+    min-height: 51rem;
+  }
+
+  .newborn-growing__background-image {
+    object-position: 50% 58%;
+  }
+
+  .newborn-growing__inner {
+    gap: 3.25rem;
+    align-content: start;
+    min-height: 51rem;
+    padding-block: 5rem 6.5rem;
+  }
+
+  .newborn-growing__copy {
+    max-width: 32rem;
+  }
+
+  .newborn-growing__prints {
+    min-height: 22rem;
+  }
+
+  .newborn-growing__print--rear {
+    right: 0.6rem;
+    width: min(13rem, 56%);
+  }
+
+  .newborn-growing__print--front {
+    bottom: 0;
+    width: min(17rem, 72%);
+  }
+
+  .newborn-faq {
+    padding-block: 5.75rem 6.5rem;
+  }
+
+  .newborn-faq__inner {
+    gap: 3rem;
+  }
+
+  .newborn-faq__item summary {
+    grid-template-columns: 1.8rem 1fr 1.25rem;
+    min-height: 4.5rem;
+  }
+
+  .newborn-faq__answer {
+    padding-right: 1rem;
+    padding-left: 2.55rem;
+  }
+
+  .newborn-note {
+    width: min(100%, 31rem);
+    margin: 1rem auto 0;
+    padding: 4.1rem 2.5rem 3.25rem;
+    transform: rotate(0.35deg);
+  }
+}
+
+@media (max-width: 29.9375rem) {
+  .newborn-shell {
+    width: calc(100% - 2.5rem);
+  }
+
+  .newborn-hero {
+    min-height: 38rem;
+  }
+
+  .newborn-hero__copy {
+    top: 42%;
+    width: calc(100% - 2.25rem);
+  }
+
+  .newborn-hero__script {
+    font-size: 2.35rem;
+  }
+
+  .newborn-hero h1 {
+    max-width: 22rem;
+    font-size: clamp(2.4rem, 11.3vw, 2.75rem);
+  }
+
+  .newborn-hero__intro {
+    max-width: 22rem;
+    font-size: 1rem;
+  }
+
+  .newborn-hero .outline-button {
+    padding-inline: 1.1rem;
+  }
+
+  .newborn-first-days__inner {
+    gap: 3.75rem;
+  }
+
+  .newborn-first-days__copy {
+    padding-bottom: 5rem;
+  }
+
+  .newborn-baby-led__media {
+    min-height: 22.5rem;
+  }
+
+  .newborn-baby-led__script {
+    right: 8.5rem;
+    font-size: 2rem;
+  }
+
+  .newborn-process__copy {
+    grid-template-columns: 1fr;
+  }
+
+  .newborn-growing,
+  .newborn-growing__inner {
+    min-height: 49rem;
+  }
+
+  .newborn-growing__prints {
+    min-height: 20rem;
+  }
+
+  .newborn-faq__question {
+    font-size: 1.25rem;
+  }
+
+  .newborn-note {
+    padding-inline: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .newborn-page *,
+  .newborn-page *::before,
+  .newborn-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

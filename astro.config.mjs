@@ -5,6 +5,7 @@ import node from "@astrojs/node";
 import vercel from "@astrojs/vercel";
 import tina from "@tinacms/astro/integration";
 import { tinaAdminDevRedirect } from "@tinacms/astro/vite";
+import agentationDev from "./src/integrations/agentation-dev.mjs";
 
 const siteMode = process.env.SITE_MODE || process.env.PUBLICATION_MODE || "staging";
 if (!new Set(["staging", "release"]).has(siteMode)) {
@@ -33,7 +34,7 @@ export default defineConfig({
   site: siteOrigin,
   output: "static",
   adapter,
-  integrations: [tina()],
+  integrations: [tina(), agentationDev()],
   build: {
     inlineStylesheets: "always",
   },

@@ -25,6 +25,7 @@ const questions = requireSection("senior-picture-questions");
 
 const heroSideImage = "/uploads/spring-portrait-blossoms-tricities.jpg";
 const parentRearImage = "/uploads/autumn-senior-portrait-tricities.jpg";
+const finalBackgroundImage = "/uploads/senior-riverside-golden-hour-tricities.jpg";
 const [heroHeadingLead, heroHeadingTail] = page.hero.heading.split(" in ");
 
 const faqSchema = (questions.items || [])
@@ -138,7 +139,6 @@ const faqSchema = (questions.items || [])
     class:list={["senior-confidence", `tone-${photogenic.tone}`]}
     aria-labelledby={`${photogenic.id}-title`}
   >
-    <div class="senior-confidence__rule" aria-hidden="true"></div>
     <div class="senior-shell senior-confidence__inner">
       <div class="senior-confidence__copy">
         <p class="senior-eyebrow">My favorite moment of every shoot</p>
@@ -184,7 +184,6 @@ const faqSchema = (questions.items || [])
     class:list={["senior-process", `tone-${process.tone}`]}
     aria-labelledby={`${process.id}-title`}
   >
-    <div class="senior-process__rule" aria-hidden="true"></div>
     <div class="senior-shell senior-process__inner">
       <div class="senior-process__heading">
         <h2 id={`${process.id}-title`}>{process.heading}</h2>
@@ -286,7 +285,6 @@ const faqSchema = (questions.items || [])
     class:list={["senior-faq", `tone-${questions.tone}`]}
     aria-labelledby={`${questions.id}-title`}
   >
-    <div class="senior-faq__rule" aria-hidden="true"></div>
     <div class="senior-shell senior-faq__inner">
       <header class="senior-faq__heading">
         <h2 id={`${questions.id}-title`}>{questions.heading}</h2>
@@ -323,7 +321,18 @@ const faqSchema = (questions.items || [])
 
   {page.finalCta && (
     <section class:list={["senior-final", `tone-${page.finalCta.tone}`]} aria-labelledby="senior-final-title">
-      <div class="senior-final__rule" aria-hidden="true"></div>
+      <div class="senior-final__background" aria-hidden="true">
+        <Picture
+          src={finalBackgroundImage}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          responsiveSrcset
+          sizes="100vw"
+          imgClass="senior-final__background-image"
+        />
+        <div class="senior-final__wash"></div>
+      </div>
       <div class="senior-shell senior-final__inner">
         <p class="senior-script" aria-hidden="true">find your light</p>
         <h2 id="senior-final-title">{page.finalCta.heading}</h2>

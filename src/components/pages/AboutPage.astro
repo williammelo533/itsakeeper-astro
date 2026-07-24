@@ -25,8 +25,16 @@ const belief = requireSection("what-i-believe-you-deserve");
 const offCamera = requireSection("lisa-off-camera");
 const credentials = requireSection("experience-and-credentials");
 
-const lessonPrints = (lessons.items || []).filter((item) => item.image);
+const lessonPrints = (lessons.items || []).filter((item) => item.image).slice(0, 3);
 const beliefQuote = belief.items?.find((item) => item.quote)?.quote;
+const originNote = origin.paragraphs?.[0];
+const originParagraphs = origin.paragraphs?.slice(originNote ? 1 : 0);
+const lessonLead = lessons.paragraphs?.[0];
+const lessonParagraphs = lessons.paragraphs?.slice(lessonLead ? 1 : 0);
+
+const heroLeftImage = lessonPrints[0]?.image || belief.image || page.hero.image;
+const heroRightImage = lessonPrints[2]?.image || belief.image || page.hero.image;
+const originImage = origin.image || offCamera.secondaryImage || page.hero.image;
 ---
 
 <article
@@ -34,44 +42,110 @@ const beliefQuote = belief.items?.find((item) => item.quote)?.quote;
   data-content-status={page.contentStatus}
   data-signature-device={page.signature}
 >
-  <header class:list={["about-hero", `tone-${page.hero.tone}`]}>
-    <div class="about-hero__rule" aria-hidden="true"></div>
-    <div class="about-shell about-hero__inner">
-      <div class="about-hero__copy">
-        <h1>{page.hero.heading}</h1>
-        {page.hero.intro && <p>{page.hero.intro}</p>}
+  <header
+    class:list={["about-hero", `tone-${page.hero.tone}`]}
+    aria-labelledby="about-hero-title"
+  >
+    {page.hero.image && (
+      <div class="about-hero__background">
+        <Picture
+          src={page.hero.image}
+          alt={page.hero.imageAlt || ""}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          responsiveSrcset
+          sizes="100vw"
+          imgClass="about-hero__background-image"
+        />
+        <div class="about-hero__wash" aria-hidden="true"></div>
       </div>
+    )}
 
-      {page.hero.image && (
-        <figure class="about-hero__portrait">
-          <Picture
-            src={page.hero.image}
-            alt={page.hero.imageAlt || ""}
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-            responsiveSrcset
-            sizes="(max-width: 767px) 78vw, (max-width: 1050px) 42vw, 34vw"
-            imgClass="photo--editorial"
-          />
-        </figure>
+    {heroLeftImage && (
+      <figure class="about-hero__print about-hero__print--left" aria-hidden="true">
+        <Picture
+          src={heroLeftImage}
+          alt=""
+          loading="eager"
+          decoding="async"
+          optimizedMobileWidth={400}
+          optimizedDesktopWidth={640}
+          imgClass="photo--editorial"
+        />
+      </figure>
+    )}
+
+    <div class="about-hero__copy">
+      {page.hero.scriptLine && (
+        <p class="about-script about-hero__script" aria-hidden="true">
+          {page.hero.scriptLine}
+        </p>
+      )}
+      <h1 id="about-hero-title">{page.hero.heading}</h1>
+      {page.hero.intro && <p class="about-hero__intro">{page.hero.intro}</p>}
+      {page.hero.links?.length && (
+        <div class="about-hero__actions">
+          {page.hero.links.map((link) => (
+            <a class="outline-button" href={link.href}>{link.label}</a>
+          ))}
+        </div>
       )}
     </div>
+
+    {heroRightImage && (
+      <figure class="about-hero__print about-hero__print--right" aria-hidden="true">
+        <Picture
+          src={heroRightImage}
+          alt=""
+          loading="eager"
+          decoding="async"
+          optimizedMobileWidth={400}
+          optimizedDesktopWidth={640}
+          imgClass="photo--editorial"
+        />
+      </figure>
+    )}
+
+    <div class="about-hero__paper-edge" aria-hidden="true"></div>
   </header>
 
   <section
     class:list={["about-origin", `tone-${origin.tone}`]}
     aria-labelledby={`${origin.id}-title`}
   >
-    <div class="about-origin__rule" aria-hidden="true"></div>
     <div class="about-shell about-origin__inner">
-      <h2 id={`${origin.id}-title`}>{origin.heading}</h2>
+      <div class="about-origin__media">
+        {originImage && (
+          <figure class="about-origin__arch">
+            <Picture
+              src={originImage}
+              alt={origin.imageAlt || offCamera.secondaryImageAlt || page.hero.imageAlt || ""}
+              loading="eager"
+              decoding="async"
+              responsiveSrcset
+              sizes="(max-width: 767px) 84vw, (max-width: 1050px) 42vw, 28rem"
+              imgClass="photo--editorial"
+            />
+          </figure>
+        )}
+
+        {originNote && (
+          <aside class="about-paper-note about-origin__note" aria-label="Lisa's beginning">
+            <p>{originNote}</p>
+          </aside>
+        )}
+      </div>
+
       <div class="about-origin__copy">
-        {origin.paragraphs?.map((paragraph, index) => (
-          <p class:list={{ "about-origin__lead": index === 0 }}>{paragraph}</p>
-        ))}
+        <span class="about-rule" aria-hidden="true"></span>
+        <h2 id={`${origin.id}-title`}>{origin.heading}</h2>
+        <div class="about-prose">
+          {originParagraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
       </div>
     </div>
+    <div class="about-origin__crossline" aria-hidden="true"></div>
   </section>
 
   <section
@@ -79,10 +153,14 @@ const beliefQuote = belief.items?.find((item) => item.quote)?.quote;
     aria-labelledby={`${nameStory.id}-title`}
   >
     <div class="about-shell about-name__inner">
-      <h2 id={`${nameStory.id}-title`}>{nameStory.heading}</h2>
+      <div class="about-name__heading">
+        <span class="about-rule" aria-hidden="true"></span>
+        <h2 id={`${nameStory.id}-title`}>{nameStory.heading}</h2>
+      </div>
       <div class="about-name__copy">
         {nameStory.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
       </div>
+      <p class="about-script about-name__script" aria-hidden="true">keepers</p>
     </div>
   </section>
 
@@ -90,57 +168,78 @@ const beliefQuote = belief.items?.find((item) => item.quote)?.quote;
     class:list={["about-camera", `tone-${cameraStory.tone}`]}
     aria-labelledby={`${cameraStory.id}-title`}
   >
-    <div class="about-camera__rule" aria-hidden="true"></div>
     <div class="about-shell about-camera__inner">
       {cameraStory.image && (
-        <figure class="about-camera__print">
+        <figure class="about-print about-camera__print">
+          <span class="about-tape" aria-hidden="true"></span>
           <Picture
             src={cameraStory.image}
             alt={cameraStory.imageAlt || ""}
             loading="lazy"
             decoding="async"
-            optimizedMobileWidth={640}
+            responsiveSrcset
+            sizes="(max-width: 767px) 86vw, (max-width: 1050px) 43vw, 31rem"
             imgClass="photo--editorial"
           />
         </figure>
       )}
 
       <div class="about-camera__copy">
+        <span class="about-rule" aria-hidden="true"></span>
         <h2 id={`${cameraStory.id}-title`}>{cameraStory.heading}</h2>
-        <div class="about-camera__paragraphs">
+        <div class="about-prose about-camera__paragraphs">
           {cameraStory.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
         </div>
       </div>
     </div>
+    <div class="about-camera__crossline" aria-hidden="true"></div>
   </section>
 
   <section
     class:list={["about-lessons", `tone-${lessons.tone}`]}
     aria-labelledby={`${lessons.id}-title`}
   >
-    <div class="about-lessons__crossline" aria-hidden="true"></div>
     <div class="about-shell about-lessons__inner">
-      <div class="about-lessons__copy">
+      <header class="about-lessons__heading">
+        <span class="about-rule" aria-hidden="true"></span>
         <h2 id={`${lessons.id}-title`}>{lessons.heading}</h2>
-        {lessons.paragraphs?.map((paragraph, index) => (
-          <p class:list={{ "about-lessons__lead": index === 0 }}>{paragraph}</p>
-        ))}
-      </div>
+        {lessonLead && <p>{lessonLead}</p>}
+      </header>
 
       {lessonPrints.length > 0 && (
-        <div class="about-lessons__prints" role="group" aria-label="A selection of Lisa's portrait work">
+        <div
+          class="about-lessons__gallery"
+          role="group"
+          aria-label="A selection of Lisa's portrait work"
+        >
           {lessonPrints.map((item, index) => (
-            <figure class:list={["about-lessons__print", `about-lessons__print--${index + 1}`]}>
+            <figure
+              class:list={[
+                "about-lessons__photo",
+                { "about-lessons__photo--arch": index === 1 },
+              ]}
+            >
               <Picture
                 src={item.image!}
                 alt={item.imageAlt || ""}
                 loading="lazy"
                 decoding="async"
-                optimizedMobileWidth={400}
-                optimizedDesktopWidth={640}
+                responsiveSrcset
+                sizes="(max-width: 767px) 82vw, (max-width: 1050px) 31vw, 25rem"
                 imgClass="photo--editorial"
               />
             </figure>
+          ))}
+        </div>
+      )}
+
+      {lessonParagraphs?.length && (
+        <div class="about-lessons__ledger">
+          {lessonParagraphs.map((paragraph, index) => (
+            <div class="about-lessons__entry">
+              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <p>{paragraph}</p>
+            </div>
           ))}
         </div>
       )}
@@ -151,8 +250,8 @@ const beliefQuote = belief.items?.find((item) => item.quote)?.quote;
     class:list={["about-belief", `tone-${belief.tone}`]}
     aria-labelledby={`${belief.id}-title`}
   >
-    {belief.image && (
-      <div class="about-belief__image">
+    <div class="about-belief__image">
+      {belief.image && (
         <Picture
           src={belief.image}
           alt={belief.imageAlt || ""}
@@ -160,18 +259,25 @@ const beliefQuote = belief.items?.find((item) => item.quote)?.quote;
           decoding="async"
           responsiveSrcset
           sizes="100vw"
-          imgClass="photo--editorial"
+          imgClass="about-belief__background-image"
         />
-        <div class="about-belief__overlay" aria-hidden="true"></div>
-        <div class="about-shell about-belief__statement">
-          <h2 id={`${belief.id}-title`}>{belief.heading}</h2>
-          {beliefQuote && <blockquote><p>{beliefQuote}</p></blockquote>}
-        </div>
+      )}
+      <div class="about-belief__wash" aria-hidden="true"></div>
+      <div class="about-shell about-belief__heading">
+        <span class="about-rule" aria-hidden="true"></span>
+        <h2 id={`${belief.id}-title`}>{belief.heading}</h2>
       </div>
-    )}
+    </div>
 
-    <div class="about-shell about-belief__prose">
-      {belief.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+    <div class="about-shell about-belief__lower">
+      {beliefQuote && (
+        <blockquote class="about-paper-note about-belief__note">
+          <p>{beliefQuote}</p>
+        </blockquote>
+      )}
+      <div class="about-belief__prose">
+        {belief.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
     </div>
   </section>
 
@@ -179,12 +285,50 @@ const beliefQuote = belief.items?.find((item) => item.quote)?.quote;
     class:list={["about-personal", `tone-${offCamera.tone}`]}
     aria-labelledby={`${offCamera.id}-title`}
   >
-    <div class="about-personal__rule" aria-hidden="true"></div>
     <div class="about-shell about-personal__inner">
-      <h2 id={`${offCamera.id}-title`}>{offCamera.heading}</h2>
       <div class="about-personal__copy">
-        {offCamera.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        <span class="about-rule" aria-hidden="true"></span>
+        <h2 id={`${offCamera.id}-title`}>{offCamera.heading}</h2>
+        <div class="about-prose">
+          {offCamera.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        {page.hero.scriptLine && (
+          <p class="about-script about-personal__script" aria-hidden="true">
+            {page.hero.scriptLine}
+          </p>
+        )}
       </div>
+
+      {(offCamera.image || offCamera.secondaryImage) && (
+        <div class="about-personal__portraits">
+          {offCamera.image && (
+            <figure class="about-personal__portrait about-personal__portrait--rear">
+              <Picture
+                src={offCamera.image}
+                alt={offCamera.imageAlt || ""}
+                loading="lazy"
+                decoding="async"
+                responsiveSrcset
+                sizes="(max-width: 767px) 74vw, (max-width: 1050px) 40vw, 29rem"
+                imgClass="photo--editorial"
+              />
+            </figure>
+          )}
+          {offCamera.secondaryImage && (
+            <figure class="about-print about-personal__portrait about-personal__portrait--front">
+              <Picture
+                src={offCamera.secondaryImage}
+                alt={offCamera.secondaryImageAlt || ""}
+                loading="lazy"
+                decoding="async"
+                optimizedMobileWidth={400}
+                optimizedDesktopWidth={640}
+                imgClass="photo--editorial"
+              />
+            </figure>
+          )}
+        </div>
+      )}
     </div>
   </section>
 
@@ -193,24 +337,37 @@ const beliefQuote = belief.items?.find((item) => item.quote)?.quote;
     aria-labelledby={`${credentials.id}-title`}
   >
     <div class="about-shell about-proof__inner">
-      <h2 id={`${credentials.id}-title`}>{credentials.heading}</h2>
+      <div class="about-proof__heading">
+        <span class="about-rule" aria-hidden="true"></span>
+        <h2 id={`${credentials.id}-title`}>{credentials.heading}</h2>
+      </div>
       {credentials.items?.length && (
         <ul class="about-proof__ledger">
-          {credentials.items.map((item) => <li>{item.detail}</li>)}
+          {credentials.items.map((item, index) => (
+            <li>
+              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <p>{item.detail}</p>
+            </li>
+          ))}
         </ul>
       )}
     </div>
   </section>
 
   {page.finalCta && (
-    <section class:list={["about-final", `tone-${page.finalCta.tone}`]} aria-labelledby="about-final-title">
-      <div class="about-final__rule" aria-hidden="true"></div>
+    <section
+      class:list={["about-final", `tone-${page.finalCta.tone}`]}
+      aria-labelledby="about-final-title"
+    >
       <div class="about-shell about-final__inner">
+        <p class="about-script" aria-hidden="true">your story, kept</p>
         <h2 id="about-final-title">{page.finalCta.heading}</h2>
         <div class="about-final__invitation">
           {page.finalCta.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
           {page.finalCta.link && (
-            <a class="outline-button" href={page.finalCta.link.href}>{page.finalCta.link.label}</a>
+            <a class="outline-button" href={page.finalCta.link.href}>
+              {page.finalCta.link.label}
+            </a>
           )}
         </div>
       </div>

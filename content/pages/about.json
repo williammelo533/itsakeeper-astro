@@ -11,8 +11,15 @@
     "tone": "earth",
     "heading": "Meet Lisa — The Heart Behind It's A Keeper",
     "intro": "Professional senior, family and couples photographer in Richland, WA. Twenty years behind the camera, fourteen years in business, and hundreds of Tri-Cities stories preserved.",
+    "scriptLine": "the heart behind every keeper",
     "image": "/uploads/lisa-photographer-tricities.jpg",
-    "imageAlt": "Lisa, owner of It’s A Keeper Photography, holding her camera in the Tri-Cities"
+    "imageAlt": "Lisa, owner of It’s A Keeper Photography, holding her camera in the Tri-Cities",
+    "links": [
+      {
+        "label": "Her story",
+        "href": "#it-started-with-my-own-children"
+      }
+    ]
   },
   "sections": [
     {
@@ -20,6 +27,8 @@
       "kind": "split",
       "tone": "ivory",
       "heading": "It Started With My Own Children",
+      "image": "/uploads/lisa-photographer-at-work-black-white.jpg",
+      "imageAlt": "Lisa seated with her camera between photographs",
       "paragraphs": [
         "My journey into photography began with my children, not a business plan.",
         "Before photography became my career, I was a stay-at-home mom raising my two kids. When they were little, I wanted more than rushed studio portraits — I wanted photographs that captured who they truly were. My husband bought me my first point-and-shoot camera, and I quickly fell in love with preserving the everyday moments that would one day become treasured memories.",
@@ -93,8 +102,12 @@
     {
       "id": "lisa-off-camera",
       "kind": "prose",
-      "tone": "ivory",
+      "tone": "earth",
       "heading": "Lisa, Off Camera",
+      "image": "/uploads/lisa-photographer-tricities.jpg",
+      "imageAlt": "Lisa holding her camera in her Tri-Cities studio",
+      "secondaryImage": "/uploads/lisa-photographer-at-work-black-white.jpg",
+      "secondaryImageAlt": "Lisa seated with her camera between photographs",
       "paragraphs": [
         "I grew up in Wisconsin — my first award-winning photograph was of my son, sitting in the broken-out window of my parents' old barn there — and the Tri-Cities has been home since 2005. When I'm not chasing golden hour, you'll find me with my family and the church family I love being part of."
       ]
