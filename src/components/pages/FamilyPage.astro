@@ -1,0 +1,525 @@
+---
+import type { EditorialPageData, PageSection } from "../../content/page-types";
+import Picture from "../Picture.astro";
+import "../../styles/family-page.css";
+
+interface Props {
+  page: EditorialPageData;
+  settings: any;
+  inquiry?: any;
+}
+
+const { page } = Astro.props;
+
+const requireSection = (id: string): PageSection => {
+  const section = page.sections.find((candidate) => candidate.id === id);
+  if (!section) throw new Error(`Family page is missing the required section: ${id}`);
+  return section;
+};
+
+const sessions = requireSection("sessions-that-feel-like-play");
+const process = requireSection("family-session-process");
+const heirlooms = requireSection("family-heirlooms");
+const locations = requireSection("family-photo-locations");
+const reviews = requireSection("what-parents-say");
+const questions = requireSection("family-session-questions");
+
+const reviewQuote = reviews.items?.find((item) => item.quote)?.quote;
+const finalImage = "/uploads/family-golden-hour-columbia-basin.jpg";
+const [sessionsHeadingLead, sessionsHeadingTail] = sessions.heading?.split(", ") || [];
+const [processHeadingLead, processHeadingTail] = process.heading?.split(" With Me ") || [];
+const heirloomHeadingTail = "Family Heirlooms";
+const heirloomHeadingLead = heirlooms.heading?.endsWith(heirloomHeadingTail)
+  ? heirlooms.heading.slice(0, -heirloomHeadingTail.length).trim()
+  : heirlooms.heading;
+const [locationsHeadingLead, locationsHeadingRest] = locations.heading?.split(" — ") || [];
+const [locationsHeadingMiddle, locationsHeadingTail] =
+  locationsHeadingRest?.split(" Around ") || [];
+const [finalHeadingLead, finalHeadingTail] =
+  page.finalCta?.heading.split(" Family's ") || [];
+
+// CONTENT PENDING: [PENDIENTE: 2–3 reseñas reales de familias, con nombre — Q47]
+
+const faqSchema = (questions.items || [])
+  .filter((item) => item.heading && item.paragraphs?.length)
+  .map((item) => ({
+    "@type": "Question",
+    name: item.heading,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.paragraphs?.join(" "),
+    },
+  }));
+---
+
+<article
+  class="family-page"
+  data-content-status={page.contentStatus}
+  data-signature-device={page.signature}
+>
+  <header class="family-hero" aria-labelledby="family-hero-title">
+    <div class="family-hero__background">
+      {page.hero.image && (
+        <Picture
+          src={page.hero.image}
+          alt={page.hero.imageAlt || ""}
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          responsiveSrcset
+          sizes="100vw"
+          imgClass="family-hero__image photo--editorial"
+        />
+      )}
+      <div class="family-hero__wash" aria-hidden="true"></div>
+    </div>
+
+    <div class="family-shell family-hero__inner">
+      <div class="family-hero__copy">
+        <h1 id="family-hero-title">{page.hero.heading}</h1>
+        {page.hero.intro && <p>{page.hero.intro}</p>}
+        {page.hero.links?.length && (
+          <div class="family-hero__actions">
+            {page.hero.links.map((link) => (
+              <a class="outline-button" href={link.href}>{link.label}</a>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+
+    {page.hero.secondaryImage && (
+      <figure class="family-print family-hero__print family-hero__print--left" aria-hidden="true" data-family-photo>
+        <span class="family-tape" aria-hidden="true"></span>
+        <Picture
+          src={page.hero.secondaryImage}
+          alt=""
+          loading="eager"
+          decoding="async"
+          optimizedMobileWidth={400}
+          optimizedDesktopWidth={640}
+          imgClass="photo--editorial"
+        />
+      </figure>
+    )}
+
+    {locations.secondaryImage && (
+      <figure class="family-print family-hero__print family-hero__print--right" aria-hidden="true" data-family-photo>
+        <span class="family-tape family-tape--reverse" aria-hidden="true"></span>
+        <Picture
+          src={locations.secondaryImage}
+          alt=""
+          loading="eager"
+          decoding="async"
+          optimizedMobileWidth={400}
+          optimizedDesktopWidth={640}
+          imgClass="photo--editorial"
+        />
+      </figure>
+    )}
+
+    <div class="family-hero__paper-edge" data-paper-edge aria-hidden="true"></div>
+  </header>
+
+  <section
+    class="family-intro"
+    aria-labelledby={`${sessions.id}-title`}
+  >
+    <div class="family-shell family-intro__inner">
+      {sessions.image && (
+        <figure
+          class="family-intro__arch"
+          data-family-arch
+          data-family-photo
+          data-line-target="intro-arch"
+        >
+          <Picture
+            src={sessions.image}
+            alt={sessions.imageAlt || ""}
+            loading="eager"
+            decoding="async"
+            responsiveSrcset
+            sizes="(max-width: 479px) 76vw, (max-width: 1050px) 40vw, 30vw"
+            imgClass="photo--editorial"
+          />
+        </figure>
+      )}
+
+      <span
+        class="family-intro__line"
+        data-construction-line
+        data-line-anchor="image"
+        data-anchor-target="intro-arch"
+        aria-hidden="true"
+      ></span>
+
+      <div class="family-intro__copy">
+        <span class="family-section-number" aria-hidden="true">02</span>
+        <h2 id={`${sessions.id}-title`}>
+          <span>{sessionsHeadingLead}{sessionsHeadingTail && ","}</span>
+          {" "}
+          {sessionsHeadingTail && <span>{sessionsHeadingTail}</span>}
+        </h2>
+        <div class="family-prose">
+          {sessions.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="family-process"
+    aria-labelledby={`${process.id}-title`}
+  >
+    <div class="family-shell family-process__inner">
+      <div class="family-process__lead">
+        <div class="family-process__index" aria-hidden="true">
+          {process.items?.map((item, index) => (
+            <span>
+              <b>{String(index + 1).padStart(2, "0")}</b>
+              {item.heading?.split(":")[0]}
+            </span>
+          ))}
+        </div>
+
+        <div class="family-process__title">
+          <span class="family-section-number" aria-hidden="true">03</span>
+          <h2 id={`${process.id}-title`}>
+            <span>{processHeadingLead}</span>
+            {" "}
+            {processHeadingTail && <span>With Me {processHeadingTail}</span>}
+          </h2>
+        </div>
+      </div>
+
+      {(process.image || process.secondaryImage) && (
+        <div
+          class="family-process__media"
+          data-family-overlap
+          data-line-target="process-media"
+        >
+          {process.image && (
+            <figure class="family-process__photo family-process__photo--rear" data-family-photo>
+              <Picture
+                src={process.image}
+                alt={process.imageAlt || ""}
+                loading="lazy"
+                decoding="async"
+                responsiveSrcset
+                sizes="(max-width: 767px) 88vw, (max-width: 1050px) 60vw, 53vw"
+                imgClass="photo--editorial"
+              />
+            </figure>
+          )}
+
+          {process.secondaryImage && (
+            <figure class="family-print family-process__photo family-process__photo--front" data-family-photo>
+              <span class="family-tape" aria-hidden="true"></span>
+              <Picture
+                src={process.secondaryImage}
+                alt={process.secondaryImageAlt || ""}
+                loading="lazy"
+                decoding="async"
+                optimizedMobileWidth={640}
+                optimizedDesktopWidth={960}
+                imgClass="photo--editorial"
+              />
+            </figure>
+          )}
+        </div>
+      )}
+
+      {process.items?.length && (
+        <div
+          class="family-process__ledger-frame"
+          data-line-target="process-ledger"
+        >
+          <span
+            class="family-process__ledger-line"
+            data-construction-line
+            data-line-anchor="grid"
+            data-anchor-target="process-ledger"
+            aria-hidden="true"
+          ></span>
+          <ol class="family-process__ledger">
+            {process.items.map((item, index) => (
+              <li>
+                <span class="family-process__number" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {item.heading && <h3>{item.heading}</h3>}
+                {item.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section
+    class="family-heirlooms"
+    aria-labelledby={`${heirlooms.id}-title`}
+  >
+    {heirlooms.image && (
+      <div class="family-heirlooms__background">
+        <Picture
+          src={heirlooms.image}
+          alt={heirlooms.imageAlt || ""}
+          loading="lazy"
+          decoding="async"
+          responsiveSrcset
+          sizes="100vw"
+          imgClass="family-heirlooms__background-image"
+        />
+        <div class="family-heirlooms__wash" aria-hidden="true"></div>
+      </div>
+    )}
+
+    <div class="family-shell family-heirlooms__inner">
+      <div class="family-heirlooms__copy">
+        <span class="family-section-number" aria-hidden="true">04</span>
+        <h2 id={`${heirlooms.id}-title`}>
+          <span>{heirloomHeadingLead}</span>
+          {" "}
+          {heirloomHeadingLead !== heirlooms.heading && <span>{heirloomHeadingTail}</span>}
+        </h2>
+        <div class="family-prose">
+          {heirlooms.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+      </div>
+
+      {heirlooms.secondaryImage && (
+        <div class="family-heirlooms__prints" data-family-overlap>
+          <figure class="family-print family-heirlooms__print family-heirlooms__print--rear" aria-hidden="true" data-family-photo>
+            <Picture
+              src={reviews.image || heirlooms.secondaryImage}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              optimizedMobileWidth={400}
+              optimizedDesktopWidth={640}
+              imgClass="family-heirlooms__rear-image"
+            />
+          </figure>
+          <figure class="family-print family-heirlooms__print family-heirlooms__print--front" data-family-photo>
+            <span class="family-tape" aria-hidden="true"></span>
+            <Picture
+              src={heirlooms.secondaryImage}
+              alt={heirlooms.secondaryImageAlt || ""}
+              loading="lazy"
+              decoding="async"
+              optimizedMobileWidth={640}
+              optimizedDesktopWidth={960}
+              imgClass="photo--editorial"
+            />
+          </figure>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section
+    class="family-locations"
+    aria-labelledby={`${locations.id}-title`}
+  >
+    <div class="family-shell family-locations__inner">
+      <div class="family-locations__copy">
+        <span class="family-section-number" aria-hidden="true">05</span>
+        <h2 id={`${locations.id}-title`}>
+          <span>{locationsHeadingLead}{locationsHeadingRest && " —"}</span>
+          {" "}
+          {locationsHeadingMiddle && <span>{locationsHeadingMiddle}</span>}
+          {" "}
+          {locationsHeadingTail && <span>Around {locationsHeadingTail}</span>}
+        </h2>
+        <div class="family-prose">
+          {locations.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        {locations.links?.map((link) => (
+          <a class="family-text-link" href={link.href}>{link.label}</a>
+        ))}
+      </div>
+
+      <div class="family-locations__media">
+        {locations.image && (
+          <figure class="family-locations__landscape" data-family-photo>
+            <span class="family-tape" aria-hidden="true"></span>
+            <Picture
+              src={locations.image}
+              alt={locations.imageAlt || ""}
+              loading="lazy"
+              decoding="async"
+              responsiveSrcset
+              sizes="(max-width: 767px) 100vw, (max-width: 1050px) 72vw, 54vw"
+              imgClass="photo--editorial"
+            />
+          </figure>
+        )}
+
+        {locations.secondaryImage && (
+          <figure class="family-locations__arch" data-family-photo>
+            <Picture
+              src={locations.secondaryImage}
+              alt={locations.secondaryImageAlt || ""}
+              loading="lazy"
+              decoding="async"
+              optimizedMobileWidth={640}
+              imgClass="photo--editorial"
+            />
+          </figure>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="family-reviews"
+    aria-labelledby={`${reviews.id}-title`}
+    data-line-target="reviews-section"
+  >
+    <span
+      class="family-reviews__boundary family-reviews__boundary--top"
+      data-construction-line
+      data-line-anchor="section"
+      data-anchor-target="reviews-section"
+      aria-hidden="true"
+    ></span>
+    <span
+      class="family-reviews__boundary family-reviews__boundary--bottom"
+      data-construction-line
+      data-line-anchor="section"
+      data-anchor-target="reviews-section"
+      aria-hidden="true"
+    ></span>
+
+    <div class="family-shell family-reviews__inner">
+      <div class="family-reviews__copy">
+        <h2 id={`${reviews.id}-title`}>{reviews.heading}</h2>
+        {reviewQuote && <blockquote><p>{reviewQuote}</p></blockquote>}
+        {reviews.links?.map((link) => (
+          <a class="family-text-link" href={link.href}>{link.label}</a>
+        ))}
+      </div>
+
+      {reviews.image && (
+        <div class="family-reviews__prints" data-family-overlap>
+          {reviews.secondaryImage && (
+            <figure class="family-print family-reviews__print family-reviews__print--rear" aria-hidden="true" data-family-photo>
+              <Picture
+                src={reviews.secondaryImage}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                optimizedMobileWidth={400}
+                optimizedDesktopWidth={640}
+                imgClass="photo--editorial"
+              />
+            </figure>
+          )}
+          <figure class="family-print family-reviews__print family-reviews__print--front" data-family-photo>
+            <span class="family-tape" aria-hidden="true"></span>
+            <Picture
+              src={reviews.image}
+              alt={reviews.imageAlt || ""}
+              loading="lazy"
+              decoding="async"
+              optimizedMobileWidth={640}
+              optimizedDesktopWidth={960}
+              imgClass="family-reviews__monochrome"
+            />
+          </figure>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section
+    class="family-faq"
+    aria-labelledby={`${questions.id}-title`}
+  >
+    <div class="family-shell family-faq__inner">
+      <header class="family-faq__heading">
+        <h2 id={`${questions.id}-title`}>{questions.heading}</h2>
+      </header>
+
+      {questions.items?.length && (
+        <div class="family-faq__list">
+          {questions.items.map((item, index) => (
+            <details class="family-faq__item" open={index === 0}>
+              <summary>
+                <span class="family-faq__number" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span class="family-faq__question" role="heading" aria-level="3">
+                  {item.heading}
+                </span>
+                <span class="family-faq__mark" aria-hidden="true">+</span>
+              </summary>
+              <div class="family-faq__answer">
+                {item.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+              </div>
+            </details>
+          ))}
+        </div>
+      )}
+
+      {questions.image && (
+        <figure class="family-faq__photo" data-family-photo>
+          <Picture
+            src={questions.image}
+            alt={questions.imageAlt || ""}
+            loading="lazy"
+            decoding="async"
+            optimizedMobileWidth={640}
+            optimizedDesktopWidth={960}
+            imgClass="photo--editorial"
+          />
+        </figure>
+      )}
+    </div>
+  </section>
+
+  {page.finalCta && (
+    <section class="family-final" aria-labelledby="family-final-title">
+      <div class="family-final__background" aria-hidden="true">
+        <Picture
+          src={finalImage}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          responsiveSrcset
+          sizes="100vw"
+          imgClass="family-final__image photo--editorial"
+        />
+        <div class="family-final__wash"></div>
+      </div>
+
+      <div class="family-shell family-final__inner">
+        <div class="family-final__copy">
+          <h2 id="family-final-title">
+            <span>{finalHeadingLead}</span>
+            {" "}
+            {finalHeadingTail && <span>Family's {finalHeadingTail}</span>}
+          </h2>
+          {page.finalCta.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+          {page.finalCta.link && (
+            <a class="outline-button" href={page.finalCta.link.href}>{page.finalCta.link.label}</a>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {faqSchema.length > 0 && (
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqSchema,
+      })}
+    />
+  )}
+</article>

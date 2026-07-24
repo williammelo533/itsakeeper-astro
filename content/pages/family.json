@@ -11,6 +11,10 @@
     "tone": "sand",
     "heading": "Family Photographer in the Tri-Cities, WA",
     "intro": "Golden-hour family sessions in Richland, Kennewick and Pasco — unhurried, full of real laughter, and guided so gently your kids won't realize they're being photographed.",
+    "image": "/uploads/family-children-golden-hour-tricities.jpg",
+    "imageAlt": "Six children together in warm golden-hour light during a Tri-Cities family photography session",
+    "secondaryImage": "/uploads/family-newborn-at-home-tricities.jpg",
+    "secondaryImageAlt": "Parents holding their daughter and newborn during a relaxed in-home family session",
     "links": [
       {
         "label": "Let's Plan Your Session",
@@ -24,6 +28,8 @@
       "kind": "prose",
       "tone": "ivory",
       "heading": "Sessions That Feel Like Play, Not Like Posing",
+      "image": "/uploads/family-with-baby-golden-hour-tricities.jpg",
+      "imageAlt": "Parents holding their baby in glowing evening light during an outdoor family session",
       "paragraphs": [
         "If the thought of getting everyone dressed, out the door, and smiling at a camera sounds exhausting — I understand. I raised two children of my own, and those years taught me just how quickly childhood passes. The little moments that feel ordinary at the time — tiny hands, genuine laughter, the way your youngest still reaches for you — become the memories you wish you could hold onto forever.",
         "That's why my family sessions aren't about perfect posing. I'll guide you with simple prompts — get closer, walk together, tickle somebody — and then leave room for what happens on its own. The squeeze, the giggle, the pile-up. That's the good stuff.",
@@ -35,6 +41,10 @@
       "kind": "steps",
       "tone": "olive",
       "heading": "What a Family Session With Me Looks Like",
+      "image": "/uploads/family-newborn-sunset-tricities.jpg",
+      "imageAlt": "A family gathered closely around their newborn at sunset",
+      "secondaryImage": "/uploads/family-newborn-at-home-tricities.jpg",
+      "secondaryImageAlt": "A family of four cuddling with their newborn at home",
       "items": [
         {
           "heading": "Before: we plan it together",
@@ -61,6 +71,10 @@
       "kind": "split",
       "tone": "sand",
       "heading": "Photographs That Become Family Heirlooms",
+      "image": "/uploads/extended-family-embrace-tricities.jpg",
+      "imageAlt": "An extended family laughing together in a close black-and-white portrait",
+      "secondaryImage": "/uploads/family-with-baby-golden-hour-tricities.jpg",
+      "secondaryImageAlt": "Parents sharing a quiet golden-hour moment with their baby",
       "paragraphs": [
         "I believe photographs become more valuable with every passing year. They begin as beautiful images, but over time they transform into treasured heirlooms — holding the memories, the emotions, and the people we never want to forget.",
         "Many of my families return year after year as their children grow, trusting me to document each new chapter. Some of the photographs I've taken have become far more precious than any of us imagined at the time. That's a responsibility I never take lightly."
@@ -71,6 +85,10 @@
       "kind": "locations",
       "tone": "earth",
       "heading": "Where We'll Go — Family Photo Locations Around the Tri-Cities",
+      "image": "/uploads/family-golden-hour-columbia-basin.jpg",
+      "imageAlt": "A family together in warm evening light in the Columbia Basin",
+      "secondaryImage": "/uploads/family-portrait-outdoors-tricities.jpg",
+      "secondaryImageAlt": "A family laughing together during an outdoor Tri-Cities portrait session",
       "paragraphs": [
         "After twenty years of chasing evening light here, I know where it falls — riverside paths in Richland, open fields near Kennewick, quiet corners in Pasco that most people drive right past. We'll choose a spot that fits your family, or you can bring me somewhere that already holds a memory for you."
       ],
@@ -86,6 +104,10 @@
       "kind": "quote",
       "tone": "ivory",
       "heading": "What Parents Say",
+      "image": "/uploads/family-laughter-black-white-tricities.jpg",
+      "imageAlt": "Parents and their daughters laughing together in a black-and-white family portrait",
+      "secondaryImage": "/uploads/family-newborn-at-home-tricities.jpg",
+      "secondaryImageAlt": "A family holding their newborn during an in-home portrait session",
       "items": [
         {
           "quote": "Lisa's patience helps the whole session feel easy, even with little ones moving everywhere."
@@ -103,6 +125,8 @@
       "kind": "faq",
       "tone": "olive",
       "heading": "Family Session Questions",
+      "image": "/uploads/family-newborn-sunset-tricities.jpg",
+      "imageAlt": "A family gathered around their sleeping newborn in warm sunset light",
       "items": [
         {
           "heading": "What if my kids won't cooperate?",
