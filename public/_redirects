@@ -1,3 +1,10 @@
+# Consolidate the apex and published Netlify hostnames into the custom primary
+# domain. Deploy Preview and immutable deploy hostnames do not match these rules.
+https://itsakeeperphotography.com/* https://www.itsakeeperphotography.com/:splat 301!
+http://itsakeeperphotography.com/* https://www.itsakeeperphotography.com/:splat 301!
+https://itsakeeperphotography.netlify.app/* https://www.itsakeeperphotography.com/:splat 301!
+http://itsakeeperphotography.netlify.app/* https://www.itsakeeperphotography.com/:splat 301!
+
 /home / 301
 /welcome / 301
 /seniors /senior-photographer-tri-cities-wa/ 301

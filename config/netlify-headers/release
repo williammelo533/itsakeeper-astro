@@ -11,6 +11,12 @@
   X-Robots-Tag: noindex, nofollow, noarchive
   Cache-Control: no-store
 
+/api/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/sitemap.xml
+  Cache-Control: public, max-age=0, s-maxage=3600
+
 /thank-you/*
   X-Robots-Tag: noindex, nofollow, noarchive
 

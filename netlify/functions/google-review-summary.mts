@@ -4,6 +4,7 @@ import { readCachedReviewSummary } from "../lib/gbp-review-summary";
 const JSON_HEADERS = {
   "Content-Type": "application/json; charset=utf-8",
   "X-Content-Type-Options": "nosniff",
+  "X-Robots-Tag": "noindex, nofollow, noarchive",
 };
 
 const noStoreHeaders = {
