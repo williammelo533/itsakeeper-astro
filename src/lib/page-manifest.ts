@@ -105,10 +105,10 @@ export const pageManifest = [
     sitemap: true,
     llms: true,
     primaryRoute: true,
-    signature: "crossing-line",
-    title: "Investment & Experience | It's A Keeper Photography",
+    signature: "overlap",
+    title: "The Experience & Investment | It's A Keeper Photography",
     summary:
-      "Session coverage, photo collections and what to expect before, during and after a portrait session with Lisa.",
+      "What it is like to work with Lisa, from planning and wardrobe guidance through the session, gallery viewing and printed photographs.",
   },
   {
     id: "about",
@@ -227,9 +227,9 @@ export const pageManifest = [
     sitemap: true,
     llms: true,
     primaryRoute: true,
-    signature: "arch",
-    title: "Best Places to Take Pictures in the Tri-Cities, WA",
-    summary: "A photographer's guide to portrait locations across the Tri-Cities.",
+    signature: "overlap",
+    title: "Where to Take Photos in the Tri-Cities: A Photographer's Guide",
+    summary: "How Lisa chooses light, setting and season for portrait sessions across the Tri-Cities.",
   },
   {
     id: "senior-timing",
