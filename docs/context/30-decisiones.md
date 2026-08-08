@@ -321,3 +321,19 @@
   siendo útil como red de seguridad del dueño de la máquina.
 - **Consecuencias:** Un agente remoto recibe contexto curado y sin secretos. Un
   transcript solo puede publicarse después de revisión y autorización explícita.
+
+### ADR-026 — Clarity y Google tag se cargan desde el head compartido
+- **Fecha:** 2026-08-08
+- **Estado:** Aceptada
+- **Contexto:** Clarity había sido retirado en `f29fc78` después del handoff
+  anterior. El usuario solicitó reinstalar su snippet exacto y proporcionó
+  además el Google tag de GA4.
+- **Decisión:** Cargar Microsoft Clarity `xyqkkqom4v` y Google tag/GA4
+  `G-0YW8M601L1` en el `<head>` de `src/layouts/Base.astro`, usando scripts
+  inline sin transformación de Astro para conservar los bootstraps oficiales.
+- **Alternativas descartadas:** Duplicar los snippets por página o crear un
+  componente específico se descartó porque `Base.astro` ya gobierna las 21
+  rutas. No se añadió gating de entorno porque la solicitud fue global.
+- **Consecuencias:** Ambos tags aparecen en staging y release y pueden registrar
+  tráfico de ambos entornos. Falta verificar recepción en los dashboards y
+  completar la revisión humana de Privacy/consentimiento antes del lanzamiento.

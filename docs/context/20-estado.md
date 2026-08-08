@@ -3,10 +3,16 @@
 > Foto operativa al cierre de la sesión. Si contradice otro documento, este
 > manda.
 
-**Última actualización:** 2026-08-08 09:36 -05  
-**Actualizado por:** Codex / GPT-5.6  
-**Rama:** `main`  
-**Último commit local antes del cierre final:** `6b7005b` — `agents context and tag manager ids`
+**Última actualización:** 2026-08-08 10:50 -05
+
+**Actualizado por:** Codex / GPT-5.6
+
+**Rama:** `main`
+
+**Commit base de esta sesión:** `7873585` — `Merge pull request #3 from williammelo533/claude/remove-clarity-script`
+
+**Commit final:** pendiente de `./scripts/handoff.sh`; este documento forma parte de ese commit
+
 **Remoto:** `origin` → `https://github.com/williammelo533/itsakeeper-astro.git`
 
 ---
@@ -45,6 +51,8 @@ obligatorio siga pendiente.
   todos los cambios de agosto.
 - Se instaló en la raíz el sistema de continuidad (`AGENTS.md`,
   `docs/context/`, `scripts/handoff.sh`).
+- Microsoft Clarity y Google tag/GA4 quedaron instalados globalmente en el
+  `<head>` compartido. El build generado contiene ambos IDs en las 21 rutas.
 - Durante la redacción apareció el commit local `6b7005b`, creado por otro
   actor/proceso del workspace, que guardó la primera mitad del contexto. Se
   preservó íntegro y el handoff final continúa encima de ese commit.
@@ -126,8 +134,12 @@ obligatorio siga pendiente.
 
 - Netlify hosting/forms/functions/blobs están cableados en código y config.
 - TinaCMS local y producción tienen modelos y visual editing.
-- Microsoft Clarity está integrado en `src/layouts/Base.astro` con ID
+- Microsoft Clarity está integrado en `src/layouts/Base.astro` con project ID
   `xyqkkqom4v`.
+- Google tag/GA4 está integrado en el mismo `<head>` con measurement ID
+  `G-0YW8M601L1`.
+- Ambos snippets cargan en staging y release. Falta verificar recepción en sus
+  dashboards y someter su uso a la revisión humana pendiente de Privacy.
 - Agentation está disponible solo durante desarrollo.
 - Google Drive fue fuente manual de assets durante diseño; no es dependencia de
   runtime.
@@ -159,7 +171,7 @@ obligatorio siga pendiente.
 | `content/pages/richland.json` | Draft | Confirmar lugares/detalles locales, imágenes/alt, formato newborn y travel. |
 | `content/pages/kennewick.json` | Draft | Confirmar lugares/detalles, 6–10 imágenes/alt y travel. |
 | `content/pages/pasco.json` | Draft y layout genérico | Confirmar lugares, imágenes y travel; diseñar/QA cuando haya contenido real. |
-| `content/pages/privacy.json` | Draft/noindex | Revisión legal/factual humana obligatoria. |
+| `content/pages/privacy.json` | Draft/noindex | Revisión legal/factual humana obligatoria; debe contemplar Clarity y Google Analytics. |
 | `content/pages/journal-*.json` | Draft | Confirmar fechas y hechos específicos registrados en pending. |
 | `netlify/functions/refresh-gbp-review-summary.mts` | Código completo, integración no verificada | Configurar OAuth/IDs en Netlify, ejecutar refresh y confirmar cache/endpoints reales. |
 | `src/components/KindWords.astro` | Fallback funciona | Sin credenciales GBP muestra link sin número. Confirmar URL pública oficial de reseñas. |
@@ -259,6 +271,19 @@ Resultado esperado:
 - Ningún cambio fuente inesperado. Si aparecen solamente IDs generados en los
   `<form>` de `GuidedInquiry.astro` o `SessionPriceCalculator.astro`, no asumir
   que son cambios deseados; revisar y restaurar antes de commitear.
+
+Última verificación ejecutada en esta sesión:
+
+```bash
+npm run build:local
+rg -l "xyqkkqom4v" dist/client --glob '*.html' | wc -l
+rg -l "G-0YW8M601L1" dist/client --glob '*.html' | wc -l
+```
+
+Resultado: build exitoso, `Validated 21 public routes in staging mode.` y 21
+HTML con cada identificador. El primer intento no pudo escribir archivos
+generados por el sandbox; la misma orden autorizada fuera del sandbox pasó. No
+quedó trabajo parcial ni cambios incidentales del build.
 
 ### QA visual requerido para una ruta que se vaya a declarar lista
 

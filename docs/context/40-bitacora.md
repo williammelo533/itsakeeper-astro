@@ -174,3 +174,22 @@
   prioridad en resolver contenido de una ruta, revalidar su QA y solo entonces
   cambiarla a ready/index. También configurar Forms/GBP en Netlify y rehacer la
   matriz completa de capturas/Lighthouse antes del cutover.
+
+### 2026-08-08 — Codex / GPT-5.6 — Clarity y Google tag globales
+
+- **Objetivo:** reinstalar el snippet de Microsoft Clarity proporcionado por el
+  usuario y añadir Google tag/GA4 al `<head>` del proyecto.
+- **Cambio:** `src/layouts/Base.astro` carga Clarity `xyqkkqom4v` y Google tag
+  `G-0YW8M601L1` desde el head compartido de todas las rutas.
+- **Documentación:** se corrigió primero el estado obsoleto que todavía decía
+  que Clarity estaba instalado pese a `f29fc78`; después se actualizaron
+  arquitectura, estado, backlog y ADR-026 con el resultado real.
+- **Verificación:** `npm run build:local` terminó con `Validated 21 public routes
+  in staging mode.`; el HTML generado contiene cada ID en las 21 rutas. `git
+  status --short` no mostró cambios incidentales del build.
+- **Incidencia:** el primer build no pudo escribir `public/scripts/*.min.js` por
+  restricciones del sandbox; la misma orden autorizada fuera del sandbox pasó.
+- **Pendiente:** comprobar recepción real en ambos dashboards, decidir el manejo
+  del tráfico de staging y contemplar las dos herramientas en la revisión
+  humana de Privacy/consentimiento. El siguiente paso editorial continúa siendo
+  Seniors según `20-estado.md` y `50-backlog.md`.

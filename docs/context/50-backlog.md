@@ -111,6 +111,16 @@ sin reemplazar el archivo.
 
 ## Integraciones y operación
 
+### Analítica y privacidad
+
+- [x] Instalar Microsoft Clarity globalmente con project ID `xyqkkqom4v`.
+- [x] Instalar Google tag/GA4 globalmente con measurement ID
+  `G-0YW8M601L1`.
+- [ ] Verificar tráfico en tiempo real en ambos dashboards desde un deploy
+  autorizado y decidir si staging debe excluirse o filtrarse.
+- [ ] Incluir Clarity y Google Analytics en la revisión humana de Privacy y
+  definir cualquier requisito de consentimiento antes del release.
+
 ### Netlify Forms
 
 - [ ] En Netlify Dashboard, confirmar que Netlify detecta `session-inquiry` y
@@ -242,7 +252,7 @@ sin reemplazar el archivo.
 - [x] Implementado pipeline GBP diario con fallback (credenciales aún pendientes).
 - [x] Generados sitemap, robots y llms desde manifiesto/modo.
 - [x] Añadidos redirects legacy por intención.
-- [x] Integrado Microsoft Clarity.
+- [x] Integrados Microsoft Clarity y Google tag/GA4 en el layout global.
 - [x] Actualizado contenido/diseño reciente de Investment y Locations Guide.
 - [x] Verificado `npm run build:local` el 2026-08-08.
 - [x] Instalado el sistema de contexto persistente en la raíz.

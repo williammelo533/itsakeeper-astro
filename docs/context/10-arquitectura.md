@@ -16,7 +16,7 @@
 | Funciones/cache | Netlify Functions + Blobs | SDK en `package.json` | Resumen diario de reseñas GBP. |
 | Imágenes | Sharp + script propio | Sharp 0.34.5 | AVIF/WebP/JPEG responsivos y metadatos explícitos. |
 | Flipbook | `page-flip` | 2.0.7 | Solo Portfolio. |
-| Analítica | Microsoft Clarity | ID en `Base.astro` | Tracking `xyqkkqom4v`. |
+| Analítica | Microsoft Clarity + Google tag (GA4) | Snippets globales en `Base.astro` | Clarity `xyqkkqom4v`; GA4 `G-0YW8M601L1`. |
 | Anotación dev | Agentation | 3.0.2 | Solo integración de desarrollo. |
 | Base de datos | Ninguna | — | Contenido en JSON/Markdown; cache GBP en Blobs. |
 | Auth pública | Ninguna | — | TinaCloud gestiona su propia autenticación editorial. |
@@ -141,6 +141,17 @@ Formularios detectables estáticamente:
 Ambos usan `POST`, `data-netlify="true"`, honeypot, campo oculto `form-name` y
 acción `/thank-you/`. La entrega por correo se configura en Netlify Dashboard;
 un campo oculto de recipient no crea la notificación.
+
+### Analítica
+
+- `src/layouts/Base.astro` carga Microsoft Clarity con el project ID público
+  `xyqkkqom4v` y Google tag/GA4 con el measurement ID público
+  `G-0YW8M601L1` dentro del `<head>` compartido.
+- Los snippets se renderizan en las 21 rutas públicas, tanto en staging como en
+  release. No existe gating por entorno ni por consentimiento en el código
+  actual.
+- La revisión humana pendiente de Privacy debe considerar ambas herramientas;
+  este registro técnico no sustituye una evaluación legal o de consentimiento.
 
 ### Google Business Profile
 
