@@ -1,0 +1,2 @@
+# Rollout transcripts may contain sensitive conversation data. Keep local only.
+*.jsonl

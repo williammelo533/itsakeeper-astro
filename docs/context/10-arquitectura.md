@@ -61,6 +61,7 @@
 ├── config/netlify-headers/        headers staging y release
 ├── public/                        assets optimizados, fuentes y redirects
 ├── scripts/                       build, optimización, QA y handoff
+├── .handoff/sessions/             rollouts locales ignorados por git
 └── artifacts/, .artifacts/,
     .codex-evidence/               evidencia visual histórica y puntual
 ```
@@ -260,3 +261,6 @@ No se emiten `Review` ni `AggregateRating` hasta verificar atribución y conteo.
    `src/content/pending.ts` y QA responsive deben resolverse primero.
 10. Las ubicaciones exactas de sesiones locales no se deben inferir a partir de
     imágenes; el artículo actual protege esa información hasta confirmación.
+11. Los `*.jsonl` de `.handoff/sessions/` pueden contener datos de conversación
+    y están ignorados por git. `docs/context/` es la memoria compartida; no
+    forzar la inclusión de transcripts sin autorización explícita.

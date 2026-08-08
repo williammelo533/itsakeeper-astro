@@ -6,7 +6,7 @@
 **Última actualización:** 2026-08-08 09:36 -05  
 **Actualizado por:** Codex / GPT-5.6  
 **Rama:** `main`  
-**Último commit funcional antes de este handoff:** `1881161` — `Merge pull request #2 from williammelo533/clarity`  
+**Último commit local antes del cierre final:** `6b7005b` — `agents context and tag manager ids`
 **Remoto:** `origin` → `https://github.com/williammelo533/itsakeeper-astro.git`
 
 ---
@@ -45,6 +45,13 @@ obligatorio siga pendiente.
   todos los cambios de agosto.
 - Se instaló en la raíz el sistema de continuidad (`AGENTS.md`,
   `docs/context/`, `scripts/handoff.sh`).
+- Durante la redacción apareció el commit local `6b7005b`, creado por otro
+  actor/proceso del workspace, que guardó la primera mitad del contexto. Se
+  preservó íntegro y el handoff final continúa encima de ese commit.
+- El primer intento de ejecutar el handoff fue bloqueado porque habría subido un
+  rollout potencialmente sensible. El script ahora conserva `*.jsonl` solo en
+  local mediante `.handoff/sessions/.gitignore`; únicamente la documentación se
+  comparte por git.
 
 ## Qué funciona hoy
 

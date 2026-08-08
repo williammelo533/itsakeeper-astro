@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Respalda el rollout más reciente de Codex, verifica el contexto, crea un
-# commit de handoff y lo publica. Ejecutar antes de cerrar sesión o cambiar cuenta.
+# Respalda localmente el rollout más reciente de Codex, verifica el contexto,
+# crea un commit de la documentación y lo publica. Los transcripts `*.jsonl`
+# están ignorados por git y nunca deben subirse sin autorización explícita.
 
 set -euo pipefail
 
@@ -17,7 +18,7 @@ if [ -d "$TASK_CODEX_DIR/sessions" ]; then
             -print0 2>/dev/null | xargs -0 ls -t 2>/dev/null | head -n 1 || true)"
   if [ -n "${LATEST:-}" ]; then
     cp "$LATEST" "$BACKUP_DIR/${DATE}-$(basename "$LATEST")"
-    echo "✓ Transcript respaldado: $BACKUP_DIR/${DATE}-$(basename "$LATEST")"
+    echo "✓ Transcript respaldado solo localmente: $BACKUP_DIR/${DATE}-$(basename "$LATEST")"
   else
     echo "! No se encontró ningún rollout-*.jsonl en $TASK_CODEX_DIR/sessions"
   fi
